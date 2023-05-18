@@ -54,10 +54,12 @@
     <footer>this is my foot</footer>
 </div>
 
-<style>
+<style> 
     .top-area {
         background-color: white;
         height: 400px;
+        position: relative;
+        z-index: 3;
     }
 
     .above-header {
@@ -83,7 +85,7 @@
         position: absolute;
         left: 0px;
         right: 0px;
-        bottom: 300px;
+        bottom: 0px;
         width: 100vw;
         height: 170px;
         z-index: 3;
@@ -91,12 +93,13 @@
 
     .transition-mountain {
         position: absolute;
-left: -3%;
-right: -3%;
-bottom: 0px;
-width: 106%;
-min-width: 600px;
-max-width: unset;
+        margin-bottom: -1px;
+        left: -3%;
+        right: -3%;
+        bottom: 0px;
+        width: 106%;
+        min-width: 600px;
+        max-width: unset;
     }
 
     .main-area {

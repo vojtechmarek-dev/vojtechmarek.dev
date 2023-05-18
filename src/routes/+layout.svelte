@@ -1,6 +1,9 @@
 <script>
-    import { description, keywords, title, siteBaseUrl } from '$lib/data/meta';
     import '$lib/scss/global.scss';
+
+    import { description, keywords, title, siteBaseUrl } from '$lib/data/meta';
+    import Header from '$lib/components/organisms/Header.svelte';
+    import Hero from '$lib/components/organisms/Hero.svelte';
 </script>
 
 <svelte:head>
@@ -17,9 +20,10 @@
 
     <!-- Top area -->
     <div class="top-area">
-        <!-- above header -->
-        <div class="above-header">above header</div>
-        <div class="header-part">header here</div>
+        <div class="above-header"><!-- above header spacer --></div>
+        <div class="header-part">
+            <Header/>
+        </div>
         <!-- SVG div -->
         <div class="mountain-part">
             <svg
@@ -40,14 +44,13 @@
                 />
             </svg>
         </div>
-        <div>my hero and kernel will live here</div>
-        <div>avatar</div>
+        <div class="hero-avatar"><Hero/></div>
     </div>
     <div><!-- Skip here a todo --></div>
     <!-- Main area -->
     <div class="main-area">
         <main>
-            <slot class="container" />
+            <slot class="container"/>
         </main>
     </div>
     <div><!-- spacer --></div>
@@ -77,6 +80,11 @@
         margin-right: auto;
         padding-left: 32px;
         padding-right: 32px;
+    }
+
+    .hero-avatar {
+        position: sticky;
+        top:0px;
     }
 
     .mountain-part {

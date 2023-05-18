@@ -60,7 +60,7 @@
 <style> 
     .top-area {
         background-color: white;
-        height: 400px;
+        height: 600px;
         position: relative;
         z-index: 3;
     }
@@ -75,7 +75,7 @@
         top: 0px;
         z-index: 2;
         width: 100%;
-        max-width: 1100px;
+        max-width: 1100px; /* todo */
         margin-left: auto;
         margin-right: auto;
         padding-left: 32px;
@@ -84,7 +84,11 @@
 
     .hero-avatar {
         position: sticky;
+        padding-top:50px;
         top:0px;
+        max-width: 1100px; /* todo make it general and better styled - this is copypasta */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .mountain-part {

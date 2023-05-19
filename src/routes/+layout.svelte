@@ -60,14 +60,14 @@
 <style> 
     .top-area {
         background-color: white;
-        height: 600px;
+        min-height: 600px;
         position: relative;
-        z-index: 3;
+        z-index: 2;
     }
 
     .above-header {
-        min-width: 48px;
-        min-height: 48px;
+        min-width: 30px;
+        min-height: 30px;
     }
 
     .header-part {
@@ -84,7 +84,7 @@
 
     .hero-avatar {
         position: sticky;
-        padding-top:50px;
+        padding-top:30px;
         top:0px;
         max-width: 1100px; /* todo make it general and better styled - this is copypasta */
         margin-left: auto;

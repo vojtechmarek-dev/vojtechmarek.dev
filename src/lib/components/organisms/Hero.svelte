@@ -7,7 +7,7 @@ import Kernel from '../atoms/Kernel.svelte';
 
 <div class="container">
     <section id="hero">
-        <h1 class="hello">Hi, I'm Vojtěch!</h1>
+        <h1 class="hello">Heya! I'm Vojtěch</h1>
         <p class="intro">
             <span class="left">I am trying new things with Svelte</span>
             <span class="right">...and still learning.</span>

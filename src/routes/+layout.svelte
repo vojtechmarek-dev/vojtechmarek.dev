@@ -4,6 +4,7 @@
     import { description, keywords, title, siteBaseUrl } from '$lib/data/meta';
     import Header from '$lib/components/organisms/Header.svelte';
     import Hero from '$lib/components/organisms/Hero.svelte';
+    import Footer from '$lib/components/organisms/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -54,7 +55,7 @@
         </main>
     </div>
     <div><!-- spacer --></div>
-    <footer>this is my foot</footer>
+    <Footer/>
 </div>
 
 <style> 
@@ -84,7 +85,7 @@
 
     .hero-avatar {
         position: sticky;
-        padding-top:30px;
+        padding-top:50px;
         top:0px;
         max-width: 1100px; /* todo make it general and better styled - this is copypasta */
         margin-left: auto;
@@ -115,7 +116,7 @@
     }
 
     .main-area {
-        padding-top: 100px;
+        padding:  0 100px 100px;
         background-color: #f3f2ff;
         position: relative;
         z-index: 3;

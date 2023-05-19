@@ -7,9 +7,9 @@
 
 
 
-<div class="centered-div">
+<div class="centered">
 
-    <div class="subtitle">
+    <div>
         This is the first version and very much in progress version of my personal website. So far I
         have
         <li>Designed initial website ui in Figma</li>
@@ -34,44 +34,17 @@
             We are done!
         </div>
     {/if}
-
     
     
-    <button on:click="{() => progress.set(0)}">
-        0%
-    </button>
-    
-    <button on:click="{() => progress.set(0.25)}">
-        25%
-    </button>
-    
-    <button on:click="{() => progress.set(0.5)}">
-        50%
-    </button>
-    
-    <button on:click="{() => progress.set(0.75)}">
-        75%
-    </button>
-    
-    <button on:click="{() => progress.set(1)}">
-        100%
-    </button>
-    
-    
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 </div>
 
 <style lang="scss">
 
-    .centered-div {
-        max-width: 800px;
-        margin: 0 auto;
+    .centered {
+        display: flex;
+        flex-direction: column;
         text-align: center;
-    }
-
-  
-    .subtitle{
-        margin-bottom: 6vh;
+        height: 600px;// todo
     }
 
     progress {

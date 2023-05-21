@@ -16,8 +16,8 @@
             <ThemeToggle />
         </div>
         <div class="right">
-            <a href="/blog">Blog</a>
-            <a href="/resume">Resume</a>
+            <a href="/">Blog</a>
+            <a href="/">Resume</a>
             <a
                 target="_blank"
                 rel="noopener noreferrer"

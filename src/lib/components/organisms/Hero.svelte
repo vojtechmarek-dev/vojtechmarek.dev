@@ -13,7 +13,7 @@ import Kernel from '../atoms/Kernel.svelte';
             <span class="right">...and still learning.</span>
         </p>
         <div class="hero-buttons">
-            <Button href="/resume">
+            <Button href="/goodies">
                 <WrenchIcon slot="icon"/>
                 Goodies
             </Button>

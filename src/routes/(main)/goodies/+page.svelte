@@ -23,9 +23,9 @@
 
         .goodies {
             position: absolute;
-            top: -200px;
+            top: -300px;
             bottom: 0px;
-            min-width: 600px;
+            min-width: 700px;
             min-height: 300px;
             background-color: white;
             border: 0.15em solid;

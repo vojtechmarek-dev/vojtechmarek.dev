@@ -4,6 +4,7 @@ declare global {
     interface Date {
         addDays(days: number): Date;
         substractDays(days: number): Date;
+        equals(secondDate: Date): boolean;
     }
 }
 
@@ -19,8 +20,19 @@ Date.prototype.substractDays = function (days: number) {
     return date;
 };
 
-export function getBussinessDays(startDate: Date, endDate: Date) {
-    let result = 0;
+Date.prototype.equals = function (secondDate: Date) {
+    const date = new Date(this.valueOf());
+    return !(date < secondDate) && !(date > secondDate);
+};
+
+export type BusinessAndHolidays = {
+    businessDays: number;
+    holidays: number;
+};
+
+export function getBussinessAndHolidays(startDate: Date, endDate: Date): BusinessAndHolidays {
+    let businessDays = 0;
+    let numberOfHolidays = 0;
 
     const sunday = evaluateEasterSunday(startDate.getFullYear());
     const monday = sunday.addDays(1);
@@ -32,28 +44,36 @@ export function getBussinessDays(startDate: Date, endDate: Date) {
     while (currentDate <= endDate) {
         const weekDay = currentDate.getDay();
         if (weekDay != 0 && weekDay != 6) {
-            if (
-                holidays.findIndex((date) => {
-                    const isSame = !(date < currentDate) && !(date > currentDate);
-                    return isSame;
-                }) == -1
-            ) {
-                result++;
+            if (holidays.findIndex((date) => date.equals(currentDate)) == -1) {
+                businessDays++;
+            } else {
+                numberOfHolidays++;
             }
         }
 
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    return result;
+    return <BusinessAndHolidays>{
+        businessDays: businessDays,
+        holidays: numberOfHolidays
+    };
 }
 
-export function getFirstDayOfMonth(month: Date) {
+export function getFirstDayOfMonth(month: Date): Date {
     return new Date(month.getFullYear(), month.getMonth(), 1);
 }
 
-export function getLastDateOfMonth(month: Date) {
+export function getLastDateOfMonth(month: Date): Date {
     return new Date(month.getFullYear(), month.getMonth() + 1, 0);
+}
+
+export function getNextMonthDate(date: Date): Date {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 1);
+}
+
+export function getPreviousMonthDate(date: Date): Date {
+    return new Date(date.getFullYear(), date.getMonth() - 1, 1);
 }
 
 /**

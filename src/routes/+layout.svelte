@@ -8,14 +8,9 @@
     import Mountains from '$lib/components/organisms/Mountains.svelte';
     import { page } from '$app/stores';
 
-    import { onMount } from 'svelte';
-
     let includeHero = true;
 
-    onMount(() => {
-        const path = $page;
-        includeHero = path.url.pathname !== '/goodies'; // todo make Insert component instead of hero that accepts states Exclude Hero component for 'goodies' page
-    });
+    $: includeHero = $page.url.pathname !== '/goodies'
 </script>
 
 <svelte:head>

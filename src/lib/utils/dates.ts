@@ -30,7 +30,7 @@ export function getBussinessAndHolidays(startDate: Date, endDate: Date): Busines
     const holidays = HOLIDAYS_DB.get(year);
 
     const currentDate = new Date(startDate.getTime());
-
+    
     while (currentDate <= endDate) {
         const weekDay = currentDate.getDay();
         if (weekDay != 0 && weekDay != 6) {

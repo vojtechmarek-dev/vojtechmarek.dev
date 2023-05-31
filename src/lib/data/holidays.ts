@@ -64,5 +64,5 @@ export function evaluateEasterSunday(year: number): Date {
         month = 3;
     }
 
-    return new Date(`${year}-${month}-${day}`);
+    return new Date(year, month-1,day);
 }

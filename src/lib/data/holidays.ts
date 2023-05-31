@@ -1,28 +1,68 @@
+import "$lib/utils/date-extensions"
+
 const currentYear = new Date().getFullYear();
 
-/* ["novy_rok", "01-01"],
-		["svatek_prace", "01-05"],
-		["den_osvobozeni", "08-05"],
-		["den_slovanskych_verozvestu_cyrila_a_metodeje", "05-07"],
-		["den_upaleni_mistra_jana_husa", "06-07"],
-		["den_ceske_statnosti", "28-09"],
-		["den_vzniku_samostatného_ceskoslovenského_statu", "28-10"],
-		["den_boje_za_svobodu_a_demokracii", "17-11"],
-		["stedry_den", "24-12"],
-		["prvni_vanocni_svatek", "25-12"],
-		["druhy_vanocni_svatek", "26-12"], */
+export const HOLIDAYS_DB: Map<number, { fixed: Set<number>, floating: Set<number>}> = new Map();
 
-// todo make dynamic based on year?
-export const holidays = [
-    new Date(currentYear, 0, 1), // novy rok
-    new Date(currentYear, 4, 1), // novy rok
-    new Date(currentYear, 4, 8), // novy rok
-    new Date(currentYear, 6, 5), // novy rok
-    new Date(currentYear, 6, 6), // novy rok
-    new Date(currentYear, 8, 28), // novy rok
-    new Date(currentYear, 9, 28), // novy rok
-    new Date(currentYear, 10, 17), // novy rok
-    new Date(currentYear, 11, 24), // novy rok
-    new Date(currentYear, 11, 15), // novy rok
-    new Date(currentYear, 11, 26) // novy rok
-];
+HOLIDAYS_DB.set(currentYear, {
+    fixed: new Set([...getFixedHolidaysForYear(currentYear).map(date => date.getTime())]),
+    floating: new Set([...getFloatingHolidaysForYear(currentYear).map(date => date.getTime())])
+});
+
+export function getFixedHolidaysForYear(year: number): Date[] {
+    return [
+        new Date(year, 0, 1), // New Year's Day
+        new Date(year, 4, 1), // Labour Day
+        new Date(year, 4, 8), // VE Day
+        new Date(year, 6, 5), // Saints Cyril and Methodius Day
+        new Date(year, 6, 6), // Jan Hus Day
+        new Date(year, 8, 28), // Czech Statehood Day
+        new Date(year, 9, 28), // Independent Czechoslovak State Day
+        new Date(year, 10, 17), // Freedom and Democracy Day
+        new Date(year, 11, 24), // Christmas Eve
+        new Date(year, 11, 25), // Christmas Day
+        new Date(year, 11, 26) // St. Stephen's Day
+    ];
+}
+
+export function getFloatingHolidaysForYear(year: number): Date[] {
+    const sunday = evaluateEasterSunday(year);
+    return [sunday.subtractDays(2), sunday, sunday.addDays(1)];
+}
+
+
+/**
+ * Evalulates Easter sunday for provided year using  Gauss' Easter algorithm
+ * @see https://en.wikipedia.org/wiki/Computus#Gauss'_Easter_algorithm
+ * @param year provided year for evaluating Easter Sunday
+ */
+export function evaluateEasterSunday(year: number): Date {
+    const a = year % 19; // year's position in the 19-year lunar phase cycle
+    const b = year % 4; // corrections for century years
+    const c = year % 7;
+
+    // constants for 20 and 21 century - no need to recalculate them for different centuries
+    const m = 24;
+    const n = 5;
+
+    const d = (19 * a + m) % 30; // number of days between 21 March and the coincident or next following full moon
+    const e = (n + 2 * b + 4 * c + 6 * d) % 7; // offset days that must be added to make d arrive on a Sunday
+
+    let day = d + e - 9;
+    let month: number;
+
+    if (day == 25 && d == 28 && e == 6 && a > 10) {
+        day = 18;
+        month = 4;
+    } else if (day >= 1 && day <= 25) {
+        month = 4;
+    } else if (day > 25) {
+        day = day - 7;
+        month = 4;
+    } else {
+        day = 22 + d + e;
+        month = 3;
+    }
+
+    return new Date(`${year}-${month}-${day}`);
+}

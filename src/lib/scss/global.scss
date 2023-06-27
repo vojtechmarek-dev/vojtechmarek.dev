@@ -1,8 +1,11 @@
 
 @import "$lib/scss/_resets.scss";
+@import '$lib/scss/_themes.scss';
 @import "@fontsource/poppins";
 
 body {
+	--body-background-color: var(--color--page-background)
+	background-color: var(--body-background-color);
 	transition: all 0.4s ease;
 	line-height: 1.3;
 	scroll-behavior: smooth;

@@ -26,10 +26,12 @@
     <!-- A skip todo -->
 
     <!-- Top area -->
+
     <div class="top-area">
-        <div class="above-header"><!-- above header spacer --></div>
-        <div class="header-part">
-            <Header />
+        <div class="header">
+            <div class="content">
+                <Header />
+            </div>
         </div>
         <Mountains />
         {#if includeHero}
@@ -47,7 +49,7 @@
     <Footer />
 </div>
 
-<style>
+<style lang="scss">
     .top-area {
         background-color: white;
         min-height: 600px;
@@ -55,25 +57,29 @@
         z-index: 2;
     }
 
-    .above-header {
-        min-width: 30px;
-        min-height: 30px;
-    }
-
-    .header-part {
+    .header {
         position: sticky;
         top: 0px;
         z-index: 2;
         width: 100%;
-        max-width: 1100px; /* todo */
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 32px;
-        padding-right: 32px;
+        height: 64px;
+        -webkit-backdrop-filter: saturate(180%) blur(5px);
+        backdrop-filter: saturate(180%) blur(5px);
+        backface-visibility: hidden;
+        perspective: 1000;
+        transform: translateZ(0);
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+
+        .content {
+            width: 100%;
+        }
+
+        
     }
 
     .hero-avatar {
-        position: sticky;
         padding-top: 50px;
         top: 0px;
         max-width: 1100px; /* todo make it general and better styled - this is copypasta */

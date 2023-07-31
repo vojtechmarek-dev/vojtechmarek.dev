@@ -27,7 +27,7 @@
         right: 0px;
         bottom: 0px;
         width: 100vw;
-        height: 170px;
+        height: 100%;
         z-index: 3;
     }
 

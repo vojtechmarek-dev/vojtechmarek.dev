@@ -6,7 +6,7 @@
     <div class="mountain-part">
         <!-- todo temporary svg - think of better solution (no rect - overlay over main area) -->
         <svg viewBox="0 0 1444 103" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="1444" height="102" fill="#F3F2FF" />
+            <rect width="1444" height="102" fill="#E5EEFF" />
             <path
                 d="M0 32.5893L357.118 0L408.135 59.9939L555.184 0L871.289 59.9939L1003.83 0L1042.35 32.5893L1064.85 0L1350.45 102.212L1444 32.5893V102.212H1350.45H0V32.5893Z"
                 fill="white"

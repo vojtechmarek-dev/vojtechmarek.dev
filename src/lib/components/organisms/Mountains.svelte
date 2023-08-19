@@ -28,7 +28,6 @@
         bottom: 0px;
         width: 100vw;
         height: 100%;
-        z-index: 3;
     }
 
     .transition-mountain {
@@ -40,5 +39,6 @@
         width: 106%;
         min-width: 600px;
         max-width: unset;
+        z-index: 3;
     }
 </style>

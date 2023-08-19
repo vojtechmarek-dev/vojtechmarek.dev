@@ -71,7 +71,7 @@
         display: flex;
         justify-content: center; /* Center horizontally */
         align-items: center; /* Center vertically */
-
+        z-index: 3;
         .content {
             width: 100%;
         }

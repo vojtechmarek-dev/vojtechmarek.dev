@@ -55,3 +55,10 @@ describe('getBussinessAndHolidays', () => {
         expect(() => getBussinessAndHolidays(startDate, endDate)).toThrowError("Start date cannot be after the end date");
     });
 });
+
+describe('dateExtensions', () => {
+    test('should return 38 as week number for September 18 2023', () => {
+        const testDate = new Date(2023,8,18);
+        expect(testDate.getWeekNumber()).toStrictEqual(38);
+    });
+})

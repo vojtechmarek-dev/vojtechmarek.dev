@@ -18,8 +18,8 @@
 
     $: {
         month = date.toLocaleString('en', { month: 'long' });
-        let firstDay = getFirstDayOfMonth(date);
-        let lastDay = getLastDateOfMonth(date);
+        const firstDay = getFirstDayOfMonth(date);
+        const lastDay = getLastDateOfMonth(date);
         let { businessDays, holidays: holidaysSum } = getBussinessAndHolidays(firstDay, lastDay);
         workDays = businessDays;
         holidays = holidaysSum;

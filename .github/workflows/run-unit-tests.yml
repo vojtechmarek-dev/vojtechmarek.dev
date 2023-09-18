@@ -3,7 +3,7 @@ name: Run unit tests on push
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - master
 
 jobs:
   test:

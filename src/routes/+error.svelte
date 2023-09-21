@@ -1,11 +1,6 @@
 <script>
-    import Header from '$lib/components/organisms/Header.svelte';
-    import Footer from '$lib/components/organisms/Footer.svelte';
-
     import Button from '$lib/components/atoms/Button.svelte';
 </script>
-
-<Header/>
 
 <main>
     <div class="error-page">
@@ -13,7 +8,7 @@
             <h1>Oh no!</h1>
             <div class="svg-wrapper">error</div>
             <p>
-                Shiiiiiit
+                
                 TODO
             </p>
             <br />
@@ -22,7 +17,6 @@
     </div>
 </main>
 
-<Footer />
 
 <style lang="scss">
     .error-page {

@@ -8,9 +8,9 @@
     import Mountains from '$lib/components/organisms/Mountains.svelte';
     import { page } from '$app/stores';
 
-    let includeHero = true;
+    let includeHero = false;
 
-    $: includeHero = $page.url.pathname !== '/goodies'
+    $: includeHero = $page.url.pathname === '/';
 </script>
 
 <svelte:head>

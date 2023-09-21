@@ -1,0 +1,42 @@
+<script lang="ts">
+
+</script>
+
+<div class="goodie">
+    <h3><slot name="heading">Default Heading</slot></h3>
+    <div class="description">
+        <slot />
+    </div>
+    <div class="value"><slot name="value"></slot></div>
+    <div><slot name="control"></slot></div>
+</div>
+
+<style lang="scss">
+    .goodie {
+        /* Common styles for the outer container */
+        width: 280px;
+        height: 225px;
+        border: 0.15em solid;
+        border-color: black;
+        border-radius: 8px;
+        padding: 0.5em;
+    }
+
+    .description {
+        padding-top: 10px;
+        padding-left: 20px;
+        opacity: 50%;
+    }
+
+    .value {
+        align-items: center;
+        text-align: center;
+        font-size: larger;
+        font-weight: bold;
+        color: #9747ff;
+        border-bottom: lightgrey 2px solid;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+    }
+</style>

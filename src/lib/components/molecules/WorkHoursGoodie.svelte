@@ -1,4 +1,5 @@
 <script lang="ts">
+    import SharedGoodie from './SharedGoodie.svelte';
     import NavArrowLeftIcon from '$lib/icons/NavArrowLeftIcon.svelte';
     import NavArrowRight from '$lib/icons/NavArrowRight.svelte';
     import {
@@ -26,59 +27,30 @@
     }
 </script>
 
-<div class="goodie">
-    <h3>
-        <!-- todo dynamic goodie prop -->
-        Work hours
-    </h3>
-    <div class="description">
-        <!-- todo prop -->
-        <li><b>{workDays}</b> work days</li>
-        <li><b>{holidays}</b> holidays</li>
+
+<SharedGoodie>
+    <div slot="heading">Work hours</div>
+    <div class="description" style="padding-left: 30px; opacity: 75%;">
+      <li><b>{workDays}</b> work days</li>
+      <li><b>{holidays}</b> holidays</li>
     </div>
-    <div class="workHours">{workDays * workDayHours}</div>
-    <div class="monthControl">
+    <div slot="value">{workDays * workDayHours}</div>
+    <div slot="control" class="monthControl">
         <Button on:click={() => (date = getPreviousMonthDate(date))}>
             <NavArrowLeftIcon />
         </Button>
         <Button on:click={() => (date = new Date())}>{month}</Button>
         <Button on:click={() => (date = getNextMonthDate(date))}>
-            <NavArrowRight />
+            <NavArrowRight/>
         </Button>
     </div>
-</div>
+</SharedGoodie>
 
 <style lang="scss">
-    .goodie {
-        width: 280px;
-        height: 225px;
-        border: 0.15em solid;
-        border-color: black;
-        border-radius: 8px;
-        padding: 0.5em;
-        .workHours {
-            align-items: center;
-            text-align: center;
-            font-size: larger;
-            font-weight: bold;
-            color: #9747ff;
-            border-bottom: lightgrey 2px solid;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding: 10px;
-        }
-
-        .description {
-            padding-left: 20px;
-            padding-top: 10px;
-            opacity: 50%;
-        }
-
         .monthControl {
             display: flex;
             justify-content: space-around;
             align-items: center;
             padding: 10px;
         }
-    }
 </style>

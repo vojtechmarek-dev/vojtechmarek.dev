@@ -1,7 +1,7 @@
 <script lang="ts">
     import { HttpRegex } from '$lib/utils/regex';
 
-    export let size: 'small' | 'medium' | 'large' = 'medium';
+    export let size: 'icon-only' | 'small' | 'medium' | 'large' = 'medium';
     export let href: string | undefined = undefined;
 
     const isExternalLink = !!href && HttpRegex.test(href);
@@ -70,6 +70,12 @@
         }
 
         &.size {
+            &--icon-only {
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
             &--small {
                 padding: 5px 10px;
                 font-size: 0.75rem;

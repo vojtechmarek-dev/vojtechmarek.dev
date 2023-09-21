@@ -1,14 +1,13 @@
 <script lang="ts">
-
 </script>
 
 <div class="goodie">
     <h3><slot name="heading">Default Heading</slot></h3>
-        <div class="description">
-            <slot />
-        </div>
-        <div class="value"><slot name="value"></slot></div>
-        <div><slot name="control"></slot></div>
+    <div class="description">
+        <slot />
+    </div>
+    <div class="value"><slot name="value" /></div>
+    <div><slot name="control" /></div>
 </div>
 
 <style lang="scss">

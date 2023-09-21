@@ -10,7 +10,7 @@ export type BusinessAndHolidays = {
     holidays: number;
 };
 
-export function getBussinessAndHolidays(startDate: Date, endDate: Date): BusinessAndHolidays {
+export function getBussinessAndHolidays(startDate: Date, endDate: Date, holidaysOn = true): BusinessAndHolidays {
     let businessDays = 0;
     let numberOfHolidays = 0;
 
@@ -27,7 +27,7 @@ export function getBussinessAndHolidays(startDate: Date, endDate: Date): Busines
 
     calculateHolidays(year);
 
-    const holidays = HOLIDAYS_DB.get(year);
+    const holidays = holidaysOn ? HOLIDAYS_DB.get(year) : {fixed: new Set(), floating: new Set()};
 
     const currentDate = new Date(startDate.getTime());
     

@@ -29,7 +29,7 @@
 
 
 <SharedGoodie>
-    <div slot="heading">Work hours</div>
+    <div slot="heading">Work Hours</div>
     <div class="description" style="padding-left: 30px; opacity: 75%;">
       <li><b>{workDays}</b> work days</li>
       <li><b>{holidays}</b> holidays</li>

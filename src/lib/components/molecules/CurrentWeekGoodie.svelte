@@ -19,7 +19,7 @@
 </script>
 
 <SharedGoodie>
-    <div slot="heading">Work hours</div>
+    <div slot="heading">Current Week</div>
     <div class="description" style="padding-left: 30px; opacity: 75%;">
         <li><b>{weekNumber}{suffix}</b> week</li>
     </div>

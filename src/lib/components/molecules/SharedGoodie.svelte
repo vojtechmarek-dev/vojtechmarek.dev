@@ -4,11 +4,11 @@
 
 <div class="goodie">
     <h3><slot name="heading">Default Heading</slot></h3>
-    <div class="description">
-        <slot />
-    </div>
-    <div class="value"><slot name="value"></slot></div>
-    <div><slot name="control"></slot></div>
+        <div class="description">
+            <slot />
+        </div>
+        <div class="value"><slot name="value"></slot></div>
+        <div><slot name="control"></slot></div>
 </div>
 
 <style lang="scss">
@@ -23,6 +23,7 @@
     }
 
     .description {
+        height: 50px;
         padding-top: 10px;
         padding-left: 20px;
         opacity: 50%;

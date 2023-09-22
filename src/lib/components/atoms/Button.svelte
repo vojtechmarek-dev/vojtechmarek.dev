@@ -17,6 +17,8 @@
 </script>
 
 <svelte:element
+    role="button"
+    tabindex="0"
     this={tag}
     {...linkProps}
     class={['button', `size--${size}`].join(' ')}

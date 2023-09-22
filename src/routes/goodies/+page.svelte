@@ -6,7 +6,7 @@ import WorkHoursGoodie from "$lib/components/molecules/WorkHoursGoodie.svelte";
 <div class="goodies-container">
     <div class="goodies inside">
         <div>
-            <h2>Goodies live</h2>
+            <h2>Work related</h2>
         </div>
         <div class="goodie-block">
             <WorkHoursGoodie/>
@@ -45,7 +45,6 @@ import WorkHoursGoodie from "$lib/components/molecules/WorkHoursGoodie.svelte";
                 display: flex;
                 flex-direction: row;
                 gap: 1em;
-                justify-content: center;
             }
         }
     }

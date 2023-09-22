@@ -7,10 +7,8 @@
     import Footer from '$lib/components/organisms/Footer.svelte';
     import Mountains from '$lib/components/organisms/Mountains.svelte';
     import { page } from '$app/stores';
+    import NavigationArea from '$lib/components/organisms/NavigationArea.svelte';
 
-    let includeHero = false;
-
-    $: includeHero = $page.url.pathname === '/';
 </script>
 
 <svelte:head>
@@ -34,15 +32,13 @@
             </div>
         </div>
         <Mountains />
-        {#if includeHero}
-            <div class="hero-avatar"><Hero /></div>
-        {/if}
+        <div class="navigation-area"><NavigationArea display={$page.url.pathname}/></div>
     </div>
     <div><!-- Skip here a todo --></div>
     <!-- Main area -->
     <div class="main-area">
         <main>
-            <slot class="container" />
+            <slot />
         </main>
     </div>
     <div><!-- spacer --></div>
@@ -79,16 +75,12 @@
         
     }
 
-    .hero-avatar {
+    .navigation-area {
         padding-top: 50px;
         top: 0px;
         max-width: 1100px; /* todo make it general and better styled - this is copypasta */
         margin-left: auto;
         margin-right: auto;
-    }
-
-    .turn-top {
-        width: auto;
     }
 
     .main-area {

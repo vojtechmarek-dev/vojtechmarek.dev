@@ -39,6 +39,10 @@
 </header>
 
 <style lang="scss">
+
+    header {
+        padding: 0 150px;
+    }
     .container {
         display: flex;
         align-items: center;
@@ -47,7 +51,6 @@
 
     .left {
         flex-grow: 0;
-        padding-left: 150px
     }
 
     .middle {
@@ -60,7 +63,6 @@
         flex-grow: 0;
         display: flex;
         align-items: center;
-        padding-right: 150px
 
     }
 

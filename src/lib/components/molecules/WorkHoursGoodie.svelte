@@ -16,12 +16,15 @@
     export let workDayHours = 8;
 
     let date = new Date();
+    let currentYear = date.getFullYear();
     let month = date.toLocaleString('en', { month: 'long' });
+    let year = currentYear;
     let { workDays, holidays } = { workDays: 0, holidays: 0 };
     let holidaysOn = true;
 
     $: {
         month = date.toLocaleString('en', { month: 'long' });
+        year = date.getFullYear();
         const firstDay = getFirstDayOfMonth(date);
         const lastDay = getLastDateOfMonth(date);
         let { businessDays, holidays: holidaysSum } = getBussinessAndHolidays(
@@ -58,11 +61,24 @@
     </div>
     <div slot="value">{workDays * workDayHours}</div>
     <div slot="control" class="monthControl">
-        <Button on:click={() => (date = getPreviousMonthDate(date))}>
+        <Button
+            on:click={() => (date = getPreviousMonthDate(date))}
+            style="background-color:white; margin-right: auto;"
+            size="icon-only"
+        >
             <NavArrowLeftIcon />
         </Button>
-        <Button on:click={() => (date = new Date())}>{month}</Button>
-        <Button on:click={() => (date = getNextMonthDate(date))}>
+        <Button on:click={() => (date = new Date())}>
+                <div>{month}</div>
+                {#if year != currentYear}
+                    <sup class="currentYear">{year}</sup>
+                {/if}
+        </Button>
+        <Button
+            on:click={() => (date = getNextMonthDate(date))}
+            style="background-color:white; margin-left: auto;"
+            size="icon-only"
+        >
             <NavArrowRight />
         </Button>
     </div>
@@ -79,6 +95,10 @@
         justify-content: space-around;
         align-items: center;
         padding: 10px;
+    }
+
+    .currentYear {
+        font-size: xx-small;
     }
 
     .tooltip {

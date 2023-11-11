@@ -1,7 +1,5 @@
 <div class="hill-part">
     <svg class="transition-hill"
-        width="1599"
-        height="135"
         viewBox="0 0 1599 135"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -7,26 +7,22 @@
         <div class="container">
             <h1>Oh no!</h1>
             <div class="svg-wrapper">error</div>
-            <p>
-                
-                TODO
-            </p>
+            <p>TODO</p>
             <br />
             <Button href="/">Start over</Button>
         </div>
     </div>
 </main>
 
-
 <style lang="scss">
     .error-page {
-        background: #E5EEFF;
+        background: #e5eeff;
         position: relative;
     }
     .container {
         display: flex;
         flex-direction: column;
-        gap:15px;
+        gap: 15px;
         align-items: center;
         justify-content: center;
         min-height: 60vh;

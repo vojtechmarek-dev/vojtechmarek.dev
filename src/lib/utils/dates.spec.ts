@@ -52,13 +52,15 @@ describe('getBussinessAndHolidays', () => {
         const endDate = new Date(2021, 0, 31);
         // note for myself - for checking throw error I need to wrap calling function in another function
         // @see tip in https://jestjs.io/docs/expect#tothrowerror
-        expect(() => getBussinessAndHolidays(startDate, endDate)).toThrowError("Start date cannot be after the end date");
+        expect(() => getBussinessAndHolidays(startDate, endDate)).toThrowError(
+            'Start date cannot be after the end date'
+        );
     });
 });
 
 describe('dateExtensions', () => {
     test('should return 38 as week number for September 18 2023', () => {
-        const testDate = new Date(2023,8,18);
+        const testDate = new Date(2023, 8, 18);
         expect(testDate.getWeekNumber()).toStrictEqual(38);
     });
-})
+});

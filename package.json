@@ -1,40 +1,40 @@
 {
-	"name": "vojtechmarek-dev",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"start": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "playwright test",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
-	},
-	"devDependencies": {
-		"@playwright/test": "^1.39.0",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.22.4",
-		"@typescript-eslint/eslint-plugin": "^5.60.1",
-		"@typescript-eslint/parser": "^5.60.1",
-		"esbuild": "^0.19.3",
-		"eslint": "^8.28.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-svelte": "^2.32.4",
-		"prettier": "^2.8.8",
-		"prettier-plugin-svelte": "^2.10.1",
-		"sass": "^1.69.5",
-		"svelte": "^4.0.0",
-		"svelte-check": "^3.4.3",
-		"tslib": "^2.6.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.3.9",
-		"vitest": "^0.34.6"
-	},
-	"type": "module",
-	"dependencies": {
-		"@fontsource/poppins": "^4.5.10"
-	}
+    "name": "vojtechmarek-dev",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "test": "playwright test",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "test:unit": "vitest",
+        "lint": "prettier --plugin-search-dir . --check . && eslint .",
+        "format": "prettier --plugin-search-dir . --write ."
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.39.0",
+        "@sveltejs/adapter-auto": "^2.0.0",
+        "@sveltejs/kit": "^1.22.4",
+        "@typescript-eslint/eslint-plugin": "^5.60.1",
+        "@typescript-eslint/parser": "^5.60.1",
+        "esbuild": "^0.19.3",
+        "eslint": "^8.28.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-svelte": "^2.32.4",
+        "prettier": "^2.8.8",
+        "prettier-plugin-svelte": "^2.10.1",
+        "sass": "^1.69.5",
+        "svelte": "^4.0.0",
+        "svelte-check": "^3.4.3",
+        "tslib": "^2.6.1",
+        "typescript": "^5.0.0",
+        "vite": "^4.3.9",
+        "vitest": "^0.34.6"
+    },
+    "type": "module",
+    "dependencies": {
+        "@fontsource/poppins": "^4.5.10"
+    }
 }

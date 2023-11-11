@@ -39,7 +39,6 @@
 </header>
 
 <style lang="scss">
-
     header {
         padding: 0 150px;
     }
@@ -63,7 +62,6 @@
         flex-grow: 0;
         display: flex;
         align-items: center;
-
     }
 
     .right a {

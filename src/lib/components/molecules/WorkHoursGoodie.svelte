@@ -69,10 +69,10 @@
             <NavArrowLeftIcon />
         </Button>
         <Button on:click={() => (date = new Date())}>
-                <div>{month}</div>
-                {#if year != currentYear}
-                    <sup class="currentYear">{year}</sup>
-                {/if}
+            <div>{month}</div>
+            {#if year != currentYear}
+                <sup class="currentYear">{year}</sup>
+            {/if}
         </Button>
         <Button
             on:click={() => (date = getNextMonthDate(date))}

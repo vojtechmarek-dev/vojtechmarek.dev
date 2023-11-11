@@ -1,8 +1,4 @@
 <script>
-    import SuitcaseIcon from '$lib/icons/SuitcaseIcon.svelte';
-    import WrenchIcon from '$lib/icons/WrenchIcon.svelte';
-    import Button from '../atoms/Button.svelte';
-    import Kernel from '../atoms/Kernel.svelte';
 </script>
 
 <div class="container">

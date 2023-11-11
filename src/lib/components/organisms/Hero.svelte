@@ -1,8 +1,8 @@
 <script>
     import SuitcaseIcon from '$lib/icons/SuitcaseIcon.svelte';
-import WrenchIcon from '$lib/icons/WrenchIcon.svelte';
-import Button from '../atoms/Button.svelte';
-import Kernel from '../atoms/Kernel.svelte';
+    import WrenchIcon from '$lib/icons/WrenchIcon.svelte';
+    import Button from '../atoms/Button.svelte';
+    import Kernel from '../atoms/Kernel.svelte';
 </script>
 
 <div class="container">
@@ -14,24 +14,20 @@ import Kernel from '../atoms/Kernel.svelte';
         </p>
         <div class="hero-buttons">
             <Button href="/goodies">
-                <WrenchIcon slot="icon"/>
+                <WrenchIcon slot="icon" />
                 Goodies
             </Button>
             <div class="disabled">
                 <Button>Blog</Button>
             </div>
             <Button>
-                <SuitcaseIcon slot="icon"/>
+                <SuitcaseIcon slot="icon" />
                 Experience
             </Button>
         </div>
     </section>
     <div class="kernel">
-        <Kernel
-            ><div class="disabled">
-                todo
-            </div></Kernel
-        >
+        <Kernel><div class="disabled">todo</div></Kernel>
     </div>
 </div>
 
@@ -73,11 +69,11 @@ import Kernel from '../atoms/Kernel.svelte';
 
             .hero-buttons {
                 display: flex;
-			    flex-wrap: wrap;
-			    align-items: center;
-			    justify-content: center;
-			    gap: 10px;
-			    width: 100%;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
             }
         }
 
@@ -86,10 +82,10 @@ import Kernel from '../atoms/Kernel.svelte';
             align-items: end;
             justify-content: center;
             flex-grow: 2;
-            
+
             @include for-phone-only {
-				display: none;
-			}
+                display: none;
+            }
         }
     }
 </style>

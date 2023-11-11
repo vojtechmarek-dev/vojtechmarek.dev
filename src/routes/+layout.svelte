@@ -6,7 +6,6 @@
     import { page } from '$app/stores';
     import NavigationArea from '$lib/components/organisms/NavigationArea.svelte';
     import Hills from '$lib/components/organisms/Hills.svelte';
-
 </script>
 
 <svelte:head>
@@ -30,7 +29,7 @@
             </div>
         </div>
         <Hills />
-        <div class="navigation-area"><NavigationArea display={$page.url.pathname}/></div>
+        <div class="navigation-area"><NavigationArea display={$page.url.pathname} /></div>
     </div>
     <div><!-- Skip here a todo --></div>
     <!-- Main area -->
@@ -69,8 +68,6 @@
         .content {
             width: 100%;
         }
-
-        
     }
 
     .navigation-area {

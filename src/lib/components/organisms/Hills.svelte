@@ -1,5 +1,6 @@
 <div class="hill-part">
-    <svg class="transition-hill"
+    <svg
+        class="transition-hill"
         viewBox="0 0 1599 135"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -15,8 +16,8 @@
 
 <style lang="scss">
     .hill-part {
-        background: linear-gradient(60deg, #E8F0FF 0%, #F8FBFF 100%);
-		position: absolute;
+        background: linear-gradient(60deg, #e8f0ff 0%, #f8fbff 100%);
+        position: absolute;
         left: 0px;
         right: 0px;
         bottom: 0px;

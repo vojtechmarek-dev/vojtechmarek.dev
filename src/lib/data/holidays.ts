@@ -1,12 +1,12 @@
-import "$lib/utils/date-extensions"
+import '$lib/utils/date-extensions';
 
 const currentYear = new Date().getFullYear();
 
-export const HOLIDAYS_DB: Map<number, { fixed: Set<number>, floating: Set<number>}> = new Map();
+export const HOLIDAYS_DB: Map<number, { fixed: Set<number>; floating: Set<number> }> = new Map();
 
 HOLIDAYS_DB.set(currentYear, {
-    fixed: new Set([...getFixedHolidaysForYear(currentYear).map(date => date.getTime())]),
-    floating: new Set([...getFloatingHolidaysForYear(currentYear).map(date => date.getTime())])
+    fixed: new Set([...getFixedHolidaysForYear(currentYear).map((date) => date.getTime())]),
+    floating: new Set([...getFloatingHolidaysForYear(currentYear).map((date) => date.getTime())])
 });
 
 export function getFixedHolidaysForYear(year: number): Date[] {
@@ -29,7 +29,6 @@ export function getFloatingHolidaysForYear(year: number): Date[] {
     const sunday = evaluateEasterSunday(year);
     return [sunday.subtractDays(2), sunday, sunday.addDays(1)];
 }
-
 
 /**
  * Evalulates Easter sunday for provided year using  Gauss' Easter algorithm
@@ -64,5 +63,5 @@ export function evaluateEasterSunday(year: number): Date {
         month = 3;
     }
 
-    return new Date(year, month-1,day);
+    return new Date(year, month - 1, day);
 }

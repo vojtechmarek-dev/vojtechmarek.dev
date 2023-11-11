@@ -18,7 +18,7 @@
 
 <style lang="scss">
     footer {
-        background-color: #E5EEFF;
+        background-color: #e5eeff;
         width: 100%;
         padding-top: 50px;
         padding-bottom: 50px;

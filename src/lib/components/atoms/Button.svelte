@@ -17,9 +17,9 @@
 </script>
 
 <svelte:element
+    this={tag}
     role="button"
     tabindex="0"
-    this={tag}
     {...linkProps}
     class={['button', `size--${size}`].join(' ')}
     data-sveltekit-preload-data

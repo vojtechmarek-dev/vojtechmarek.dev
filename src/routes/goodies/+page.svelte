@@ -1,16 +1,16 @@
 <script>
-    import CurrentWeekGoodie from "$lib/components/molecules/CurrentWeekGoodie.svelte";
-import WorkHoursGoodie from "$lib/components/molecules/WorkHoursGoodie.svelte";
-
+    import CurrentWeekGoodie from '$lib/components/molecules/CurrentWeekGoodie.svelte';
+    import WorkHoursGoodie from '$lib/components/molecules/WorkHoursGoodie.svelte';
 </script>
+
 <div class="goodies-container">
     <div class="goodies inside">
         <div>
             <h2>Work related</h2>
         </div>
         <div class="goodie-block">
-            <WorkHoursGoodie/>
-            <CurrentWeekGoodie/>
+            <WorkHoursGoodie />
+            <CurrentWeekGoodie />
         </div>
     </div>
 </div>

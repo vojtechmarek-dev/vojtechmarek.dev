@@ -2,7 +2,7 @@
     import Hero from './Hero.svelte';
     import GoodieGreet from './GoodieGreet.svelte';
 
-    export let display: string = '/';
+    export let display = '/';
 </script>
 
 {#if display == '/'}

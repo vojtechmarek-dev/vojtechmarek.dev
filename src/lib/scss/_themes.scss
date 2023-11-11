@@ -1,7 +1,7 @@
 @mixin base-theme {
     @include define-color('page-background', #f4f8fb);
-    @include define-color('primary', #4433FF);
-    @include define-color('primary-tint', #E5EEFF);
-	@include define-color('primary-accent', #9747FF);
-	@include define-color('primary-accebt-tint', #E0DDFF);
+    @include define-color('primary', #4433ff);
+    @include define-color('primary-tint', #e5eeff);
+    @include define-color('primary-accent', #9747ff);
+    @include define-color('primary-accebt-tint', #e0ddff);
 }

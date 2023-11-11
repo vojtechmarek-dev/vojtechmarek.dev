@@ -1,28 +1,24 @@
-<div class="mountain-part">
-    <svg
-        class="transition-mountain"
-        viewBox="0 0 1499 169"
+<div class="hill-part">
+    <svg class="transition-hill"
+        width="1599"
+        height="135"
+        viewBox="0 0 1599 135"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
-            d="M363.507 25.4998L6.50684 78.4998V155H1489.51V94.9991L1065.01 25.4998L884.507 78.4998L770.007 25.4998L453.007 78.4998L363.507 25.4998Z"
-            fill="#4433FF"
-        />
-        <path
             fill-rule="evenodd"
             clip-rule="evenodd"
-            d="M131.279 3.45963L336.506 81.1218L481.492 13.4552L523.674 31.1335L549.815 22.9077L641.086 68.1218L698.176 33.7147L787.378 54.7889L816.003 97.1218L877.524 50.3199L1012.73 9.23951L1165.33 97.1218L1261.83 -0.000690558L1498.44 40.6196L1498.44 168.5L727.5 168.5H0.426374L0.426417 64.815L53.8948 84.6221L131.279 3.45963Z"
-            fill="#E5EEFF"
+            d="M0 135V50.0141C0 50.0141 307.761 -1.70576 506.865 0.043387C599.939 0.861014 671.364 12.8536 743.178 24.9114C812.427 36.5386 882.037 48.2265 971.768 50.0141C1047.87 51.53 1107.93 44.6362 1167.21 37.8327C1232.44 30.3464 1296.72 22.9695 1380.35 27.0276C1466.19 31.1925 1599 50.0141 1599 50.0141V135H0Z"
+            fill="white"
         />
     </svg>
 </div>
 
 <style lang="scss">
-    .mountain-part {
-        overflow: hidden;
-        display: block;
-        position: absolute;
+    .hill-part {
+        background: linear-gradient(60deg, #E8F0FF 0%, #F8FBFF 100%);
+		position: absolute;
         left: 0px;
         right: 0px;
         bottom: 0px;
@@ -30,7 +26,7 @@
         height: 100%;
     }
 
-    .transition-mountain {
+    .transition-hill {
         position: absolute;
         margin-bottom: -1px;
         left: -3%;

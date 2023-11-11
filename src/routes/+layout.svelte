@@ -85,7 +85,6 @@
 
     .main-area {
         padding: 0 100px 100px;
-        background-color: #E5EEFF;
         position: relative;
         z-index: 3;
     }

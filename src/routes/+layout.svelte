@@ -1,13 +1,11 @@
 <script>
     import '$lib/scss/global.scss';
-
     import { description, keywords, title, siteBaseUrl } from '$lib/data/meta';
     import Header from '$lib/components/organisms/Header.svelte';
-    import Hero from '$lib/components/organisms/Hero.svelte';
     import Footer from '$lib/components/organisms/Footer.svelte';
-    import Mountains from '$lib/components/organisms/Mountains.svelte';
     import { page } from '$app/stores';
     import NavigationArea from '$lib/components/organisms/NavigationArea.svelte';
+    import Hills from '$lib/components/organisms/Hills.svelte';
 
 </script>
 
@@ -31,7 +29,7 @@
                 <Header />
             </div>
         </div>
-        <Mountains />
+        <Hills />
         <div class="navigation-area"><NavigationArea display={$page.url.pathname}/></div>
     </div>
     <div><!-- Skip here a todo --></div>

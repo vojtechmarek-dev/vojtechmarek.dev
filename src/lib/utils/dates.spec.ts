@@ -8,9 +8,10 @@ describe('getBussinessAndHolidays', () => {
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 0,
             holidays: {
-                businessdayHolidays: 0,
-                weekendHolidays: 1
-            }
+                // note for myself - in case of objects attributes need to be enclosed in "" 
+                "businessdayHolidays": 0,
+                "weekendHolidays": 1,
+              }
         });
     });
 
@@ -20,8 +21,8 @@ describe('getBussinessAndHolidays', () => {
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 0,
             holidays: {
-                businessdayHolidays: 2,
-                weekendHolidays: 0
+                "businessdayHolidays": 2,
+                "weekendHolidays": 0
             }
         });
     });
@@ -32,8 +33,8 @@ describe('getBussinessAndHolidays', () => {
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 3,
             holidays: {
-                businessdayHolidays: 2,
-                weekendHolidays: 0
+                "businessdayHolidays": 2,
+                "weekendHolidays": 0
             }
         });
     });
@@ -44,8 +45,8 @@ describe('getBussinessAndHolidays', () => {
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 19,
             holidays: {
-                businessdayHolidays: 2,
-                weekendHolidays: 1
+                "businessdayHolidays": 2,
+                "weekendHolidays": 1
             }
         });
     });
@@ -56,8 +57,8 @@ describe('getBussinessAndHolidays', () => {
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 22,
             holidays: {
-                businessdayHolidays: 1,
-                weekendHolidays: 0
+                "businessdayHolidays": 1,
+                "weekendHolidays": 0
             }
         });
     });

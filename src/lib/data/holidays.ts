@@ -36,7 +36,7 @@ export function getFixedHolidaysForYear(year: number): Date[] {
 
 export function getFloatingHolidaysForYear(year: number): Date[] {
     const sunday = evaluateEasterSunday(year);
-    return [sunday.subtractDays(2), sunday, sunday.addDays(1)];
+    return [sunday.subtractDays(2), sunday.addDays(1)];
 }
 
 /**

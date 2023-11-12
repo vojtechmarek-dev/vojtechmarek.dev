@@ -13,17 +13,20 @@
             <span class="right">...and still learning.</span>
         </p>
         <div class="hero-buttons">
-            <Button href="/goodies">
+            <Button style="understated" href="/goodies">
                 <WrenchIcon slot="icon" />
                 Goodies
             </Button>
             <div class="disabled">
                 <Button>Blog</Button>
             </div>
-            <Button>
-                <SuitcaseIcon slot="icon" />
-                Experience
-            </Button>
+            <div class="disabled">
+                <Button>
+                    <SuitcaseIcon slot="icon" />
+                    Experience
+                </Button>
+            </div>
+
         </div>
     </section>
     <div class="kernel">

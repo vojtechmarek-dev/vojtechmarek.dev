@@ -32,7 +32,7 @@
     <div class="headingContainer" slot="heading">
         <div>Work Hours</div>
         <div class="tooltip">
-            <Button style="background-color:white" size={'icon-only'} on:click={() => (holidaysOn = !holidaysOn)}>
+            <Button style="clear" size={'icon-only'} on:click={() => (holidaysOn = !holidaysOn)}>
                 {#if holidaysOn}
                     <SwitchOnIcon />
                 {:else}
@@ -57,16 +57,16 @@
     </div>
     <div slot="value">{workDays * workDayHours}</div>
     <div slot="control" class="monthControl">
-        <Button on:click={() => (date = getPreviousMonthDate(date))} style="background-color:white; margin-right: auto;" size="icon-only">
+        <Button on:click={() => (date = getPreviousMonthDate(date))} style="clear" size="icon-only">
             <NavArrowLeftIcon />
         </Button>
-        <Button on:click={() => (date = new Date())}>
+        <Button style="solid" on:click={() => (date = new Date())}>
             <div>{month}</div>
             {#if year != currentYear}
                 <sup class="currentYear">{year}</sup>
             {/if}
         </Button>
-        <Button on:click={() => (date = getNextMonthDate(date))} style="background-color:white; margin-left: auto;" size="icon-only">
+        <Button on:click={() => (date = getNextMonthDate(date))} style="clear" size="icon-only">
             <NavArrowRight />
         </Button>
     </div>

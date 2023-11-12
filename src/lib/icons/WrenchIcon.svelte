@@ -5,10 +5,9 @@
     stroke-width="1.5"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    color="#000000"
     ><g
         clip-path="url(#wrench_svg__clip0_2576_14436)"
-        stroke="#000000"
+        stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"

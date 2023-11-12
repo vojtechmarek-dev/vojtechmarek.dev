@@ -2,6 +2,15 @@ import '$lib/utils/date-extensions';
 
 const currentYear = new Date().getFullYear();
 
+/**
+ * Database of holidays, organized by year.
+ * @type {Map<number, { fixed: Set<number>; floating: Set<number> }>}
+ * @description
+ * The `HOLIDAYS_DB` constant is a Map that stores information about fixed and floating holidays for each year.
+ * It uses the current year as the key and an object with two properties:
+ * - `fixed`: A Set containing the timestamps of fixed holidays for the current year.
+ * - `floating`: A Set containing the timestamps of floating holidays for the current year.
+ */
 export const HOLIDAYS_DB: Map<number, { fixed: Set<number>; floating: Set<number> }> = new Map();
 
 HOLIDAYS_DB.set(currentYear, {

@@ -1,21 +1,22 @@
-import {
-    HOLIDAYS_DB,
-    getFixedHolidaysForYear,
-    getFloatingHolidaysForYear
-} from '$lib/data/holidays';
+import { HOLIDAYS_DB, getFixedHolidaysForYear, getFloatingHolidaysForYear } from '$lib/data/holidays';
 
 export type BusinessAndHolidays = {
     businessDays: number;
-    holidays: number;
+    holidays: HolidayDistribution;
 };
 
-export function getBussinessAndHolidays(
-    startDate: Date,
-    endDate: Date,
-    holidaysOn = true
-): BusinessAndHolidays {
+export type HolidayDistribution = {
+    businessdayHolidays: number;
+    weekendHolidays: number;
+};
+
+export function getBusinessAndHolidays(startDate: Date, endDate: Date, holidaysOn = true): BusinessAndHolidays {
     let businessDays = 0;
-    let numberOfHolidays = 0;
+
+    let holidayDistribution: HolidayDistribution = {
+        weekendHolidays: 0,
+        businessdayHolidays: 0
+    }
 
     if (!(startDate instanceof Date && endDate instanceof Date)) {
         throw new Error('Invalid date format');
@@ -34,16 +35,25 @@ export function getBussinessAndHolidays(
     const currentDate = new Date(startDate.getTime());
 
     while (currentDate <= endDate) {
-        const weekDay = currentDate.getDay();
-        if (weekDay != 0 && weekDay != 6) {
-            if (
-                holidays?.fixed.has(currentDate.getTime()) ||
-                holidays?.floating.has(currentDate.getTime())
-            ) {
-                numberOfHolidays++;
-            } else {
-                businessDays++;
-            }
+        const weekDayNumber = currentDate.getDay();
+        const currentTimestamp = currentDate.getTime();
+        const isHoliday = holidays?.fixed.has(currentTimestamp) || holidays?.floating.has(currentTimestamp);
+
+        switch (weekDayNumber) {
+            // weekend
+            case 0:
+            case 6:
+                if (isHoliday) {
+                    holidayDistribution.weekendHolidays++;
+                }
+                break;
+            // businessday
+            default:
+                if (isHoliday) {
+                    holidayDistribution.businessdayHolidays++;
+                } else {
+                    businessDays++;
+                }
         }
 
         currentDate.setDate(currentDate.getDate() + 1);
@@ -51,7 +61,7 @@ export function getBussinessAndHolidays(
 
     return <BusinessAndHolidays>{
         businessDays: businessDays,
-        holidays: numberOfHolidays
+        holidays: holidayDistribution
     };
 }
 
@@ -71,9 +81,7 @@ function calculateHolidays(year: number) {
         const savedHolidays = HOLIDAYS_DB.get(year);
 
         HOLIDAYS_DB.set(year, {
-            fixed: savedHolidays
-                ? savedHolidays.fixed
-                : new Set([...getFixedHolidaysForYear(year).map((date) => date.getTime())]),
+            fixed: savedHolidays ? savedHolidays.fixed : new Set([...getFixedHolidaysForYear(year).map((date) => date.getTime())]),
             floating: new Set([...getFloatingHolidaysForYear(year).map((date) => date.getTime())])
         });
     }

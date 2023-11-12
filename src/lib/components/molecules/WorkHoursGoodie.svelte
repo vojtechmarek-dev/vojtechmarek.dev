@@ -2,13 +2,7 @@
     import SharedGoodie from './SharedGoodie.svelte';
     import NavArrowLeftIcon from '$lib/icons/NavArrowLeftIcon.svelte';
     import NavArrowRight from '$lib/icons/NavArrowRight.svelte';
-    import {
-        getFirstDayOfMonth,
-        getLastDateOfMonth,
-        getBussinessAndHolidays,
-        getPreviousMonthDate,
-        getNextMonthDate
-    } from '$lib/utils/dates';
+    import { getFirstDayOfMonth, getLastDateOfMonth, getBusinessAndHolidays, getPreviousMonthDate, getNextMonthDate } from '$lib/utils/dates';
     import Button from '../atoms/Button.svelte';
     import SwitchOffIcon from '$lib/icons/SwitchOffIcon.svelte';
     import SwitchOnIcon from '$lib/icons/SwitchOnIcon.svelte';
@@ -19,7 +13,7 @@
     let currentYear = date.getFullYear();
     let month = date.toLocaleString('en', { month: 'long' });
     let year = currentYear;
-    let { workDays, holidays } = { workDays: 0, holidays: 0 };
+    let { workDays, businessdayHolidays, weekendHolidays } = { workDays: 0, businessdayHolidays: 0, weekendHolidays:0  };
     let holidaysOn = true;
 
     $: {
@@ -27,13 +21,10 @@
         year = date.getFullYear();
         const firstDay = getFirstDayOfMonth(date);
         const lastDay = getLastDateOfMonth(date);
-        let { businessDays, holidays: holidaysSum } = getBussinessAndHolidays(
-            firstDay,
-            lastDay,
-            holidaysOn
-        );
+        let { businessDays, holidays: holidayDistribution } = getBusinessAndHolidays(firstDay, lastDay, holidaysOn);
         workDays = businessDays;
-        holidays = holidaysSum;
+        businessdayHolidays = holidayDistribution.businessdayHolidays;
+        weekendHolidays = holidayDistribution.weekendHolidays;
     }
 </script>
 
@@ -41,11 +32,7 @@
     <div class="headingContainer" slot="heading">
         <div>Work Hours</div>
         <div class="tooltip">
-            <Button
-                style="background-color:white"
-                size={'icon-only'}
-                on:click={() => (holidaysOn = !holidaysOn)}
-            >
+            <Button style="background-color:white" size={'icon-only'} on:click={() => (holidaysOn = !holidaysOn)}>
                 {#if holidaysOn}
                     <SwitchOnIcon />
                 {:else}
@@ -55,17 +42,22 @@
             <span class="tooltiptext">{holidaysOn ? 'Holidays ON' : 'Holidays OFF'}</span>
         </div>
     </div>
-    <div class="description" style="padding-left: 30px; opacity: 75%;">
+    <div class="description">
         <li><b>{workDays}</b> work days</li>
-        <li><b>{holidays}</b> holidays</li>
+        <div class="holidayContainer">
+            {#if !weekendHolidays}
+                <li><b>{businessdayHolidays}</b> holidays</li>
+            {:else}
+            <div class="tooltip">
+                <li><b>{businessdayHolidays}*</b> holidays</li>
+                <span class="tooltiptext">{'weekend holidays ( '+ weekendHolidays + ' ) not incl.'}</span>
+            </div>
+            {/if}
+        </div>
     </div>
     <div slot="value">{workDays * workDayHours}</div>
     <div slot="control" class="monthControl">
-        <Button
-            on:click={() => (date = getPreviousMonthDate(date))}
-            style="background-color:white; margin-right: auto;"
-            size="icon-only"
-        >
+        <Button on:click={() => (date = getPreviousMonthDate(date))} style="background-color:white; margin-right: auto;" size="icon-only">
             <NavArrowLeftIcon />
         </Button>
         <Button on:click={() => (date = new Date())}>
@@ -74,11 +66,7 @@
                 <sup class="currentYear">{year}</sup>
             {/if}
         </Button>
-        <Button
-            on:click={() => (date = getNextMonthDate(date))}
-            style="background-color:white; margin-left: auto;"
-            size="icon-only"
-        >
+        <Button on:click={() => (date = getNextMonthDate(date))} style="background-color:white; margin-left: auto;" size="icon-only">
             <NavArrowRight />
         </Button>
     </div>
@@ -104,6 +92,11 @@
     .tooltip {
         position: relative;
         display: inline-block;
+    }
+
+    .holidayContainer {
+        display: flex;
+        align-items: center;
     }
 
     .tooltip .tooltiptext {

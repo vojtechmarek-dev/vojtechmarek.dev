@@ -2,48 +2,63 @@ import { describe, test, expect } from 'vitest';
 import { getBusinessAndHolidays } from './dates';
 
 describe('getBussinessAndHolidays', () => {
-    test('should return 0 business days and 0 holidays for new year ', () => {
+    test('should return 0 business days and 1 weekend holidays for new year ', () => {
         const startDate = new Date(2022, 0, 1);
         const endDate = new Date(2022, 0, 1);
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 0,
-            holidays: 0
+            holidays: {
+                businessdayHolidays: 0,
+                weekendHolidays: 1
+            }
         });
     });
 
-    test('should return 0 business days and 2 holidays for easter weekend (friday to monday)', () => {
+    test('should return 0 business days and 2 business day holidays for easter weekend (friday to monday)', () => {
         const startDate = new Date(2022, 3, 15);
         const endDate = new Date(2022, 3, 18);
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 0,
-            holidays: 2
+            holidays: {
+                businessdayHolidays: 2,
+                weekendHolidays: 0
+            }
         });
     });
 
-    test('should return 3 business days and 2 holidays for july week with Jan Hus holiday and CyrilMetodej Holiday', () => {
+    test('should return 3 business days and 2 business day holidays for july week with Jan Hus holiday and CyrilMetodej Holiday', () => {
         const startDate = new Date(2022, 6, 4);
         const endDate = new Date(2022, 6, 10);
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 3,
-            holidays: 2
+            holidays: {
+                businessdayHolidays: 2,
+                weekendHolidays: 0
+            }
         });
     });
 
-    test('should return 19 business days and 3 holidays for 2023 December', () => {
+    test('should return 19 business days and 2 business day holidays and 1 weekend holiday for 2023 December', () => {
         const startDate = new Date(2023, 11, 1);
         const endDate = new Date(2023, 11, 31);
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 19,
-            holidays: 2
+            holidays: {
+                businessdayHolidays: 2,
+                weekendHolidays: 1
+            }
         });
     });
 
-    test('should return 22 business days and 1 holidays for 2025 January', () => {
+    test('should return 22 business days and 1 business day holiday for 2025 January', () => {
         const startDate = new Date(2025, 0, 1);
         const endDate = new Date(2025, 0, 31);
         expect(getBusinessAndHolidays(startDate, endDate)).toStrictEqual({
             businessDays: 22,
-            holidays: 1
+            holidays: {
+                businessdayHolidays: 1,
+                weekendHolidays: 0
+            }
         });
     });
 

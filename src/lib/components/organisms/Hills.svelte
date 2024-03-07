@@ -28,12 +28,8 @@
     .transition-hill {
         position: absolute;
         margin-bottom: -1px;
-        left: -3%;
-        right: -3%;
         bottom: 0px;
-        width: 106%;
-        min-width: 600px;
-        max-width: unset;
+        width: auto;
         z-index: 3;
     }
 </style>

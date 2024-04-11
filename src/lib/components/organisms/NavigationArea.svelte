@@ -4,9 +4,11 @@
 
     export let display = '/';
 </script>
-
+<!-- todo: not a great and general way to do this. refactor candidate -->
 {#if display == '/'}
     <Hero />
-{:else}
+{:else if display == '/goodies'}
     <GoodieGreet />
+{:else}
+    <div><!-- nothing? --></div>
 {/if}

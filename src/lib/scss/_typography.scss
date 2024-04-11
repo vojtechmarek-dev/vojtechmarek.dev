@@ -1,0 +1,11 @@
+a {
+	color: var(--color--text);
+	text-decoration-color: var(--color--primary);
+	text-underline-offset: 0.1em;
+	text-decoration-thickness: 2px;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		text-underline-offset: 0.3em;
+	}
+}

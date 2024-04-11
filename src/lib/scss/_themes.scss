@@ -1,7 +1,14 @@
+@import '$lib/scss/_mixins.scss';
+
 @mixin base-theme {
     @include define-color('page-background', #f4f8fb);
     @include define-color('primary', #4433ff);
     @include define-color('primary-tint', #e5eeff);
     @include define-color('primary-accent', #9747ff);
     @include define-color('primary-accebt-tint', #e0ddff);
+
+    @include define-color('text', #1c1e26);
+}
+:root {
+	@include base-theme;
 }

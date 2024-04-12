@@ -1,7 +1,7 @@
 <script lang="ts">
     import Hero from './Hero.svelte';
     import GoodieGreet from './GoodieGreet.svelte';
-    import ResumeGreet from './ResumeGreet.svelte'
+    import ResumeGreet from './ResumeGreet.svelte';
 
     export let display = '/';
 </script>
@@ -14,5 +14,5 @@
 {:else if display === '/resume'}
     <ResumeGreet />
 {:else}
- <!-- todo -->
+    <!-- todo -->
 {/if}

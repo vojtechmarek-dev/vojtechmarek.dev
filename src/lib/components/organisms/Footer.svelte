@@ -8,9 +8,7 @@
             © {currentYear} Vojtěch Marek
         </h3>
         <div class="info">
-            Powered by <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer"
-                >SvelteKit</a
-            >. Icons by
+            Powered by <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer">SvelteKit</a>. Icons by
             <a href="https://iconoir.com/" target="_blank" rel="noopener noreferrer">Iconoir</a>.
         </div>
     </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { HttpRegex } from '$lib/utils/regex';
 
-    export let size: 'icon-only-mini'|'icon-only' | 'small' | 'medium' | 'large' = 'medium';
+    export let size: 'icon-only-mini' | 'icon-only' | 'small' | 'medium' | 'large' = 'medium';
     export let style: 'solid' | 'understated' | 'clear' = 'solid';
     export let href: string | undefined = undefined;
 
@@ -39,7 +39,7 @@
     .button {
         --main-color: white;
         --light-color: blue;
-        --contrast-color: black ; /* todo */
+        --contrast-color: black; /* todo */
 
         -webkit-appearance: none;
         appearance: none;
@@ -63,28 +63,28 @@
 
         &.style {
             &--solid {
-                background-color: #E9E9ED;
+                background-color: #e9e9ed;
                 color: var(--contrast-color);
 
                 &:hover {
-                    box-shadow: 0px 0px 1px 7px rgba(#D0D0D7, 0.3);
+                    box-shadow: 0px 0px 1px 7px rgba(#d0d0d7, 0.3);
                 }
             }
 
             &--clear {
-				background-color: transparent;
+                background-color: transparent;
 
-				/* todo */
-			}
-            
+                /* todo */
+            }
+
             &--understated {
-				background-color: white;
-				color: #4433FF;
+                background-color: white;
+                color: #4433ff;
 
-				&:hover {
-					box-shadow: 0px 0px 1px 7px rgba(#4433FF, 0.3);
-				}
-			}
+                &:hover {
+                    box-shadow: 0px 0px 1px 7px rgba(#4433ff, 0.3);
+                }
+            }
         }
 
         &.size {

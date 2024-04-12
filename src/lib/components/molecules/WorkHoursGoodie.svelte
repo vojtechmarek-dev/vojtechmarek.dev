@@ -13,7 +13,7 @@
     let currentYear = date.getFullYear();
     let month = date.toLocaleString('en', { month: 'long' });
     let year = currentYear;
-    let { workDays, businessdayHolidays, weekendHolidays } = { workDays: 0, businessdayHolidays: 0, weekendHolidays:0  };
+    let { workDays, businessdayHolidays, weekendHolidays } = { workDays: 0, businessdayHolidays: 0, weekendHolidays: 0 };
     let holidaysOn = true;
 
     $: {
@@ -48,10 +48,10 @@
             {#if !weekendHolidays}
                 <li><b>{businessdayHolidays}</b> holidays</li>
             {:else}
-            <div class="tooltip">
-                <li><b>{businessdayHolidays}*</b> holidays</li>
-                <span class="tooltiptext">{'weekend holidays ( '+ weekendHolidays + ' ) not incl.'}</span>
-            </div>
+                <div class="tooltip">
+                    <li><b>{businessdayHolidays}*</b> holidays</li>
+                    <span class="tooltiptext">{'weekend holidays ( ' + weekendHolidays + ' ) not incl.'}</span>
+                </div>
             {/if}
         </div>
     </div>

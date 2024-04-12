@@ -1,10 +1,5 @@
 <div class="hill-part">
-    <svg
-        class="transition-hill"
-        viewBox="0 0 1599 135"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg class="transition-hill" viewBox="0 0 1599 135" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             fill-rule="evenodd"
             clip-rule="evenodd"

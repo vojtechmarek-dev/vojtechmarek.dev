@@ -2,11 +2,12 @@
 </script>
 
 <div class="container">
-    <div><h3>
-        <a target="_blank" rel="noopener noreferrer" title="My LinkedIn" href="https://www.linkedin.com/in/vojtechmarek-dev/">
-            See me on LinkedIn
-        </a>
-    </h3>
+    <div>
+        <h3>
+            <a target="_blank" rel="noopener noreferrer" title="My LinkedIn" href="https://www.linkedin.com/in/vojtechmarek-dev/">
+                See me on LinkedIn
+            </a>
+        </h3>
     </div>
 </div>
 

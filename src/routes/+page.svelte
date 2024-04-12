@@ -6,8 +6,7 @@
 
 <div class="centered">
     <div>
-        This is the first version and very much in progress version of my personal website. So far I
-        have
+        This is the first version and very much in progress version of my personal website. So far I have
         <li>Designed initial website ui in Figma</li>
         <li>Determined color pallete</li>
         <li>Selected icons</li>
@@ -21,8 +20,7 @@
         <li>finish layout with header and logo and nav</li>
     </div>
 
-    I have also started learning Svelte as I will be using it to build website Svelte learning
-    progress
+    I have also started learning Svelte as I will be using it to build website Svelte learning progress
 
     <progress value={$progress} />
     {#if $progress == 1}

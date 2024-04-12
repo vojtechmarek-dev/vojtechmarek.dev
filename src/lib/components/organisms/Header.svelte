@@ -17,20 +17,10 @@
         </div>
         <div class="right">
             <a href="/resume">Resume</a>
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                title="My Personal Github"
-                href="https://github.com/vojtechmarek-dev"
-            >
+            <a target="_blank" rel="noopener noreferrer" title="My Personal Github" href="https://github.com/vojtechmarek-dev">
                 <GitHubIcon />
             </a>
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                title="My LinkedIn"
-                href="https://www.linkedin.com/in/vojtechmarek-dev/"
-            >
+            <a target="_blank" rel="noopener noreferrer" title="My LinkedIn" href="https://www.linkedin.com/in/vojtechmarek-dev/">
                 <LinkedInIcon />
             </a>
         </div>

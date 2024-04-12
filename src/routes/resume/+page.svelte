@@ -1,11 +1,9 @@
 <script>
-    import Resume from "$lib/components/organisms/Resume.svelte";
-
-
+    import Resume from '$lib/components/organisms/Resume.svelte';
 </script>
 
 <div class="resume-wrapper">
-    <Resume/>
+    <Resume />
 </div>
 
 <style lang="scss">

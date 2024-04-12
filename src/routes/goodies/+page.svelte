@@ -3,14 +3,13 @@
 </script>
 
 <div class="goodies-container">
-    
-    <Goodies/>
+    <Goodies />
 </div>
 
 <style lang="scss">
     .goodies-container {
         display: flex;
-        top: -200px; //todo: fixme hack around my own wrong layout with hills component 
+        top: -200px; //todo: fixme hack around my own wrong layout with hills component
         justify-content: center;
         align-items: center;
         position: relative;

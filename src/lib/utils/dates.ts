@@ -16,7 +16,7 @@ export function getBusinessAndHolidays(startDate: Date, endDate: Date, holidaysO
     let holidayDistribution: HolidayDistribution = {
         weekendHolidays: 0,
         businessdayHolidays: 0
-    }
+    };
 
     if (!(startDate instanceof Date && endDate instanceof Date)) {
         throw new Error('Invalid date format');

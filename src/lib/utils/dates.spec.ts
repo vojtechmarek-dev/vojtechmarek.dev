@@ -68,9 +68,7 @@ describe('getBussinessAndHolidays', () => {
         const endDate = new Date(2021, 0, 31);
         // note for myself - for checking throw error I need to wrap calling function in another function
         // @see tip in https://jestjs.io/docs/expect#tothrowerror
-        expect(() => getBusinessAndHolidays(startDate, endDate)).toThrowError(
-            'Start date cannot be after the end date'
-        );
+        expect(() => getBusinessAndHolidays(startDate, endDate)).toThrowError('Start date cannot be after the end date');
     });
 });
 

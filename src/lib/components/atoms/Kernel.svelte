@@ -1,12 +1,5 @@
 <div class="kernel-container">
-    <svg
-        class="kernel-svg"
-        width="204"
-        height="223"
-        viewBox="0 0 204 223"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg class="kernel-svg" width="204" height="223" viewBox="0 0 204 223" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M13 126.978C12.9999 26.8965 33.4297 -9.35345 167.264 26.5025C214.793 39.2363 206.872 85.2117 189.361 108.853C170.41 134.437 188.555 177.147 155.173 197.508C96.3857 233.364 13.0002 244.427 13 126.978Z"
             fill="#4433FF"

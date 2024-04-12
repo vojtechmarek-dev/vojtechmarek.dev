@@ -26,7 +26,6 @@
                     Experience
                 </Button>
             </div>
-
         </div>
     </section>
     <div class="kernel">

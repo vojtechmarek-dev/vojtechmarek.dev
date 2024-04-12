@@ -1,7 +1,6 @@
 <script>
     import CurrentWeekGoodie from '$lib/components/molecules/CurrentWeekGoodie.svelte';
     import WorkHoursGoodie from '$lib/components/molecules/WorkHoursGoodie.svelte';
-    import Goodies from '$lib/components/organisms/Goodies.svelte';
 </script>
 
 <div class="goodies inside">

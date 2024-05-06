@@ -3,7 +3,7 @@
     import { description, keywords, title, siteBaseUrl } from '$lib/data/meta';
     import Header from '$lib/components/organisms/Header.svelte';
     import Footer from '$lib/components/organisms/Footer.svelte';
-    import { page } from '$app/stores';
+    
     import NavigationArea from '$lib/components/organisms/NavigationArea.svelte';
     import Hills from '$lib/components/organisms/Hills.svelte';
 </script>
@@ -18,19 +18,10 @@
 </svelte:head>
 
 <div>
-    <!-- A skip todo -->
-
+    <!-- A tab skip for aid needed todo -->
     <!-- Top area -->
-
-    <div class="top-area">
-        <div class="header">
-            <div class="content">
-                <Header />
-            </div>
-        </div>
-        <Hills />
-        <div class="navigation-area"><NavigationArea display={$page.url.pathname} /></div>
-    </div>
+    <Header />
+    <Hills />
     <div><!-- Skip here a todo --></div>
     <!-- Main area -->
     <div class="main-area">
@@ -43,44 +34,17 @@
 </div>
 
 <style lang="scss">
-    .top-area {
-        background-color: white;
-        min-height: 600px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .header {
-        position: sticky;
-        top: 0px;
-        z-index: 2;
-        width: 100%;
-        height: 64px;
-        -webkit-backdrop-filter: saturate(180%) blur(5px);
-        backdrop-filter: saturate(180%) blur(5px);
-        backface-visibility: hidden;
-        perspective: 1000;
-        transform: translateZ(0);
-        display: flex;
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        z-index: 3;
-        .content {
-            width: 100%;
-        }
-    }
-
-    .navigation-area {
-        padding-top: 50px;
-        top: 0px;
-        max-width: 1100px; /* todo make it general and better styled - this is copypasta */
-        margin-left: auto;
-        margin-right: auto;
-    }
+    @import '$lib/scss/_breakpoints.scss';
 
     .main-area {
+        
         padding: 0 100px 100px;
         position: relative;
         z-index: 3;
+
+        @include for-phone-only {
+            padding: 0 20px 20px;
+
+		}
     }
 </style>

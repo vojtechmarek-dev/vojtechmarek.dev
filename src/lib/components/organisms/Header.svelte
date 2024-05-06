@@ -29,31 +29,37 @@
 
 <style lang="scss">
     header {
-        padding: 0 150px;
-    }
-    .container {
+        padding: 20px 150px;
+        z-index: 9;
+        position: sticky;
+        top: 0px;
+        width: 100%;
+        height: 80px;
+        -webkit-backdrop-filter: saturate(180%) blur(5px);
+        backdrop-filter: saturate(180%) blur(5px);
+        backface-visibility: hidden;
+        perspective: 1000;
+        transform: translateZ(0);
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+        justify-content: space-between; /* Ensure elements are spaced evenly */
+        align-items: center; /* Center vertically */
 
-    .left {
-        flex-grow: 0;
-    }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%; /* Ensure full width */
 
-    .middle {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-    }
+            .left,
+            .middle,
+            .right {
+                display: flex;
+                align-items: center;
+            }
 
-    .right {
-        flex-grow: 0;
-        display: flex;
-        align-items: center;
-    }
-
-    .right a {
-        margin-left: 10px; /* Adjust the margin as needed */
+            .right a {
+                margin-left: 10px; /* Adjust the margin as needed */
+            }
+        }
     }
 </style>

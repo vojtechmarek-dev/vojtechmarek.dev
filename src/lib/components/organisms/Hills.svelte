@@ -10,14 +10,17 @@
 </div>
 
 <style lang="scss">
+    @import '$lib/scss/_breakpoints.scss';
     .hill-part {
         background: linear-gradient(60deg, #e8f0ff 0%, #f8fbff 100%);
         position: absolute;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
+        top: 0px;
         width: 100vw;
-        height: 100%;
+        height: min(75vh, 500px);
+
+		@include for-phone-only {
+			height: min(75vh, 420px);
+		}
     }
 
     .transition-hill {

@@ -37,6 +37,7 @@
     @import '$lib/scss/breakpoints.scss';
 
     .container {
+        padding: 40px 0 150px;
         position: relative;
         display: flex; /* or inline-flex */
         flex-direction: row;

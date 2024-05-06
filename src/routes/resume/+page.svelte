@@ -1,17 +1,19 @@
 <script>
     import Resume from '$lib/components/organisms/Resume.svelte';
+    import ResumeGreet from '$lib/components/organisms/ResumeGreet.svelte';
 </script>
 
-<div class="resume-wrapper">
+<ResumeGreet />
+<div class="resume-container">
     <Resume />
 </div>
 
 <style lang="scss">
-    .resume-wrapper {
+    .resume-container {
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        min-height: 200px;
+        min-height: 350px;
     }
 </style>

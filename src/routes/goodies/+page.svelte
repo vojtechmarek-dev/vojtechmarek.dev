@@ -1,7 +1,9 @@
 <script>
+    import GoodieGreet from '$lib/components/organisms/GoodieGreet.svelte';
     import Goodies from '$lib/components/organisms/Goodies.svelte';
 </script>
 
+<GoodieGreet />
 <div class="goodies-container">
     <Goodies />
 </div>
@@ -9,7 +11,6 @@
 <style lang="scss">
     .goodies-container {
         display: flex;
-        top: -200px; //todo: fixme hack around my own wrong layout with hills component
         justify-content: center;
         align-items: center;
         position: relative;

@@ -3,8 +3,6 @@
     import { description, keywords, title, siteBaseUrl } from '$lib/data/meta';
     import Header from '$lib/components/organisms/Header.svelte';
     import Footer from '$lib/components/organisms/Footer.svelte';
-    
-    import NavigationArea from '$lib/components/organisms/NavigationArea.svelte';
     import Hills from '$lib/components/organisms/Hills.svelte';
 </script>
 

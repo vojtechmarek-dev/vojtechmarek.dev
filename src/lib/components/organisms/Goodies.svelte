@@ -14,11 +14,11 @@
 </div>
 
 <style lang="scss">
+    @import '$lib/scss/breakpoints.scss';
+
     .goodies {
         position: absolute;
         bottom: 0px;
-        min-width: 700px;
-        min-height: 400px;
         background-color: white;
         border: 0.15em solid;
         border-color: black;
@@ -26,7 +26,7 @@
     }
 
     .inside {
-        padding: 1em 1em;
+        padding: 2em 2em;
         display: flex;
         flex-direction: column;
 
@@ -35,6 +35,10 @@
             display: flex;
             flex-direction: row;
             gap: 1em;
+
+            @include for-phone-only {
+                flex-direction: column; // Change to single column layout
+            }
         }
     }
 </style>

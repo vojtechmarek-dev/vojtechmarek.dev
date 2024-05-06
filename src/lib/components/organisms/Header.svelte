@@ -30,7 +30,7 @@
 <style lang="scss">
     header {
         padding: 20px 150px;
-        z-index: 2;
+        z-index: 4;
         position: sticky;
         top: 0px;
         width: 100%;

@@ -15,6 +15,15 @@
         <li>Divided and styled layout how it should look like</li>
         <li>Learned how the svelte kit is used with routing and layouts</li>
         <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+        <h1>Next steps</h1>
+
         <li>improve layout</li>
         <li>fix styling</li>
         <li>responsive design</li>

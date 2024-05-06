@@ -2,7 +2,7 @@
     import { HttpRegex } from '$lib/utils/regex';
 
     export let size: 'icon-only-mini' | 'icon-only' | 'small' | 'medium' | 'large' = 'medium';
-    export let style: 'solid' | 'understated' | 'clear' = 'solid';
+    export let style: 'solid' | 'understated' | 'clear' | 'tint' = 'solid';
     export let href: string | undefined = undefined;
 
     const isExternalLink = !!href && HttpRegex.test(href);
@@ -25,6 +25,9 @@
     class={['button', `style--${style}`, `size--${size}`].join(' ')}
     data-sveltekit-preload-data
     on:click
+    on:focus
+    on:mouseenter
+    on:mouseleave
     {...$$restProps}
 >
     {#if $$slots['icon']}
@@ -73,6 +76,14 @@
 
             &--clear {
                 background-color: transparent;
+            }
+
+            &--tint {
+                background-color: var(--color--primary-tint);
+
+                &:hover {
+                    box-shadow: 0px 0px 1px 3px color-mix(in srgb, var(--color--primary-tint) 50%, transparent);
+                }
 
                 /* todo */
             }

@@ -10,11 +10,14 @@
     export let workDayHours = 8;
 
     let date = new Date();
-    let currentYear = date.getFullYear();
     let month = date.toLocaleString('en', { month: 'long' });
+    let currentYear = date.getFullYear();
     let year = currentYear;
+    
     let { workDays, businessdayHolidays, weekendHolidays } = { workDays: 0, businessdayHolidays: 0, weekendHolidays: 0 };
     let holidaysOn = true;
+    let previewCurrentMonth = false;
+
 
     $: {
         month = date.toLocaleString('en', { month: 'long' });
@@ -62,9 +65,12 @@
         <Button on:click={() => (date = getPreviousMonthDate(date))} style="clear" size="icon-only">
             <NavArrowLeftIcon />
         </Button>
-        <Button style="solid" on:click={() => (date = new Date())}>
+        <Button style="{previewCurrentMonth ? 'tint' : 'solid'}"
+            on:mouseenter={() => {previewCurrentMonth = true}} 
+            on:mouseleave={() => {previewCurrentMonth = false}} 
+            on:click={() => (date = new Date())}>
             <div>{month}</div>
-            {#if year != currentYear}
+            {#if year != currentYear && !previewCurrentMonth}
                 <sup class="currentYear">{year}</sup>
             {/if}
         </Button>

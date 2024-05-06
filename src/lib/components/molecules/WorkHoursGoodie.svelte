@@ -34,7 +34,9 @@
         <div class="tooltip">
             <Button style="clear" size={'icon-only'} on:click={() => (holidaysOn = !holidaysOn)}>
                 {#if holidaysOn}
-                    <SwitchOnIcon />
+                    <div>
+                        <SwitchOnIcon activated={true}/>
+                    </div>
                 {:else}
                     <SwitchOffIcon />
                 {/if}
@@ -129,4 +131,6 @@
     .tooltip:hover .tooltiptext {
         visibility: visible;
     }
+
+
 </style>

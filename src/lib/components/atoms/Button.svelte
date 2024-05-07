@@ -2,7 +2,7 @@
     import { HttpRegex } from '$lib/utils/regex';
 
     export let size: 'icon-only-mini' | 'icon-only' | 'small' | 'medium' | 'large' = 'medium';
-    export let style: 'solid' | 'understated' | 'clear' | 'tint' = 'solid';
+    export let style: 'solid' | 'understated' | 'clear' | 'tint' | 'accent' = 'solid';
     export let href: string | undefined = undefined;
 
     const isExternalLink = !!href && HttpRegex.test(href);
@@ -84,8 +84,15 @@
                 &:hover {
                     box-shadow: 0px 0px 1px 3px color-mix(in srgb, var(--color--primary-tint) 50%, transparent);
                 }
+            }
 
-                /* todo */
+            &--accent {
+                background-color: var(--color--primary-accent-tint);
+                color: var(--color--primary-accent);
+
+                &:hover {
+                    box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-accent) 50%, transparent);
+                }
             }
 
             &--understated {

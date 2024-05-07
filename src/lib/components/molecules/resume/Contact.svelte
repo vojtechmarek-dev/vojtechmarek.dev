@@ -29,10 +29,10 @@
 		<span class="icon"><PinIcon /></span>
 		<span>Brno, Czech Republic</span>
 	</li>
- 	<!-- <li class="email">
+ 	<li class="email">
 		<span class="icon"><MailIcon /></span>
-		<a href="mailto:vojtech.marek@vojtechmarek.dev">vojtech.marek@vojtechmarek.dev</a>
-	</li> -->
+		<a href="mailto:vojta.marek@gmail.com">vojta.marek@gmail.com</a>
+	</li>
 	<li class="linkedin">
 		<span class="icon"><LinkedInIcon /></span>
 		<a
@@ -43,10 +43,10 @@
 			LinkedIn Profile
 		</a>
 	</li>
-<!-- 	<li class="website">
+	<li class="website">
 		<span class="icon"><WebSiteIcon /></span>
-		<a href="https://vojtechmarek.dev" target="_blank" rel="noopener noreferrer"> vojtechmarek.dev </a>
-	</li> -->
+		<a href="https://vojtechmarek-dev.vercel.app" target="_blank" rel="noopener noreferrer"> vojtechmarek.dev </a>
+	</li>
 	<li class="github">
 		<span class="icon"><GitHubIcon /></span>
 		<a href="https://github.com/vojtechmarek-dev" target="_blank" rel="noopener noreferrer">
@@ -67,15 +67,14 @@
 		margin-right: auto;
 
 		display: grid;
-		grid-gap: 10px;
+		grid-gap: 10px 15px;
 		grid-template-columns: 1fr 1fr;
 
 		grid-template-areas:
-			'email email'
-			'website website'
 			'location languages'
 			'birthday experience'
-			'github linkedin';
+			'github linkedin'
+			'email website';
 
 		li {
 			display: flex;

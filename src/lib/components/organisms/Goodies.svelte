@@ -1,11 +1,12 @@
 <script>
     import CurrentWeekGoodie from '$lib/components/molecules/CurrentWeekGoodie.svelte';
     import WorkHoursGoodie from '$lib/components/molecules/WorkHoursGoodie.svelte';
+    import SectionTitle from '../molecules/resume/SectionTitle.svelte';
 </script>
 
 <div class="goodies inside">
     <div>
-        <h2>Work related</h2>
+        <SectionTitle>Work related</SectionTitle>
     </div>
     <div class="goodie-block">
         <WorkHoursGoodie />

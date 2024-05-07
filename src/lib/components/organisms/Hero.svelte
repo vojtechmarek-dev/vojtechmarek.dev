@@ -20,12 +20,10 @@
             <div class="disabled">
                 <Button>Blog</Button>
             </div>
-            <div class="disabled">
-                <Button>
-                    <SuitcaseIcon slot="icon" />
-                    Experience
-                </Button>
-            </div>
+            <Button style="accent" href="/resume">
+                <SuitcaseIcon slot="icon" />
+                Experience
+            </Button>
         </div>
     </section>
     <div class="kernel">

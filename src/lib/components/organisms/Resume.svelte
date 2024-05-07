@@ -4,6 +4,7 @@
     import Contact from "../molecules/resume/Contact.svelte";
     import Experience from "../molecules/resume/Experience.svelte";
     import SectionTitle from "../molecules/resume/SectionTitle.svelte";
+    import Skills from "../molecules/resume/Skills.svelte";
 
 	let experienceEntires = [...WORK_EXPERIENCE_LIST].reverse();
 </script>
@@ -25,6 +26,10 @@
 	<section class="work">
 		<SectionTitle>Professional Experience</SectionTitle>
 		<Experience entries={experienceEntires}/>
+	</section>
+	<section class="skills">
+		<SectionTitle>Skills</SectionTitle>
+		<Skills />
 	</section>
 </article>
 

@@ -13,7 +13,7 @@ export interface WorkExperience {
     skills: Skill[]
 }
 
-export const WORK_EXPERIENCES: WorkExperience[] = [
+export const WORK_EXPERIENCE_LIST: WorkExperience[] = [
     {
         title: "Junior Front End Developer",
         company: "ARTIIS GROUP, a.s.",
@@ -38,7 +38,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
         timeframe: "2021 → now",
         current: true,
         location: "CZ, Brno",
-        description: "Facilitating Sprints for team following Agile and Scrum methodology. Holding meetings including Sprint planning, Sprint review, and retrospective sessions. Managing estimating and velocity for each Sprint, forecasting necessary scope and resources. Additionally, responsibility for user story design and estimation via Storymapping and Grooming.",
+        description: "Facilitating Sprints for development team while following Agile and Scrum methodology. Holding meetings including Sprint planning, Sprint review, and retrospective sessions. Managing estimating and velocity for each Sprint, forecasting necessary scope and resources. Additionally, responsibility for user story design and estimation via Storymapping and Grooming.",
         skills: [{label: "Scrum"}, {label: "Agile"}, {label: "Jira"}, {label: "Confluence"}]
     },
     {

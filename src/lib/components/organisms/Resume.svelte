@@ -1,8 +1,11 @@
 <script lang="ts">
-    import { WORK_EXPERIENCES, yearsOfExperience } from "$lib/data/work-experiences";
+    import { WORK_EXPERIENCE_LIST, yearsOfExperience } from "$lib/data/work-experiences";
     import Title from "$lib/components/molecules/resume/Title.svelte";
     import Contact from "../molecules/resume/Contact.svelte";
-    import Kernel from "../atoms/Kernel.svelte";
+    import Experience from "../molecules/resume/Experience.svelte";
+    import SectionTitle from "../molecules/resume/SectionTitle.svelte";
+
+	let experienceEntires = [...WORK_EXPERIENCE_LIST].reverse();
 </script>
 
 <article class="resume">
@@ -11,20 +14,17 @@
         <Contact {yearsOfExperience} />
     </section>
     <section class="photo">
-        <img src="/images/resume-photo.png" alt="Vojtěch Marek Avatar" width="250px" height="250px"> 
+        <img src="/images/resume-photo.png" alt="Vojtěch Marek Avatar" height="250px"> 
 	</section>
 	<section class="about">
-		<h3>About</h3>
+		<SectionTitle>About</SectionTitle>
 		<p>
-			work in progress...
+			I'm all about front-end frameworks, constantly on the lookout for the latest and greatest. To keep my head cool and resist the temptation of starting projects I know I can't finish, I (sometimes) turn to Java. Keeps me staying grounded while the number of new front-end frameworks keeps growing. 
 		</p>
 	</section>
 	<section class="work">
-		<h3>Professional Experience</h3>
-		<p>
-			work in progress...
-			Check out my LinkedIn for more info
-		</p>
+		<SectionTitle>Professional Experience</SectionTitle>
+		<Experience entries={experienceEntires}/>
 	</section>
 </article>
 

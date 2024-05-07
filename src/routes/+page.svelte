@@ -6,7 +6,8 @@
 
 <div class="centered">
     <div>
-        This is the first version and very much in progress version of my personal website. So far I have
+        <i>This is the first version and very much in progress version of my personal website. </i>
+        <h1>So far I have</h1>
         <li>Designed initial website ui in Figma</li>
         <li>Determined color pallete</li>
         <li>Selected icons</li>
@@ -14,16 +15,8 @@
         <li>Figured out how to make an initial website layout only with scss</li>
         <li>Divided and styled layout how it should look like</li>
         <li>Learned how the svelte kit is used with routing and layouts</li>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
-        <h1>Next steps</h1>
 
+        <h1>Next steps</h1>
         <li>improve layout</li>
         <li>fix styling</li>
         <li>responsive design</li>
@@ -37,6 +30,6 @@
     .centered {
         display: flex;
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
 </style>

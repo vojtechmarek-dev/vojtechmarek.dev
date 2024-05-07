@@ -1,19 +1,26 @@
 <script>
     import Resume from '$lib/components/organisms/Resume.svelte';
-    import ResumeGreet from '$lib/components/organisms/ResumeGreet.svelte';
+    import { title } from '$lib/data/meta';
 </script>
 
-<ResumeGreet />
+<svelte:head>
+	<title>Resume - {title}</title>
+	<meta property="og:title" content="Resume - {title}" />
+</svelte:head>
+
+<!-- <ResumeGreet /> -->
 <div class="resume-container">
     <Resume />
 </div>
 
 <style lang="scss">
     .resume-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        min-height: 350px;
+		position: relative;
+		padding: 100px 0 40px;
+		min-height: 80vh;
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+		align-items: center;
     }
 </style>

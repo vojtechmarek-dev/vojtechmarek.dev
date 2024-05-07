@@ -1,6 +1,6 @@
 <script>
     import Logo from '$lib/components/atoms/Logo.svelte';
-    import ThemeToggle from '$lib/components/atoms/ThemeToggle.svelte';
+    //import ThemeToggle from '$lib/components/atoms/ThemeToggle.svelte';
     import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
     import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
 </script>
@@ -12,9 +12,10 @@
                 <Logo />
             </a>
         </div>
+<!-- todo not centered        
         <div class="middle">
             <ThemeToggle />
-        </div>
+        </div> -->
         <div class="right">
             <a href="/resume">Resume</a>
             <a target="_blank" rel="noopener noreferrer" title="My Personal Github" href="https://github.com/vojtechmarek-dev">
@@ -51,7 +52,7 @@
             width: 100%; /* Ensure full width */
 
             .left,
-            .middle,
+            //.middle,
             .right {
                 display: flex;
                 align-items: center;

@@ -1,4 +1,31 @@
-<div class="kernel-container">
+<script lang="ts">
+    let running = true;
+    let animateClass = true;
+    let intervalId: number|undefined;
+
+    function animate(running: boolean) {
+        if (running) {
+            if (!intervalId) {
+                animateClass = true;
+                intervalId = setInterval(() => (animateClass = !animateClass), 3000);
+            }
+        } else {
+            clearInterval(intervalId);
+            intervalId = undefined;
+            animateClass = false;
+        }
+    }
+
+    $: animate(running); // call the function every time running is updated
+</script>
+
+<div
+    role="marquee"
+    on:mouseenter={() => (running = false)}
+    on:mouseleave={() => (running = true)}
+    class="kernel-container kernel pos-y-wiggle"
+    class:animate={animateClass}
+>
     <svg class="kernel-svg" width="204" height="223" viewBox="0 0 204 223" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M13 126.978C12.9999 26.8965 33.4297 -9.35345 167.264 26.5025C214.793 39.2363 206.872 85.2117 189.361 108.853C170.41 134.437 188.555 177.147 155.173 197.508C96.3857 233.364 13.0002 244.427 13 126.978Z"
@@ -16,7 +43,7 @@
     <div class="insert"><slot /></div>
 </div>
 
-<style>
+<style lang="scss">
     .kernel-container {
         position: relative;
         display: inline-block;
@@ -37,4 +64,16 @@
         align-items: center;
         justify-content: center;
     }
+
+    .kernel.pos-y-wiggle {
+        transition: all 3s ease-in-out;
+    }
+
+    .kernel.animate {
+        animation-direction: alternate;
+        transition: all 3s ease-in-out;
+        transform: translateY(10%);
+    }
+
+
 </style>

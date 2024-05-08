@@ -27,7 +27,7 @@
         </div>
     </section>
     <div class="kernel">
-        <Kernel><div class="disabled">todo</div></Kernel>
+        <Kernel><div class="disabled"></div></Kernel>
     </div>
 </div>
 
@@ -81,7 +81,7 @@
         .kernel {
             display: flex;
             align-items: end;
-            justify-content: center;
+            justify-content: left;
             flex-grow: 2;
 
             @include for-phone-only {

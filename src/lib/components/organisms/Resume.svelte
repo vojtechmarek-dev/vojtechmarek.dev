@@ -20,7 +20,7 @@
 	<section class="about">
 		<SectionTitle>About</SectionTitle>
 		<p>
-			I'm all about front-end frameworks, constantly on the lookout for the latest and greatest. To keep my head cool and resist the temptation of starting projects I know I can't finish, I (sometimes) turn to Java. Keeps me staying grounded while the number of new front-end frameworks keeps growing. 
+			I'm most interested in front-end frameworks (mostly <b>Angular</b>), constantly trying to wrap my head around the next "best". To keep my head cool and resist the temptation of starting projects I know I can't finish, I (sometimes) turn to Java, to keep me grounded.
 		</p>
 	</section>
 	<section class="work">

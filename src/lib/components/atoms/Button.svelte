@@ -2,7 +2,7 @@
     import { HttpRegex } from '$lib/utils/regex';
 
     export let size: 'icon-only-mini' | 'icon-only' | 'small' | 'medium' | 'large' = 'medium';
-    export let style: 'solid' | 'understated' | 'clear' | 'tint' | 'accent' = 'solid';
+    export let style: 'solid' | 'understated' | 'clear' | 'tint' | 'accent' | 'primary' = 'solid';
     export let href: string | undefined = undefined;
 
     const isExternalLink = !!href && HttpRegex.test(href);
@@ -57,7 +57,7 @@
 
         border: none;
         border-radius: 20px;
-        font-weight: 700;
+        font-weight: 700; // todo - hero has its own style 
 
         .icon {
             width: 24px;
@@ -94,6 +94,16 @@
                     box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-accent) 50%, transparent);
                 }
             }
+
+            &--primary {
+                background-color: var(--color--primary);
+                color: white;
+
+                &:hover {
+                    box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary) 50%, transparent);
+                }
+            }
+
 
             &--understated {
                 background-color: white;

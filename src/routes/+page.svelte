@@ -1,29 +1,15 @@
 <script>
     import Hero from '$lib/components/organisms/Hero.svelte';
+    import Projects from '$lib/components/organisms/Projects.svelte';
+    import { PROJECT_LIST } from '$lib/data/work-experiences';
+
+    const projects=PROJECT_LIST.sort((a,b) =>  b.timeframe - a.timeframe)
 </script>
 
 <Hero/>
 
 <div class="centered">
-    <div>
-        <i>This is the first version and very much in progress version of my personal website. </i>
-        <h1>So far I have</h1>
-        <li>Designed initial website ui in Figma</li>
-        <li>Determined color pallete</li>
-        <li>Selected icons</li>
-        <li>Imported scss dependency</li>
-        <li>Figured out how to make an initial website layout only with scss</li>
-        <li>Divided and styled layout how it should look like</li>
-        <li>Learned how the svelte kit is used with routing and layouts</li>
-
-        <h1>Next steps</h1>
-        <li>improve layout</li>
-        <li>fix styling</li>
-        <li>responsive design</li>
-
-    </div>
-
-
+    <Projects projects={projects}/>
 </div>
 
 <style lang="scss">

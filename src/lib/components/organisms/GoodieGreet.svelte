@@ -5,8 +5,8 @@
     <section id="hero">
         <h1 class="hello">Useful goodies</h1>
         <p class="intro">
-            <span class="left">Some of my personal useful things are shown here</span>
-            <span class="right">enjoy if you can make use of them</span>
+            <span class="left">Here you'll find some of my personal tools, affectionately called 'Goodies'. </span>
+            <span class="left">I hope you find them useful!</span>
         </p>
     </section>
 </div>
@@ -19,7 +19,7 @@
         display: flex; /* or inline-flex */
         align-items: center;
         justify-content: center;
-        padding: 40px 0 150px;
+        padding: 40px 0 120px;
 
         #hero {
             display: flex;

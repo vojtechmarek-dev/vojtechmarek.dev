@@ -9,8 +9,8 @@
     <section id="hero">
         <h1 class="hello">Heya! I'm Vojtěch</h1>
         <p class="intro">
-            <span class="left">I am currently building this website using Svelte. Still work in progress.</span>
-            <span class="right">Checkout my <b>Goodies</b> or <b>Resume</b>!</span>
+            <span class="left">Welcome to my personal website! I'm a developer actively building this site with Svelte.</span>
+            <span class="right">Feel free to explore my <b>Projects</b>, or my <b>Resume</b>.</span> 
         </p>
         <div class="hero-buttons">
             <Button style="understated" href="/goodies">
@@ -59,7 +59,7 @@
             .intro {
                 display: flex;
                 flex-direction: column;
-                width: min(100%, 430px);
+                width: min(100%, 460px);
                 .left {
                     text-align: start;
                 }

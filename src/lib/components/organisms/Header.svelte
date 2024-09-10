@@ -29,6 +29,8 @@
 </header>
 
 <style lang="scss">
+    @import '$lib/scss/breakpoints.scss';
+
     header {
         padding: 20px 150px;
         z-index: 4;
@@ -42,24 +44,44 @@
         perspective: 1000;
         transform: translateZ(0);
         display: flex;
-        justify-content: space-between; /* Ensure elements are spaced evenly */
-        align-items: center; /* Center vertically */
+        justify-content: space-between;
+        align-items: center;
 
         .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%; /* Ensure full width */
+            width: 100%;
 
             .left,
-            //.middle,
             .right {
                 display: flex;
                 align-items: center;
             }
 
             .right a {
-                margin-left: 10px; /* Adjust the margin as needed */
+                margin-left: 10px;
+            }
+        }
+
+        @include for-phone-only {
+            padding: 10px;
+            height: 50px;
+
+            .container {
+                .right a {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        @include for-iphone-se {
+            padding: 5px;
+
+            .container {
+                .right a {
+                    margin-left: 2px;
+                }
             }
         }
     }

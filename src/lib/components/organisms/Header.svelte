@@ -12,10 +12,6 @@
                 <Logo />
             </a>
         </div>
-<!-- todo not centered        
-        <div class="middle">
-            <ThemeToggle />
-        </div> -->
         <div class="right">
             <a href="/resume">Resume</a>
             <a target="_blank" rel="noopener noreferrer" title="My Personal Github" href="https://github.com/vojtechmarek-dev">

@@ -15,34 +15,43 @@
     <title>{title}</title>
 </svelte:head>
 
-<div>
-    <!-- A tab skip for aid needed todo -->
+<div class="page-wrapper">
     <!-- Top area -->
     <Header />
     <Hills />
-    <div><!-- Skip here a todo --></div>
+
     <!-- Main area -->
     <div class="main-area">
         <main>
             <slot />
         </main>
     </div>
-    <div><!-- spacer --></div>
+
+    <!-- Footer -->
     <Footer />
 </div>
 
 <style lang="scss">
     @import '$lib/scss/_breakpoints.scss';
 
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; // Ensure wrapper takes full viewport height
+    }
+
     .main-area {
-        
+        flex: 1; // Makes sure this grows to fill available space
         padding: 0 100px 100px;
         position: relative;
         z-index: 3;
 
         @include for-phone-only {
             padding: 0 20px 20px;
+        }
+    }
 
-		}
+    footer {
+        margin-top: auto; // Push footer to the bottom
     }
 </style>

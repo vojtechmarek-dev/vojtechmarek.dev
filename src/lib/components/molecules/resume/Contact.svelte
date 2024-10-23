@@ -112,7 +112,6 @@
 			}
 			&.email {
 				grid-area: email;
-				margin: 0 auto;
 			}
 			&.linkedin {
 				grid-area: linkedin;
@@ -125,6 +124,18 @@
 			}
 			&.languages {
 				grid-area: languages;
+			}
+		}
+
+		// For mobile devices (up to 768px width)
+		@media screen and (max-width: 768px) {
+            display: block;
+            padding-top: 10px;
+
+            li {
+				margin-bottom: 10px; // Increased spacing between items
+				justify-content: flex-start; // Align items to the left for better spacing
+				flex-direction: row; // Keep icon and text in a row
 			}
 		}
 	}

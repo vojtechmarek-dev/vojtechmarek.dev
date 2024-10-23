@@ -66,10 +66,10 @@
             <NavArrowLeftIcon />
         </Button>
         <Button style="{previewCurrentMonth ? 'tint' : 'solid'}"
-            on:mouseenter={() => {previewCurrentMonth = true}} 
+            on:mouseenter={() => {previewCurrentMonth = month != new Date().toLocaleString('en', { month: 'long' })}} 
             on:mouseleave={() => {previewCurrentMonth = false}} 
-            on:click={() => (date = new Date())}>
-            <div>{month}</div>
+            on:click={() => {date = new Date();previewCurrentMonth = false;}}>
+            <div>{previewCurrentMonth ? "Go Back" : month}</div>
             {#if year != currentYear && !previewCurrentMonth}
                 <sup class="currentYear">{year}</sup>
             {/if}

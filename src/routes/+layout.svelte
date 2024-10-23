@@ -7,9 +7,8 @@
 </script>
 
 <svelte:head>
-    <link rel="“canonical”" href={siteBaseUrl} />
+    <link rel="canonical" href={siteBaseUrl} />
     <meta name="keywords" content={keywords.join(', ')} />
-
     <meta name="description" content={description} />
     <meta property="og:description" content={description} />
     <title>{title}</title>

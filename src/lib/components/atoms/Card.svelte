@@ -17,7 +17,7 @@
 
     /* Common styles for the outer container */
     width: 320px;
-    height: 235px;
+    //height: 235px;
     border: 0.15em solid;
     border-color: black;
     border-radius: 8px;

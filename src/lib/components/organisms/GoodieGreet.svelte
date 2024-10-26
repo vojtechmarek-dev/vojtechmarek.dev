@@ -38,7 +38,7 @@
             .intro {
                 display: flex;
                 flex-direction: column;
-                width: min(100%, 420px);
+                width: min(100%, 620px);
                 .left {
                     text-align: start;
                 }

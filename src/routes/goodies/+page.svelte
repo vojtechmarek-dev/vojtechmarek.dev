@@ -19,7 +19,7 @@
         min-height: 350px;
 
         @include for-phone-only {
-                margin-top: 150px;
+               margin-top: 150px;
             }
     }
 </style>

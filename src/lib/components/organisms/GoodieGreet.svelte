@@ -19,7 +19,12 @@
         display: flex; /* or inline-flex */
         align-items: center;
         justify-content: center;
-        padding: 40px 0 120px;
+        padding: 40px 0 80px;
+
+        @include for-phone-only {
+            padding: 40px 0 120px;
+
+        }
 
         #hero {
             display: flex;

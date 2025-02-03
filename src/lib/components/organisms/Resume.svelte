@@ -14,8 +14,11 @@
         <Title />
         <Contact {yearsOfExperience} />
     </section>
-    <section class="photo">
-        <img src="/images/resume-photo.png" alt="Vojtěch Marek Avatar" height="250px"> 
+	<section class="photo">
+		<picture>
+			<source srcset="/images/resume_photo_circle.webp" type="image/webp">
+			<img src="/images/resume_photo_circle.png" alt="Resume">
+		</picture>
 	</section>
 	<section class="about">
 		<SectionTitle>About</SectionTitle>

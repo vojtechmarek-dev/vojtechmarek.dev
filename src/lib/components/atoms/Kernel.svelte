@@ -26,20 +26,11 @@
     class="kernel-container kernel pos-y-wiggle"
     class:animate={animateClass}
 >
-    <svg class="kernel-svg" width="204" height="223" viewBox="0 0 204 223" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-            d="M13 126.978C12.9999 26.8965 33.4297 -9.35345 167.264 26.5025C214.793 39.2363 206.872 85.2117 189.361 108.853C170.41 134.437 188.555 177.147 155.173 197.508C96.3857 233.364 13.0002 244.427 13 126.978Z"
-            fill="#4433FF"
-            stroke="#4433FF"
-            stroke-width="2"
-        />
-        <path
-            d="M1 114.978C0.999859 14.8965 21.4297 -21.3535 155.264 14.5025C202.793 27.2363 194.872 73.2117 177.361 96.8529C158.41 122.437 176.555 165.147 143.173 185.508C84.3857 221.364 1.00017 232.427 1 114.978Z"
-            fill="white"
-            stroke="black"
-            stroke-width="2"
-        />
-    </svg>
+
+    		<picture>
+			<source srcset="/images/resume-photo_2.webp" type="image/webp" height="250px">
+			<img src="/images/resume-photo_2.png" alt="description" height="250px">
+		</picture>
     <div class="insert"><slot /></div>
 </div>
 

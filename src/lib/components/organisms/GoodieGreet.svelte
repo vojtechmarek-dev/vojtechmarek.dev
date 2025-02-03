@@ -19,7 +19,12 @@
         display: flex; /* or inline-flex */
         align-items: center;
         justify-content: center;
-        padding: 40px 0 120px;
+        padding: 40px 0 80px;
+
+        @include for-phone-only {
+            padding: 40px 0 120px;
+
+        }
 
         #hero {
             display: flex;
@@ -38,7 +43,7 @@
             .intro {
                 display: flex;
                 flex-direction: column;
-                width: min(100%, 420px);
+                width: min(100%, 620px);
                 .left {
                     text-align: start;
                 }

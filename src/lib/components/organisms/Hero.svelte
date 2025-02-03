@@ -7,7 +7,7 @@
 
 <div class="container">
     <section id="hero">
-        <h1 class="hello">Heya! I'm Vojtěch</h1>
+        <h1 class="hello">Hey! I'm Vojtěch</h1>
         <p class="intro">
             <span class="left">Welcome to my personal website! I'm a developer actively building this site with Svelte.</span>
             <span class="right">Feel free to explore my <b>Projects</b>, or my <b>Resume</b>.</span> 

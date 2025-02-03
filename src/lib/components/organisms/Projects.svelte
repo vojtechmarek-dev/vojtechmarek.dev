@@ -27,8 +27,7 @@
 </section>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
-
+    
     .projects-section {
         .heading {
             display: flex;

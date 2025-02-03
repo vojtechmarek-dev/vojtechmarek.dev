@@ -1,13 +1,12 @@
-@import '$lib/scss/_mixins.scss';
+@use '$lib/scss/_mixins.scss';
 
 @mixin base-theme {
-    @include define-color('page-background', #f4f8fb);
-    @include define-color('primary', #4433ff);
-    @include define-color('primary-tint', #e5eeff);
-    @include define-color('primary-accent', #9747ff);
-    @include define-color('primary-accent-tint', #e0ddff);
-
-    @include define-color('text', #1c1e26);
+    @include mixins.define-color('page-background', #f4f8fb);
+    @include mixins.define-color('primary', #4433ff);
+    @include mixins.define-color('primary-tint', #e5eeff);
+    @include mixins.define-color('primary-accent', #9747ff);
+    @include mixins.define-color('primary-accent-tint', #e0ddff);
+    @include mixins.define-color('text', #1c1e26);
 }
 :root {
     @include base-theme;

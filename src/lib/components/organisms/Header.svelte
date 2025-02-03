@@ -25,7 +25,7 @@
 </header>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
+    @use '$lib/scss/breakpoints.scss';
 
     header {
         padding: 20px 150px;
@@ -60,7 +60,7 @@
             }
         }
 
-        @include for-phone-only {
+        @include breakpoints.for-phone-only {
             padding: 10px;
             height: 50px;
 
@@ -71,7 +71,7 @@
             }
         }
 
-        @include for-iphone-se {
+        @include breakpoints.for-iphone-se {
             padding: 5px;
 
             .container {

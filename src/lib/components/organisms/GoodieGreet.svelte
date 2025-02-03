@@ -12,7 +12,7 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
+    @use '$lib/scss/breakpoints.scss';
 
     .container {
         position: relative;
@@ -21,7 +21,7 @@
         justify-content: center;
         padding: 40px 0 80px;
 
-        @include for-phone-only {
+        @include breakpoints.for-phone-only {
             padding: 40px 0 120px;
 
         }

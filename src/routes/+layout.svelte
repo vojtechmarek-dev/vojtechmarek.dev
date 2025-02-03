@@ -31,7 +31,7 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/_breakpoints.scss';
+    @use '$lib/scss/breakpoints';
 
     .page-wrapper {
         display: flex;
@@ -45,12 +45,12 @@
         position: relative;
         z-index: 3;
 
-        @include for-phone-only {
+        @include breakpoints.for-phone-only {
             padding: 0 20px 20px;
         }
     }
 
-    footer {
+/*     footer {
         margin-top: auto; // Push footer to the bottom
-    }
+    } */
 </style>

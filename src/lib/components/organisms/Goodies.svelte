@@ -15,7 +15,7 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
+    @use '$lib/scss/breakpoints.scss';
 
     .goodies {
         position: absolute;
@@ -37,7 +37,7 @@
             flex-direction: row;
             gap: 1em;
 
-            @include for-phone-only {
+            @include breakpoints.for-phone-only {
                 flex-direction: column; // Change to single column layout
             }
         }

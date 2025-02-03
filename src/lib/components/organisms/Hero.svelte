@@ -32,7 +32,7 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
+    @use '$lib/scss/breakpoints.scss';
 
     .container {
         padding: 40px 0 150px;
@@ -84,7 +84,7 @@
             justify-content: left;
             flex-grow: 2;
 
-            @include for-phone-only {
+            @include breakpoints.for-phone-only {
                 display: none;
             }
         }

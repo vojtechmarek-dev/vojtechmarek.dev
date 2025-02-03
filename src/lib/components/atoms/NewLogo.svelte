@@ -1,4 +1,4 @@
-<svg width="628" height="242" viewBox="0 0 628 242" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg height="42" viewBox="0 0 628 242" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M112.526 106.931L15.5 186.5L0 170.5L73.4743 107.069L0.5 43.5L15.5 28L112.526 106.931Z" fill="black"/>
     <path d="M469 231H628" stroke="black" stroke-opacity="0.93" stroke-width="21">
     <animate attributeName="visibility"

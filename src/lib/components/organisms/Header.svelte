@@ -1,15 +1,15 @@
 <script>
-    import Logo from '$lib/components/atoms/Logo.svelte';
     //import ThemeToggle from '$lib/components/atoms/ThemeToggle.svelte';
     import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
     import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
+    import NewLogo from '../atoms/NewLogo.svelte';
 </script>
 
 <header>
     <nav class="container">
         <div class="left">
             <a class="logo" href="/" aria-label="Site logo">
-                <Logo />
+                <NewLogo />
             </a>
         </div>
         <div class="right">

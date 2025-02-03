@@ -1,11 +1,24 @@
-<svg height="42" viewBox="0 0 628 242" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M112.526 106.931L15.5 186.5L0 170.5L73.4743 107.069L0.5 43.5L15.5 28L112.526 106.931Z" fill="black"/>
-    <path d="M469 231H628" stroke="black" stroke-opacity="0.93" stroke-width="21">
-    <animate attributeName="visibility"
-             values="visible;hidden;visible"
-             dur="1.5s"
-             repeatCount="indefinite"
-             calcMode="discrete"/></path>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M152.5 0L213 184H231.5H247.5L309.674 0H283L231.5 160.5L181 0H152.5Z" fill="black" fill-opacity="0.81"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M326.221 0L317 184H341L345.5 29.5L379.5 124.5H388.286H396.5L432 29.5L437.5 184H462.5L453.5 0H423L388.286 91L356 0H326.221Z" fill="black" fill-opacity="0.88"/>
+<svg height="42" viewBox="0 0 235 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M42 39.3814L5.78534 69L0 63.0442L27.4241 39.4325L0.186626 15.7697L5.78534 10L42 39.3814Z"
+        fill="black"
+    />
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M234.502 89H175.502V83H234.502V89Z" fill="black">
+        <animate attributeName="visibility" values="visible;hidden;visible" dur="1.5s" repeatCount="indefinite" calcMode="discrete" />
+    </path>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M57 0L79.7104 68H86.6549H92.661L116 0H105.987L86.6549 59.3152L67.6983 0H57Z" fill="black" />
+    <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M121.485 0L118 68H127.071L128.771 10.9022L141.622 46.0109H145V39.7068V38.7141V37.7214V36.2324V34.7434V33.7508L132.74 0H121.485Z"
+        fill="black"
+    />
+    <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M168.515 0L172 68H162.929L161.229 10.9022L148.378 46.0109H145V39.7068V38.7141V37.7214V36.2324V34.7434V33.7508L157.26 0H168.515Z"
+        fill="black"
+    />
 </svg>

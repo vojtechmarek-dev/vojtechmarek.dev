@@ -14,10 +14,10 @@
         <Title />
         <Contact {yearsOfExperience} />
     </section>
-    <section class="photo">
+	<section class="photo">
 		<picture>
-			<source srcset="/images/resume-photo.webp" type="image/webp" height="250px">
-			<img src="/images/resume-photo.png" alt="description" height="250px">
+			<source srcset="/images/resume_photo_circle.webp" type="image/webp">
+			<img src="/images/resume_photo_circle.png" alt="Resume">
 		</picture>
 	</section>
 	<section class="about">

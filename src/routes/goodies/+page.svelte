@@ -17,9 +17,5 @@
         align-items: center;
         position: relative;
         min-height: 350px;
-
-        @include breakpoints.for-phone-only {
-               margin-top: 150px;
-            }
     }
 </style>

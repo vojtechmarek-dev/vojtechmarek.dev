@@ -15,7 +15,7 @@
 					<CircleIcon />
 					{entry.timeframe.split(' ')[0]}
 				</div>
-				<div class="line" />
+				<div class="line"></div>
 			</div>
 			<div class="content">
 				<div class="title">

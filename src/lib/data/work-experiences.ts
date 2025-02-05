@@ -30,7 +30,9 @@ export const PROJECT_LIST: Project[] = [
         skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'LDAP' }, { label: 'HL7' }, { label: 'PostgreSQL' }],
         timeframe: 2017,
         link: "https://www.artiisgroup.cz/",
-        details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication']
+/*  hidden for now - problems with styling grid cards to show details - come back to this later
+         details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication'] 
+*/
     },
     {
         title: 'MediShare',

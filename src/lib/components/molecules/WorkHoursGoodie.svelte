@@ -46,7 +46,7 @@
             <span class="tooltiptext">{holidaysOn ? 'Holidays ON' : 'Holidays OFF'}</span>
         </div>
     </div>
-    <div class="description">
+    <div slot="description" class="description">
         <li><b>{workDays}</b> work days</li>
         <div class="holidayContainer">
             {#if !weekendHolidays}

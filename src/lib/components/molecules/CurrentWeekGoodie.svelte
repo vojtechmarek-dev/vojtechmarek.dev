@@ -20,7 +20,7 @@
 
 <SharedGoodie>
     <div slot="heading">Current Week</div>
-    <div class="description" style="padding-left: 30px; opacity: 75%;">
+    <div slot="description" class="description">
         <li><b>{weekNumber}{suffix}</b> week</li>
     </div>
     <div slot="value">{weekNumber % 2 == 0 ? 'Even' : 'Odd'}</div>

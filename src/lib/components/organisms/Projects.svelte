@@ -10,9 +10,6 @@
     <header class="heading">
         <h2>Projects</h2>
         <p>Here are some of the projects I've worked on. Each one highlights the tools and frameworks I've used.</p>
-        <div class="buttons">
-            <Button style="primary" href="/resume">View Resume</Button>
-        </div>
     </header>
     <div class="grid">
         {#each projects as project}
@@ -21,8 +18,13 @@
                 description={project.description}
                 skills={project.skills}
                 timeframe={project.timeframe}
+                link={project.link}
+                details={project.details}
             />
         {/each}
+    </div>
+    <div class="buttons">
+        <Button style="primary" href="/resume">View Resume</Button>
     </div>
 </section>
 
@@ -36,26 +38,29 @@
             text-align: center;
             gap: 10px;
 
-            .buttons {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                width: 100%;
-                padding-top: 10px;
-            }
         }
 
         .grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            padding: 50px;
+            padding: 50px 50px 10px 50px;
             justify-content: center;
             width: 100%;
 
             :global(> *) {
-                flex: 1 0 320px;
+                flex: 1 0 400px;
             }
         }
+
+        .buttons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+                padding-top: 10px;
+            }
+
+
     }
 </style>

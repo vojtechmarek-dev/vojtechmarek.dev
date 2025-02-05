@@ -41,6 +41,6 @@
     align-items: center;
     text-align: center;
     border-top: lightgrey 2px solid;
-    padding: 5px;
+    padding: 5px 0px 0px 0px;
 }
 </style>

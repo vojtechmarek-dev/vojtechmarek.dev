@@ -18,6 +18,8 @@ export interface Project {
     description: string;
     skills: Skill[];
     timeframe: number;
+    link?: string;
+    details?: string[];
 }
 
 export const PROJECT_LIST: Project[] = [
@@ -26,20 +28,24 @@ export const PROJECT_LIST: Project[] = [
         description:
             'Healthcare appointment scheduling and calling system, streamlining patient scheduling and queue management with HL7 model support for integration.',
         skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'LDAP' }, { label: 'HL7' }, { label: 'PostgreSQL' }],
-        timeframe: 2017
+        timeframe: 2017,
+        link: "https://www.artiisgroup.cz/",
+        details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication']
     },
     {
         title: 'MediShare',
         description:
             'Online scheduling system designed for healthcare with dynamic module snap-ins configuration, SSO login, and OAuth2 for secure authentication.',
         skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }],
-        timeframe: 2022
+        timeframe: 2022,
+        link: "https://mamoobjpac.fnol.cz/"
     },
     {
         title: 'MediReha',
         description: 'System for managing patient rehabilitation plans with rule-based processes for clinical and business validations.',
         skills: [{label: 'Angular'}, {label: 'Business Rules'}, {label: 'REST API'}, {label: 'Java'}],
-        timeframe: 2022
+        timeframe: 2022,
+        link: "https://www.rehasys.cz/"
     },
     {
         title: 'MaRIS',

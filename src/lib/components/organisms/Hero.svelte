@@ -17,9 +17,10 @@
                 <WrenchIcon slot="icon" />
                 Goodies
             </Button>
+        <!-- todo later       
             <div class="disabled">
                 <Button>Blog</Button>
-            </div>
+            </div> -->
             <Button style="accent" href="/resume">
                 <SuitcaseIcon slot="icon" />
                 Experience
@@ -42,14 +43,14 @@
         justify-content: space-between;
 
         #hero {
-            flex-grow: 2;
+            flex: 1 1 60%; // Allow shrinking
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: start;
             gap: 15px !important;
             position: relative;
-            padding: 20px 70px;
+            padding: 20px 20px 70px 20px;
 
             .hello {
                 text-align: left;
@@ -80,7 +81,7 @@
 
         .kernel {
             display: flex;
-            align-items: end;
+            align-items: start;
             justify-content: left;
             flex-grow: 2;
 

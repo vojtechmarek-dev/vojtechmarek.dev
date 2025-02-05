@@ -1,6 +1,7 @@
 <script>
     import CurrentWeekGoodie from '$lib/components/molecules/CurrentWeekGoodie.svelte';
     import WorkHoursGoodie from '$lib/components/molecules/WorkHoursGoodie.svelte';
+    import ReactionTimeGameGoodie from '../molecules/ReactionTimeGameGoodie.svelte';
     import SectionTitle from '../molecules/resume/SectionTitle.svelte';
 </script>
 
@@ -12,14 +13,19 @@
         <WorkHoursGoodie />
         <CurrentWeekGoodie />
     </div>
+    <div>
+        <SectionTitle>For fun</SectionTitle>
+        <div class="goodie-block">
+            <ReactionTimeGameGoodie />
+        </div>
+    </div>
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
+    @use '$lib/scss/breakpoints.scss';
 
     .goodies {
-        position: absolute;
-        bottom: 0px;
+        position: relative;
         background-color: white;
         border: 0.15em solid;
         border-color: black;
@@ -32,12 +38,12 @@
         flex-direction: column;
 
         .goodie-block {
-            padding-top: 2em;
+            padding: 2em 0 2em 0;
             display: flex;
             flex-direction: row;
             gap: 1em;
 
-            @include for-phone-only {
+            @include breakpoints.for-phone-only {
                 flex-direction: column; // Change to single column layout
             }
         }

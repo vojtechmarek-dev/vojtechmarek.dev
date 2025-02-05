@@ -1,5 +1,9 @@
 <script lang="ts">
     import type { Skill } from "$lib/data/work-experiences";
+    import InternetIcon from "$lib/icons/InternetIcon.svelte";
+    import NavArrowIcon from "$lib/icons/NavArrowIcon.svelte";
+    import NavArrowLeftIcon from "$lib/icons/NavArrowIcon.svelte";
+    import Button from "../atoms/Button.svelte";
     import Card from "../atoms/Card.svelte";
     import Tag from "../atoms/Tag.svelte";
 
@@ -8,10 +12,14 @@
     export let description: string;
     export let skills: Skill[];
     export let timeframe: number;
+    export let link: string|undefined;
+    export let details: string[]|undefined;
+
+    let detailsSelected = false;
   </script>
 
 <Card>
-    <div slot="heading">{title}</div>
+    <div class="headingContainer" slot="heading"><div>{title}</div>{#if link}<a href="{link}" target="_blank" rel="noopener noreferrer"><InternetIcon/></a>{/if}</div>
     <div class="timeframe">
         {timeframe}
     </div>
@@ -23,17 +31,44 @@
 				{#each skills as tag}
 					<Tag>{tag.label}</Tag>
 				{/each}
-			</div>
+		</div>
+        {#if details}
+            {#if detailsSelected}
+                <Button size="small" style="clear" on:click={() => detailsSelected = false} aria-expanded="true">
+                    <span>Less Details</span>
+                    <NavArrowLeftIcon direction="up" />
+                </Button>
+            {:else}
+                <Button size="small" style="clear" on:click={() => detailsSelected = true} aria-expanded="false">
+                    <span>More Details</span>
+                    <NavArrowIcon direction="down" />
+                </Button>
+            {/if}
+            {#if detailsSelected}
+                <div class="details">
+                    {#each details as detail}
+                        <li>{detail}</li>
+                    {/each}
+                </div>
+            {/if}
+        {/if}
     </div>
 </Card>
 
 <style lang="scss">
+    .headingContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+    
     .footer {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        gap: 5px;
     }
 
     .tags {
+        flex-direction: row;
 		display: flex;
 		align-items: center;
 		gap: 5px;
@@ -44,9 +79,10 @@
         font-size: small;
     }
 
-	.footer {
-		align-items: center;
-        align-content: center;
-	}
+    .details {
+        text-align: left;
+        padding: 10px;
+    }
+
 </style>
   

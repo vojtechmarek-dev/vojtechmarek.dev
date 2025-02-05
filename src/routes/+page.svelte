@@ -16,6 +16,6 @@
     .centered {
         display: flex;
         flex-direction: column;
-        text-align: left;
+        text-align: start;
     }
 </style>

@@ -1,7 +1,6 @@
 <script lang="ts">
     import SharedGoodie from './SharedGoodie.svelte';
-    import NavArrowLeftIcon from '$lib/icons/NavArrowLeftIcon.svelte';
-    import NavArrowRight from '$lib/icons/NavArrowRight.svelte';
+    import NavArrowIcon from '$lib/icons/NavArrowIcon.svelte';
     import { getFirstDayOfMonth, getLastDateOfMonth, getBusinessAndHolidays, getPreviousMonthDate, getNextMonthDate } from '$lib/utils/dates';
     import Button from '../atoms/Button.svelte';
     import SwitchOffIcon from '$lib/icons/SwitchOffIcon.svelte';
@@ -47,7 +46,7 @@
             <span class="tooltiptext">{holidaysOn ? 'Holidays ON' : 'Holidays OFF'}</span>
         </div>
     </div>
-    <div class="description">
+    <div slot="description" class="description">
         <li><b>{workDays}</b> work days</li>
         <div class="holidayContainer">
             {#if !weekendHolidays}
@@ -63,7 +62,7 @@
     <div slot="value">{workDays * workDayHours}</div>
     <div slot="control" class="monthControl">
         <Button on:click={() => (date = getPreviousMonthDate(date))} style="clear" size="icon-only">
-            <NavArrowLeftIcon />
+            <NavArrowIcon direction="left" />
         </Button>
         <Button style="{previewCurrentMonth ? 'tint' : 'solid'}"
             on:mouseenter={() => {previewCurrentMonth = month != new Date().toLocaleString('en', { month: 'long' })}} 
@@ -75,7 +74,7 @@
             {/if}
         </Button>
         <Button on:click={() => (date = getNextMonthDate(date))} style="clear" size="icon-only">
-            <NavArrowRight />
+            <NavArrowIcon direction="right" />
         </Button>
     </div>
 </SharedGoodie>

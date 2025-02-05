@@ -9,7 +9,7 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
+    @use '$lib/scss/breakpoints.scss';
 
     .goodies-container {
         display: flex;
@@ -17,9 +17,5 @@
         align-items: center;
         position: relative;
         min-height: 350px;
-
-        @include for-phone-only {
-               margin-top: 150px;
-            }
     }
 </style>

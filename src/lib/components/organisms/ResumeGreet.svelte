@@ -12,7 +12,6 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/breakpoints.scss';
 
     .container {
         position: relative;

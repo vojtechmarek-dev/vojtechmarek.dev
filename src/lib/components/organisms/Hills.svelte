@@ -10,7 +10,7 @@
 </div>
 
 <style lang="scss">
-    @import '$lib/scss/_breakpoints.scss';
+    @use '$lib/scss/_breakpoints.scss';
     .hill-part {
         background: linear-gradient(60deg, #e8f0ff 0%, #f8fbff 100%);
         position: absolute;
@@ -18,7 +18,7 @@
         width: 100vw;
         height: min(75vh, 500px);
 
-		@include for-phone-only {
+		@include breakpoints.for-phone-only {
 			height: min(75vh, 420px);
 		}
     }

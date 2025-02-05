@@ -4,8 +4,9 @@
 <div class="goodie">
     <h3><slot name="heading">Default Heading</slot></h3>
     <div class="description">
-        <slot />
+        <slot name="description"/>
     </div>
+    <div><slot /></div>
     <div class="value"><slot name="value" /></div>
     <div><slot name="control" /></div>
 </div>
@@ -14,7 +15,8 @@
     .goodie {
         /* Common styles for the outer container */
         width: 280px;
-        height: 225px;
+        min-height: 225px;
+        max-height: 500px;
         border: 0.15em solid;
         border-color: black;
         border-radius: 8px;

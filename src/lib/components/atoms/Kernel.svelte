@@ -40,10 +40,10 @@
         display: inline-block;
     }
 
-    .kernel-svg {
+/*     .kernel-svg {
         width: 100%;
         height: auto;
-    }
+    } */
 
     .insert {
         position: absolute;

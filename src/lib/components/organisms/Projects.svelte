@@ -1,13 +1,41 @@
 <script lang="ts">
+    import { Tween } from 'svelte/motion';
+    import { cubicOut } from 'svelte/easing';
     import type { Project } from '$lib/data/work-experiences';
     import Button from '../atoms/Button.svelte';
     import ProjectCard from '../molecules/ProjectCard.svelte';
 
     export let projects: Project[];
+
+    // Create a reactive store for managing selected state
     let selectedCardIndex = -1;
 
+    // Create tweened stores for each card's scale and opacity
+    const opacities = projects.map(() => new Tween(1, { duration: 400, easing: cubicOut }));
+    const selectedOpacity = new Tween(0, { duration: 800, easing: cubicOut });
+
     function handleCardSelected(index: number) {
-        selectedCardIndex = index === selectedCardIndex ? -1 : index;
+        if (index === -1) {
+            // Deselect, reset all
+            projects.forEach((_, i) => {
+                opacities[i].set(1);
+            });
+            selectedOpacity.set(0);
+            selectedCardIndex = index;
+            return;
+        }
+
+
+        projects.forEach((_, i) => {
+            if (i === index) {
+                selectedOpacity.set(1);
+            } else {
+                opacities[i].set(0.6);
+            }
+        });
+
+
+        selectedCardIndex = index;
     }
 </script>
 
@@ -18,11 +46,15 @@
     </header>
     <div class="grid">
         {#each projects as project, index}
-        <div class="project-card"
-        class:selected={selectedCardIndex === index}
-        >
+        <div 
+            class="project-card"
+            class:selected={selectedCardIndex === index}
+            style="
+                opacity: {selectedCardIndex === index ? selectedOpacity.current : opacities[index].current};
+            ">
             <ProjectCard
-                title={project.title + ' ' + index}
+                
+                title={project.title}
                 description={project.description}
                 skills={project.skills}
                 timeframe={project.timeframe}
@@ -34,11 +66,11 @@
             />
         </div>
         {/each}
+        <div class="buttons">
+            <Button style="primary" href="/resume">View Resume</Button>
+        </div>
+    </div>
 
-    </div>
-    <div class="buttons">
-        <Button style="primary" href="/resume">View Resume</Button>
-    </div>
 </section>
 
 <style lang="scss">
@@ -55,40 +87,29 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, /* fluid columns, but max out at 3 */ minmax(min(100%, max(10rem, 100%/4)), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/4)), 1fr));
             gap: 1.5rem;
             padding: 50px 50px 10px 50px;
+            position: relative;
         }
 
         .project-card {
-            min-height: 14.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, opacity;
-
-
-            transition: scale 0.1s;
-            &:not(.selected):hover {
-              scale: 1.033;
-            }
-        
-            // Selected state styles
-            &.selected {
-                order: -1;
-                grid-column: 1 / -1;
-                
-                // Additional styling for selected state
-                transform: scale(1.05);
-                z-index: 10;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            }
-        }
-        
-        .buttons {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding-top: 10px;
+            min-height: 14.5rem;
+
+            &.selected {
+                opacity: 0;
+                max-width: 100%;
+                order: -1;
+                grid-column: 1 / -1;
+            }
+        }
+
+        .buttons {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
         }
     }
 </style>

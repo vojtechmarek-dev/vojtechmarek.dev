@@ -11,7 +11,7 @@
 
 <style lang="scss">
     .card {
-    min-height: inherit;
+
     display: flex;
     flex-direction: column;
     transition: all 0.5s ease-in-out;

@@ -54,7 +54,6 @@
             }
 
             @include breakpoints.for-phone-only {
-                display: none;
 
                 :global(> *) {
                     flex: 1 0 320px;

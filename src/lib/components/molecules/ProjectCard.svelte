@@ -1,25 +1,43 @@
 <script lang="ts">
-    import type { Skill } from "$lib/data/work-experiences";
-    import InternetIcon from "$lib/icons/InternetIcon.svelte";
-    import NavArrowIcon from "$lib/icons/NavArrowIcon.svelte";
-    import NavArrowLeftIcon from "$lib/icons/NavArrowIcon.svelte";
-    import Button from "../atoms/Button.svelte";
-    import Card from "../atoms/Card.svelte";
-    import Tag from "../atoms/Tag.svelte";
+    import type { Skill } from '$lib/data/work-experiences';
+    import InternetIcon from '$lib/icons/InternetIcon.svelte';
+    import NavArrowIcon from '$lib/icons/NavArrowIcon.svelte';
+    import NavArrowLeftIcon from '$lib/icons/NavArrowIcon.svelte';
+    import Button from '../atoms/Button.svelte';
+    import Card from '../atoms/Card.svelte';
+    import Tag from '../atoms/Tag.svelte';
+
 
     // Separate inputs for the Project properties
-    export let title: string;
-    export let description: string;
-    export let skills: Skill[];
-    export let timeframe: number;
-    export let link: string|undefined;
-    export let details: string[]|undefined;
+    let {
+        title,
+        description,
+        skills,
+        timeframe,
+        link,
+        details,
+        projectIndex,
+        cardSelected,
+        selected
+    }: {
+        title: string;
+        description: string;
+        skills: Skill[];
+        timeframe: number;
+        link: string | undefined;
+        details: string[] | undefined;
+        projectIndex: number;
+        cardSelected: (index: number) => void;
+        selected: boolean;
+    } = $props();
 
-    let detailsSelected = false;
-  </script>
+</script>
 
 <Card>
-    <div class="headingContainer" slot="heading"><div>{title}</div>{#if link}<a href="{link}" target="_blank" rel="noopener noreferrer"><InternetIcon/></a>{/if}</div>
+    <div class="headingContainer" slot="heading">
+        <div>{title}</div>
+        {#if link}<a href={link} target="_blank" rel="noopener noreferrer"><InternetIcon /></a>{/if}
+    </div>
     <div class="timeframe">
         {timeframe}
     </div>
@@ -28,29 +46,29 @@
     </div>
     <div class="footer" slot="footer">
         <div class="tags">
-				{#each skills as tag}
-					<Tag>{tag.label}</Tag>
-				{/each}
-		</div>
+            {#each skills as tag}
+                <Tag>{tag.label}</Tag>
+            {/each}
+        </div>
         {#if details}
-            {#if detailsSelected}
-                <Button size="small" style="clear" on:click={() => detailsSelected = false} aria-expanded="true">
+            {#if selected}
+                <Button size="small" style="clear" on:click={() => cardSelected(-1)} aria-expanded="true">
                     <span>Less Details</span>
                     <NavArrowLeftIcon direction="up" />
                 </Button>
             {:else}
-                <Button size="small" style="clear" on:click={() => detailsSelected = true} aria-expanded="false">
+                <Button size="small" style="clear" on:click={() => cardSelected(projectIndex)} aria-expanded="false">
                     <span>More Details</span>
                     <NavArrowIcon direction="down" />
                 </Button>
             {/if}
-            {#if detailsSelected}
+<!--             {#if selected}
                 <div class="details">
                     {#each details as detail}
                         <li>{detail}</li>
                     {/each}
                 </div>
-            {/if}
+            {/if} -->
         {/if}
     </div>
 </Card>
@@ -60,7 +78,7 @@
         display: flex;
         justify-content: space-between;
     }
-    
+
     .footer {
         display: flex;
         flex-direction: column;
@@ -69,11 +87,11 @@
 
     .tags {
         flex-direction: row;
-		display: flex;
-		align-items: center;
-		gap: 5px;
-		flex-wrap: wrap;
-	}
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
 
     .timeframe {
         font-size: small;
@@ -83,6 +101,4 @@
         text-align: left;
         padding: 10px;
     }
-
 </style>
-  

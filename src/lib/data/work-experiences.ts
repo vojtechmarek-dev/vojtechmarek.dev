@@ -30,9 +30,8 @@ export const PROJECT_LIST: Project[] = [
         skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'LDAP' }, { label: 'HL7' }, { label: 'PostgreSQL' }],
         timeframe: 2017,
         link: "https://www.artiisgroup.cz/",
-/*  hidden for now - problems with styling grid cards to show details - come back to this later
-         details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication'] 
-*/
+        details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication'] 
+
     },
     {
         title: 'MediShare',
@@ -40,7 +39,9 @@ export const PROJECT_LIST: Project[] = [
             'Online scheduling system designed for healthcare with dynamic module snap-ins configuration, SSO login, and OAuth2 for secure authentication.',
         skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }],
         timeframe: 2022,
-        link: "https://mamoobjpac.fnol.cz/"
+        link: "https://mamoobjpac.fnol.cz/",
+        details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication'] 
+
     },
     {
         title: 'MediReha',

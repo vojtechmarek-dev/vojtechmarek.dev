@@ -29,6 +29,7 @@
 </section>
 
 <style lang="scss">
+    @use '$lib/scss/breakpoints.scss';
     
     .projects-section {
         .heading {

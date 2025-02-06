@@ -91,6 +91,9 @@
             color: white;
             transition: background-color 0.3s;
             cursor: pointer;
+            -webkit-user-select: none;    /* Safari */
+            -ms-user-select: none;        /* IE 10 and IE 11 */
+            user-select: none;            /* Standard syntax */
 
             &.waiting {
                 background-color: var(--color--primary); // blue

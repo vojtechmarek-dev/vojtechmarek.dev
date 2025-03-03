@@ -62,13 +62,13 @@
                     <NavArrowIcon direction="down" />
                 </Button>
             {/if}
-<!--             {#if selected}
+             {#if selected}
                 <div class="details">
                     {#each details as detail}
                         <li>{detail}</li>
                     {/each}
                 </div>
-            {/if} -->
+            {/if}
         {/if}
     </div>
 </Card>

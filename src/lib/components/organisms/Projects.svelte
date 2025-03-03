@@ -89,7 +89,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/4)), 1fr));
             gap: 1.5rem;
-            padding: 50px 50px 10px 50px;
+            padding: 20px 0 0 0;
+
+            @include breakpoints.for-desktop-up {
+                padding: 50px 50px 10px 50px;
+
+            }
+
             position: relative;
         }
 

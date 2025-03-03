@@ -30,9 +30,16 @@ export const PROJECT_LIST: Project[] = [
         skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'LDAP' }, { label: 'HL7' }, { label: 'PostgreSQL' }],
         timeframe: 2017,
         link: "https://www.artiisgroup.cz/",
-/*  hidden for now - problems with styling grid cards to show details - come back to this later
-         details: ['lead developer', 'HL7 FHIR integration', 'LDAP authentication'] 
-*/
+        details: [
+            "Contribution to development, initially as a Front-End Developer, later as a Full-Stack Developer, and eventually as the Scrum Master for the project team.",
+            "Front-end development using the Angular framework.",
+            "Development of new application modules and responsibility for keeping libraries up to date.",
+            "Back-end development in Java.",
+            "Creation of REST APIs, services, and logic related to scheduling calculations.",
+            "Scrum Master of the Mediorganizer team.",
+            "Responsible for the progress, execution, and delivery of individual sprints, ensuring adherence to Scrum methodology and agile development."
+          ]
+
     },
     {
         title: 'MediShare',
@@ -40,7 +47,15 @@ export const PROJECT_LIST: Project[] = [
             'Online scheduling system designed for healthcare with dynamic module snap-ins configuration, SSO login, and OAuth2 for secure authentication.',
         skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }],
         timeframe: 2022,
-        link: "https://mamoobjpac.fnol.cz/"
+        link: "https://mamoobjpac.fnol.cz/",
+        details: [
+            "Lead Developer responsible for the front-end architecture of snap-in reactive modules and components.",
+            "Implementing hot-swap configuration deployment.",
+            "Designining styling using Angular Material with a focus on UX/UI design of components.",
+            "Integrating with APIs and OAuth for authentication and data exchange.",
+            "Developing configurable theming and templating for the application."
+          ]
+
     },
     {
         title: 'MediReha',

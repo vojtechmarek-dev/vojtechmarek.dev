@@ -11,13 +11,12 @@
 
 <style lang="scss">
     .card {
+
     display: flex;
     flex-direction: column;
     transition: all 0.5s ease-in-out;
 
     /* Common styles for the outer container */
-    width: 320px;
-    //height: 235px;
     border: 0.15em solid;
     border-color: black;
     border-radius: 8px;

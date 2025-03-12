@@ -1,5 +1,5 @@
 <script>
-    //import ThemeToggle from '$lib/components/atoms/ThemeToggle.svelte';
+    import ThemeToggle from '$lib/components/molecules/ThemeToggle.svelte';
     import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
     import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
     import NewLogo from '../atoms/NewLogo.svelte';
@@ -11,6 +11,9 @@
             <a class="logo" href="/" aria-label="Site logo">
                 <NewLogo />
             </a>
+        </div>
+        <div>
+            <ThemeToggle/>
         </div>
         <div class="right">
             <a href="/resume">Resume</a>

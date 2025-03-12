@@ -18,7 +18,7 @@
 
     /* Common styles for the outer container */
     border: 0.15em solid;
-    border-color: black;
+    border-color: var(--color--text);
     border-radius: 8px;
     padding: 0.75em;
     /* Ensure the card uses all available height */

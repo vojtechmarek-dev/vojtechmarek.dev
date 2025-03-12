@@ -44,7 +44,7 @@
         padding: 0.5em;
 
 		font-size: 16px;
-		background-color: white;
+		background-color: var(--color--page-background);
 		position: relative;
 		overflow: hidden;
 

@@ -4,7 +4,7 @@ import { browser } from '$app/environment';
 function createTheme() {
   let currentTheme;
   if (browser) {
-    currentTheme = localStorage.getItem('theme-preference') || 'dark';
+    currentTheme = localStorage.getItem('theme-preference') || 'light';
   }
 
   const { subscribe, set } = writable<string>(currentTheme);

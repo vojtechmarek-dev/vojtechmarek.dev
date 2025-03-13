@@ -39,12 +39,12 @@
 <style lang="scss">
     .resume {
         border: 0.15em solid;
-        border-color: black;
+        border-color: var(--colo--text);
         border-radius: 8px;
         padding: 0.5em;
 
 		font-size: 16px;
-		background-color: white;
+		background-color: var(--color--page-background);
 		position: relative;
 		overflow: hidden;
 

@@ -7,7 +7,7 @@
     xmlns="http://www.w3.org/2000/svg"
     ><path
         d="M7 13a1 1 0 100-2 1 1 0 000 2z"
-        fill="#000000"
+        fill="currentColor"
         stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"

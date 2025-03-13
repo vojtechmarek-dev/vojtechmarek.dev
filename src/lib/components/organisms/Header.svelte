@@ -1,5 +1,5 @@
 <script>
-    //import ThemeToggle from '$lib/components/atoms/ThemeToggle.svelte';
+    import ThemeToggle from '$lib/components/molecules/ThemeToggle.svelte';
     import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
     import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
     import NewLogo from '../atoms/NewLogo.svelte';
@@ -11,6 +11,9 @@
             <a class="logo" href="/" aria-label="Site logo">
                 <NewLogo />
             </a>
+        </div>
+        <div>
+            <ThemeToggle/>
         </div>
         <div class="right">
             <a href="/resume">Resume</a>
@@ -34,8 +37,8 @@
         top: 0px;
         width: 100%;
         height: 80px;
-        -webkit-backdrop-filter: saturate(180%) blur(5px);
-        backdrop-filter: saturate(180%) blur(5px);
+        -webkit-backdrop-filter: saturate(100%) blur(5px);
+        backdrop-filter: saturate(100%) blur(5px);
         backface-visibility: hidden;
         perspective: 1000;
         transform: translateZ(0);

@@ -26,9 +26,9 @@
 
     .goodies {
         position: relative;
-        background-color: white;
+        background-color: var(--color--page-background);
         border: 0.15em solid;
-        border-color: black;
+        border-color: var(--color--text);
         border-radius: 8px;
     }
 

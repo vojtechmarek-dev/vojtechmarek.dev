@@ -44,12 +44,7 @@
     <div class="description">
         {description}
     </div>
-    <div class="footer" slot="footer">
-        <div class="tags">
-            {#each skills as tag}
-                <Tag>{tag.label}</Tag>
-            {/each}
-        </div>
+    <div class="details">
         {#if details}
             {#if selected}
                 <Button size="small" style="clear" on:click={() => cardSelected(-1)} aria-expanded="true">
@@ -71,6 +66,14 @@
             {/if}
         {/if}
     </div>
+    <div class="footer" slot="footer">
+        
+        <div class="tags">
+            {#each skills as tag}
+                <Tag>{tag.label}</Tag>
+            {/each}
+        </div>
+    </div>
 </Card>
 
 <style lang="scss">
@@ -91,6 +94,11 @@
         align-items: center;
         gap: 5px;
         flex-wrap: wrap;
+        padding-top: 5px;
+    }
+
+    .description {
+        opacity: 75%;
     }
 
     .timeframe {
@@ -98,7 +106,9 @@
     }
 
     .details {
+        display: flex;
+        flex-direction: column;
         text-align: left;
-        padding: 10px;
+        padding: 0px 10px;
     }
 </style>

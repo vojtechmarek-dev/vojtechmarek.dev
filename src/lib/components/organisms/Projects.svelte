@@ -5,10 +5,12 @@
     import Button from '../atoms/Button.svelte';
     import ProjectCard from '../molecules/ProjectCard.svelte';
 
-    export let projects: Project[];
+    let { projects }: { projects: Project[] } = $props();
 
     // Create a reactive store for managing selected state
-    let selectedCardIndex = -1;
+    let selectedCardIndex = $state(-1);
+    // Bind reference to the anchoring
+    let anchorRef: HTMLElement|null = $state(null);
 
     // Create tweened stores for each card's scale and opacity
     const opacities = projects.map(() => new Tween(1, { duration: 400, easing: cubicOut }));
@@ -25,7 +27,6 @@
             return;
         }
 
-
         projects.forEach((_, i) => {
             if (i === index) {
                 selectedOpacity.set(1);
@@ -34,43 +35,44 @@
             }
         });
 
-
         selectedCardIndex = index;
+        if (anchorRef) {
+            anchorRef.scrollIntoView({behavior: "smooth", block: 'start'})
+        }
     }
+
 </script>
 
 <section class="projects-section">
-    <header class="heading">
+    <header class="heading" bind:this={anchorRef}>
         <h2>Projects</h2>
         <p>Here are some of the projects I've worked on. Each one highlights the tools and frameworks I've used.</p>
     </header>
     <div class="grid">
         {#each projects as project, index}
-        <div 
-            class="project-card"
-            class:selected={selectedCardIndex === index}
-            style="
+            <div
+                class="project-card"
+                class:selected={selectedCardIndex === index}
+                style="
                 opacity: {selectedCardIndex === index ? selectedOpacity.current : opacities[index].current};
             ">
-            <ProjectCard
-                
-                title={project.title}
-                description={project.description}
-                skills={project.skills}
-                timeframe={project.timeframe}
-                link={project.link}
-                details={project.details}
-                projectIndex={index}
-                cardSelected={handleCardSelected}
-                selected={selectedCardIndex === index}
-            />
-        </div>
+                <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    skills={project.skills}
+                    timeframe={project.timeframe}
+                    link={project.link}
+                    details={project.details}
+                    projectIndex={index}
+                    cardSelected={handleCardSelected}
+                    selected={selectedCardIndex === index}
+                />
+            </div>
         {/each}
         <div class="buttons">
             <Button style="primary" href="/resume">View Resume</Button>
         </div>
     </div>
-
 </section>
 
 <style lang="scss">
@@ -94,9 +96,7 @@
 
             @include breakpoints.for-desktop-up {
                 padding: 50px 50px 10px 50px;
-
             }
-
         }
 
         .project-card {

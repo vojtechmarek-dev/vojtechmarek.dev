@@ -1,8 +1,20 @@
 <script lang="ts">
     import MoonIcon from '$lib/icons/MoonIcon.svelte';
     import SunIcon from '$lib/icons/SunIcon.svelte';
-	import { fade } from 'svelte/transition';
+    import { fade } from 'svelte/transition';
     import { theme } from '$lib/stores/theme';
+    import { onMount } from 'svelte';
+
+    // this is weird and possible hacky way to do this
+    let visible = false;
+    console.log("am i visible:", visible)
+    onMount(() => {
+        setTimeout(() => {
+            visible = true;
+        }, 50);
+    })
+
+
 
     function toggleTheme() {
         $theme === 'dark' ? theme.set('light') : theme.set('dark');
@@ -16,15 +28,17 @@
     data-theme={$theme}
     on:click={toggleTheme}
 >
-    {#if $theme === undefined}
-		<div><!-- Show nothing or a loading placeholder --></div>
-    {:else if $theme === 'dark'}
-        <div id="sun" in:fade={{ duration: 300 }}>
-            <SunIcon />
-        </div>
-    {:else}
-        <div id="moon" in:fade={{ duration: 300 }}>
-            <MoonIcon />
+    {#if visible}
+        <div in:fade={{ duration: 300 }}>
+            {#if $theme === 'dark'}
+                <div id="sun" in:fade={{ duration: 300 }}>
+                    <SunIcon />
+                </div>
+            {:else}
+                <div id="moon" in:fade={{ duration: 300 }}>
+                    <MoonIcon />
+                </div>
+            {/if}
         </div>
     {/if}
 </button>

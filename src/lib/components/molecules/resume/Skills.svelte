@@ -41,8 +41,8 @@
 
 	.tag {
 		background-color: var(--color--primary-tint);
-		border: 1px solid var(--color--primary);
-		color: var(--color--primary);
+		border: 1px solid var(--color--primary-contrast);
+		color: var(--color--primary-contrast);
 		border-radius: 0.25em;
 		display: inline-block;
 		font-size: 0.75em;

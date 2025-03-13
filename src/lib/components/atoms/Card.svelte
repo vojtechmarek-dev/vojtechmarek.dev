@@ -3,7 +3,7 @@
 
 <div class="card">
     <h3><slot name="heading">Default Heading</slot></h3>
-    <div class="description">
+    <div class="card-body">
         <slot />
     </div>
     <div class="footer"><slot name="footer"/></div>
@@ -25,21 +25,20 @@
     box-sizing: border-box;
 
     &:hover {
-        box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary) 50%, transparent);
+        box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-contrast) 50%, transparent);
     }
 }
 
-.description {
-    flex: 1;  /* This makes the description take up all available space */
+.card-body {
+    flex: 1;  /* This makes the body take up all available space */
     padding-top: 10px;
     padding-bottom: 10px;
-    opacity: 75%;
 }
 
 .footer {
     align-items: center;
     text-align: center;
-    border-top: lightgrey 2px solid;
+    border-top: 1px solid rgba(var(--color--text-rgb), 0.3);
     padding: 5px 0px 0px 0px;
 }
 </style>

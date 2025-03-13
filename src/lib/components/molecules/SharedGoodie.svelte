@@ -18,7 +18,6 @@
         min-height: 225px;
         max-height: 500px;
         border: 0.15em solid;
-        border-color: black;
         border-radius: 8px;
         padding: 0.5em;
     }

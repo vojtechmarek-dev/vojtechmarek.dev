@@ -40,9 +40,9 @@
 
 <style lang="scss">
     .button {
-        --main-color: white;
+        --main-color: var(--color--primary-tint);
         --light-color: blue;
-        --contrast-color: black; /* todo */
+        --contrast-color: var(--color--text); /* todo */
 
         -webkit-appearance: none;
         appearance: none;
@@ -66,7 +66,7 @@
 
         &.style {
             &--solid {
-                background-color: #e9e9ed;
+                background-color: var(--main-color);
                 color: var(--contrast-color);
 
                 &:hover {
@@ -76,6 +76,7 @@
 
             &--clear {
                 background-color: transparent;
+                color: var(--contrast-color);
             }
 
             &--tint {
@@ -106,8 +107,8 @@
 
 
             &--understated {
-                background-color: white;
-                color: #4433ff;
+                background-color: var(--color--page-background);
+                color: var(--color--primary-contrast);
 
                 &:hover {
                     box-shadow: 0px 0px 1px 7px rgba(#4433ff, 0.3);

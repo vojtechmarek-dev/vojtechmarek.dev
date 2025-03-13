@@ -39,7 +39,7 @@
 <style lang="scss">
     .resume {
         border: 0.15em solid;
-        border-color: black;
+        border-color: var(--colo--text);
         border-radius: 8px;
         padding: 0.5em;
 

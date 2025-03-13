@@ -37,8 +37,8 @@
         top: 0px;
         width: 100%;
         height: 80px;
-        -webkit-backdrop-filter: saturate(180%) blur(5px);
-        backdrop-filter: saturate(180%) blur(5px);
+        -webkit-backdrop-filter: saturate(100%) blur(5px);
+        backdrop-filter: saturate(100%) blur(5px);
         backface-visibility: hidden;
         perspective: 1000;
         transform: translateZ(0);

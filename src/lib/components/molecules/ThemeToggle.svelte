@@ -7,7 +7,6 @@
 
     // this is weird and possible hacky way to do this
     let visible = false;
-    console.log("am i visible:", visible)
     onMount(() => {
         setTimeout(() => {
             visible = true;

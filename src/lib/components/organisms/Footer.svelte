@@ -21,6 +21,10 @@
         padding-top: 50px;
         padding-bottom: 50px;
 
+        .info {
+            font-size: 16px;
+        }
+
         .content {
             display: flex;
             flex-direction: column;

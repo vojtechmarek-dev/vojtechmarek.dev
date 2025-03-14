@@ -28,8 +28,8 @@
 >
 
     		<picture>
-			<source srcset="/images/resume-photo_2.webp" type="image/webp" height="250px">
-			<img src="/images/resume-photo_2.png" alt="description" height="250px">
+			<source srcset="/images/hero_photo.webp" type="image/webp" height="250px">
+			<img src="/images/hero_photo.png" alt="description" height="250px">
 		</picture>
     <div class="insert"><slot /></div>
 </div>

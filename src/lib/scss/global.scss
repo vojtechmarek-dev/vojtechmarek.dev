@@ -19,6 +19,18 @@ body {
     overflow-x: hidden;
 }
 
+html {
+	font-size: 18px;
+	width: 100%;
+
+	&.smooth-scroll {
+		scroll-behavior: smooth;
+		body {
+			scroll-behavior: smooth;
+		}
+	}
+}
+
 .disabled {
     opacity: 50%;
     pointer-events: none;

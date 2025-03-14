@@ -23,7 +23,8 @@
     }
 
     .description {
-        height: 50px;
+        min-height: 50px;
+        max-height: fit-content;
         padding-top: 10px;
         padding-left: 20px;
         opacity: 50%;

@@ -47,9 +47,6 @@
                 .left {
                     text-align: start;
                 }
-                .right {
-                    text-align: end;
-                }
             }
         }
     }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SharedGoodie from './SharedGoodie.svelte';
+    import Goodie from '../atoms/Goodie.svelte';
 
     let date = new Date();
     export let weekNumber = date.getWeekNumber();
@@ -18,13 +18,13 @@
     }
 </script>
 
-<SharedGoodie>
+<Goodie>
     <div slot="heading">Current Week</div>
     <div slot="description" class="description">
         <li><b>{weekNumber}{suffix}</b> week</li>
     </div>
     <div slot="value">{weekNumber % 2 == 0 ? 'Even' : 'Odd'}</div>
-</SharedGoodie>
+</Goodie>
 
 <style lang="scss">
 </style>

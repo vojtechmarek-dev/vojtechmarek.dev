@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SharedGoodie from './SharedGoodie.svelte';
+    import Goodie from '../atoms/Goodie.svelte';
     import NavArrowIcon from '$lib/icons/NavArrowIcon.svelte';
     import { getFirstDayOfMonth, getLastDateOfMonth, getBusinessAndHolidays, getPreviousMonthDate, getNextMonthDate } from '$lib/utils/dates';
     import Button from '../atoms/Button.svelte';
@@ -30,7 +30,7 @@
     }
 </script>
 
-<SharedGoodie>
+<Goodie>
     <div class="headingContainer" slot="heading">
         <div>Work Hours</div>
         <div class="tooltip">
@@ -77,7 +77,7 @@
             <NavArrowIcon direction="right" />
         </Button>
     </div>
-</SharedGoodie>
+</Goodie>
 
 <style lang="scss">
     .headingContainer {

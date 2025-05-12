@@ -3,28 +3,21 @@
     import SunIcon from '$lib/icons/SunIcon.svelte';
     import { fade } from 'svelte/transition';
     import { theme } from '$lib/stores/theme';
-    import { onDestroy, onMount } from 'svelte';
+    import { onMount } from 'svelte';
 
+    // this is weird and possible hacky way to do this
     let visible = false;
-    let unsubscribeFromTheme: (() => void) | null = null;
-
     onMount(() => {
-        // Initialize theme and visibility after component mounts
-        unsubscribeFromTheme = theme.subscribe(() => {
+        setTimeout(() => {
             visible = true;
-        });
-    });
+        }, 50);
+    })
+
+
 
     function toggleTheme() {
         $theme === 'dark' ? theme.set('light') : theme.set('dark');
     }
-
-    onDestroy(() => {
-        // Call the unsubscribe function when the component is destroyed.
-        if (unsubscribeFromTheme) {
-            unsubscribeFromTheme();
-        }
-    });
 </script>
 
 <button

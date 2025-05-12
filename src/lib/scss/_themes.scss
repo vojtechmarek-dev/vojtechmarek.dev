@@ -4,7 +4,6 @@
     @include mixins.define-color('page-background', #ffffff);
     @include mixins.define-color('page-hero-background-gradient-from', #e8f0ff); // todo maybe a better solution?
     @include mixins.define-color('page-hero-background-gradient-to', #f8fbff);
-    //@include mixins.define-color('card-background', #171f2e);
     @include mixins.define-color('primary', #4433ff);
     @include mixins.define-color('primary-contrast', #4433ff);
     @include mixins.define-color('primary-tint', #e5eeff);
@@ -19,11 +18,10 @@
     @include mixins.define-color('page-background', #111827);
     @include mixins.define-color('page-hero-background-gradient-from', #1f2937); // todo maybe a better solution?
     @include mixins.define-color('page-hero-background-gradient-to', #1f2937);
-    @include mixins.define-color('card-background', #171f2e);
     @include mixins.define-color('primary', #4433ff);
     @include mixins.define-color('primary-contrast', #a1aff6);
     @include mixins.define-color('primary-tint', #1f2937);
-    @include mixins.define-color('primary-accent', #9966FF);
+    @include mixins.define-color('primary-accent', #9747ff);
     @include mixins.define-color('primary-accent-tint', #111827);
     @include mixins.define-color('text', #d6dff0);
     @include mixins.define-color('inverse-text', #1c1e26);

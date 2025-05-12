@@ -14,7 +14,6 @@
 <style lang="scss">
     .goodie {
         /* Common styles for the outer container */
-        background-color: var(--color--card-background);
         width: 280px;
         min-height: 225px;
         max-height: 500px;
@@ -36,7 +35,7 @@
         text-align: center;
         font-size: larger;
         font-weight: bold;
-        color: var(--color--primary-accent);
+        color: #9747ff;
         border-bottom: lightgrey 2px solid;
         margin-left: 20px;
         margin-right: 20px;

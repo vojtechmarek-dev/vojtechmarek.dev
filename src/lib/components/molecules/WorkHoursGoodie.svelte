@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SharedGoodie from '../atoms/Goodie.svelte';
+    import SharedGoodie from './SharedGoodie.svelte';
     import NavArrowIcon from '$lib/icons/NavArrowIcon.svelte';
     import { getFirstDayOfMonth, getLastDateOfMonth, getBusinessAndHolidays, getPreviousMonthDate, getNextMonthDate } from '$lib/utils/dates';
     import Button from '../atoms/Button.svelte';

@@ -20,11 +20,11 @@
 		white-space: nowrap;
 
 		&.primary {
-			background-color: var(--color--primary-accent-tint);
+			background-color: var(--color--primary-tint);
 			color: var(--color--primary-contrast);
 		}
 		&.secondary {
-			background-color: var(--color--primary-accent-tint);
+			background-color: var(--color--secondary-tint);
 			color: var(--color--secondary);
 		}
 	}

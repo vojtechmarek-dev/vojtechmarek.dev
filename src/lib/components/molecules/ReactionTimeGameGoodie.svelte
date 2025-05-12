@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
-    import SharedGoodie from '../atoms/Goodie.svelte';
+    import SharedGoodie from './SharedGoodie.svelte';
 
     type GameState = 'waiting' | 'ready' | 'clicking';
 

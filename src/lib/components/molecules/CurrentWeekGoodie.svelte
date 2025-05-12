@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SharedGoodie from './SharedGoodie.svelte';
+    import SharedGoodie from '../atoms/Goodie.svelte';
 
     let date = new Date();
     export let weekNumber = date.getWeekNumber();

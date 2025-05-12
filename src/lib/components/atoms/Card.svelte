@@ -11,7 +11,7 @@
 
 <style lang="scss">
     .card {
-
+    background-color: var(--color--card-background);
     display: flex;
     flex-direction: column;
     transition: all 0.5s ease-in-out;
@@ -27,6 +27,7 @@
     &:hover {
         box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-contrast) 50%, transparent);
     }
+    
 }
 
 .card-body {

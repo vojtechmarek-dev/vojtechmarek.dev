@@ -41,7 +41,7 @@
 <style lang="scss">
     .button {
         --main-color: var(--color--primary-tint);
-        --light-color: blue;
+        //--light-color: blue;
         --contrast-color: var(--color--text); /* todo */
 
         -webkit-appearance: none;
@@ -70,7 +70,7 @@
                 color: var(--contrast-color);
 
                 &:hover {
-                    box-shadow: 0px 0px 1px 7px rgba(#d0d0d7, 0.3);
+                    box-shadow: 0px 0px 1px 3px color-mix(in srgb, var(--color--primary-tint) 50%, transparent);
                 }
             }
 
@@ -81,6 +81,7 @@
 
             &--tint {
                 background-color: var(--color--primary-tint);
+                color: var(--contrast-color);
 
                 &:hover {
                     box-shadow: 0px 0px 1px 3px color-mix(in srgb, var(--color--primary-tint) 50%, transparent);
@@ -111,7 +112,7 @@
                 color: var(--color--primary-contrast);
 
                 &:hover {
-                    box-shadow: 0px 0px 1px 7px rgba(#4433ff, 0.3);
+                    box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-contrast) 50%, transparent);
                 }
             }
         }

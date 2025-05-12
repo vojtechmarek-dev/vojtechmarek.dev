@@ -6,7 +6,7 @@
         fill="currentColor"
     />
     <path fill-rule="evenodd" clip-rule="evenodd" d="M234.502 89H175.502V83H234.502V89Z" fill="currentColor">
-        <animate attributeName="visibility" values="visible;hidden;visible" dur="1.5s" repeatCount="indefinite" calcMode="discrete" />
+        <animate attributeName="visibility" values="visible;hidden;visible" dur="1.5s" repeatCount="5" calcMode="discrete" />
     </path>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M57 0L79.7104 68H86.6549H92.661L116 0H105.987L86.6549 59.3152L67.6983 0H57Z" fill="currentColor" />
     <path

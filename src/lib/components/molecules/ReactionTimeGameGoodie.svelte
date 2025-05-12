@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
-    import SharedGoodie from '../atoms/Goodie.svelte';
+    import Goodie from '../atoms/Goodie.svelte';
 
     type GameState = 'waiting' | 'ready' | 'clicking';
 
@@ -44,7 +44,7 @@
     }
 </script>
 
-<SharedGoodie>
+<Goodie>
     <div slot="heading">Reaction Time</div>
     <div slot="description" class="description">Test your reaction time! Can you beat your friends?</div>
     <div class="game-container">
@@ -74,7 +74,7 @@
             </p>
         {/if}
     </div>
-</SharedGoodie>
+</Goodie>
 
 <style lang="scss">
     .game-container {

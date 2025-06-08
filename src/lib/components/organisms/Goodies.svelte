@@ -1,6 +1,7 @@
 <script>
     import CurrentWeekGoodie from '$lib/components/molecules/CurrentWeekGoodie.svelte';
     import WorkHoursGoodie from '$lib/components/molecules/WorkHoursGoodie.svelte';
+    import DiscordBotGoodie from '../molecules/DiscordBotGoodie.svelte';
     import ReactionTimeGameGoodie from '../molecules/ReactionTimeGameGoodie.svelte';
     import SectionTitle from '../molecules/resume/SectionTitle.svelte';
 </script>
@@ -17,6 +18,7 @@
         <SectionTitle>For fun</SectionTitle>
         <div class="goodie-block">
             <ReactionTimeGameGoodie />
+            <DiscordBotGoodie />
         </div>
     </div>
 </div>

@@ -106,9 +106,12 @@
 
             &.selected {
                 opacity: 0;
-                max-width: 100%;
                 order: -1;
                 grid-column: 1 / -1;
+                justify-self: center;   
+                @include breakpoints.for-desktop-up {
+                    max-width: 70%;
+                }
             }
         }
 

@@ -17,7 +17,7 @@ export interface Project {
     title: string;
     description: string;
     skills: Skill[];
-    timeframe: number;
+    timeframe: string;
     link?: string;
     details?: string[];
 }
@@ -28,32 +28,29 @@ export const PROJECT_LIST: Project[] = [
         description:
             'Healthcare appointment scheduling and calling system, streamlining patient scheduling and queue management with HL7 model support for integration.',
         skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'LDAP' }, { label: 'HL7' }, { label: 'PostgreSQL' }],
-        timeframe: 2017,
+        timeframe: "2017-present",
         link: "https://www.artiisgroup.cz/",
         details: [
-            "Contribution to development, initially as a Front-End Developer, later as a Full-Stack Developer, and eventually as the Scrum Master for the project team.",
-            "Front-end development using the Angular framework.",
-            "Development of new application modules and responsibility for keeping libraries up to date.",
-            "Back-end development in Java.",
-            "Creation of REST APIs, services, and logic related to scheduling calculations.",
-            "Scrum Master of the Mediorganizer team.",
-            "Responsible for the progress, execution, and delivery of individual sprints, ensuring adherence to Scrum methodology and agile development."
+            "Progressed from Front-End Developer to Full-Stack Developer, and ultimately took on leadership as Scrum Master, contributing across the full development lifecycle.",
+            "Built responsive and maintainable user interfaces using Angular, focusing on performance, accessibility, and code quality.",
+            "Led the development and desing of new application modules and ensured up-to-date and secure front-end libraries through proactive dependency management.",
+            "Designed and developed RESTful APIs and scheduling algorithms to support complex business rules and real-time data processing.",
+            "Oversaw sprint planning, execution, and delivery, ensuring alignment with Scrum principles and timely delivery of sprint goals."
           ]
-
     },
     {
         title: 'MediShare',
         description:
             'Online scheduling system designed for healthcare with dynamic module snap-ins configuration, SSO login, and OAuth2 for secure authentication.',
         skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }],
-        timeframe: 2022,
+        timeframe: "2022-present",
         link: "https://mamoobjpac.fnol.cz/",
         details: [
-            "Lead Developer responsible for the front-end architecture of snap-in reactive modules and components.",
-            "Implementing hot-swap configuration deployment.",
-            "Designining styling using Angular Material with a focus on UX/UI design of components.",
-            "Integrating with APIs and OAuth for authentication and data exchange.",
-            "Developing configurable theming and templating for the application."
+            "Led front-end architecture design and implementation of modular, snap-in reactive components, ensuring scalability and reusability for app implementators.",
+            "Engineered hot-swap configuration deployment to enable seamless runtime updates without requiring full application redeploys.",
+            "Crafted consistent and intuitive UI components using Angular Material, with a strong emphasis on user experience and accessibility.",
+            "Integrated secure API communication and OAuth-based authentication flows to support dynamic, authenticated user sessions.",
+            "Developed a flexible theming and templating system, allowing for runtime customization of the application UI."
           ]
 
     },
@@ -61,20 +58,25 @@ export const PROJECT_LIST: Project[] = [
         title: 'MediReha',
         description: 'System for managing patient rehabilitation plans with rule-based processes for clinical and business validations.',
         skills: [{label: 'Angular'}, {label: 'Business Rules'}, {label: 'REST API'}, {label: 'Java'}],
-        timeframe: 2022,
-        link: "https://www.rehasys.cz/"
+        timeframe: "2022",
+        link: "https://www.rehasys.cz/",
+        details: [
+            "Designed and implemented the UI/UX for a rehabilitation management system using Angular, focusing on usability for clinical staff and administrators.",
+            "Collaborated on rule-based scheduling logic for rehabilitation plans, incorporating clinical constraints and business validations.",
+            "Contributed to the design and implementation of rule engines that automated validation of rehabilitation workflows and ensured the most optimal plan for rehabilitaion plans."
+        ]
     },
     {
         title: 'MaRIS',
         description: 'System for managing patient data in mammography centers, with advanced workflow and external system integrations.',
         skills: [{label: 'Spring'}, {label: 'Java'}, {label: 'REST API'}],
-        timeframe: 2019
+        timeframe: "2019, 2025"
     },
     {
         title: 'MediBus',
         description: 'Healthcare integration platform for data exchange using HL7 FHIR standards and Spring Integration.',
         skills: [{label: 'HL7 FHIR'}, {label: 'Spring'}, {label: 'Java'}],
-        timeframe: 2020
+        timeframe: "2020"
     }
 ];
 

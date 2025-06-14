@@ -7,8 +7,6 @@
     import Card from '../atoms/Card.svelte';
     import Tag from '../atoms/Tag.svelte';
 
-
-    // Separate inputs for the Project properties
     let {
         title,
         description,
@@ -23,7 +21,7 @@
         title: string;
         description: string;
         skills: Skill[];
-        timeframe: number;
+        timeframe: string;
         link: string | undefined;
         details: string[] | undefined;
         projectIndex: number;
@@ -60,7 +58,9 @@
              {#if selected}
                 <div class="details">
                     {#each details as detail}
-                        <li>{detail}</li>
+                    <div class="detail">
+                        {detail}
+                    </div>
                     {/each}
                 </div>
             {/if}
@@ -70,7 +70,9 @@
         
         <div class="tags">
             {#each skills as tag}
-                <Tag>{tag.label}</Tag>
+                <div class="tech-tag">
+                    <Tag>{tag.label}</Tag>
+                </div>
             {/each}
         </div>
     </div>
@@ -110,5 +112,15 @@
         flex-direction: column;
         text-align: left;
         padding: 0px 10px;
+
+        .detail {
+            background: color-mix(in srgb, var(--color--text) 8%, transparent);
+            border-left-width: 4px; 
+            border-left-style: solid; 
+            border-left-color: var(--color--primary-contrast);
+            border-radius: 4px;
+            padding: 12px;
+            margin: 0.25em 1em;
+        }
     }
 </style>

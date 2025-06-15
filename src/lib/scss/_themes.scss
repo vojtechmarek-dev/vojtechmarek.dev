@@ -16,17 +16,17 @@
 }
 
 @mixin dark-theme {
-    @include mixins.define-color('page-background', #111827);
-    @include mixins.define-color('page-hero-background-gradient-from', #1f2937); // todo maybe a better solution?
-    @include mixins.define-color('page-hero-background-gradient-to', #1f2937);
-    @include mixins.define-color('card-background', #171f2e);
-    @include mixins.define-color('primary', #4433ff);
-    @include mixins.define-color('primary-contrast', #a1aff6);
-    @include mixins.define-color('primary-tint', #1f2937);
-    @include mixins.define-color('primary-accent', #9966FF);
-    @include mixins.define-color('primary-accent-tint', #111827);
-    @include mixins.define-color('text', #d6dff0);
-    @include mixins.define-color('inverse-text', #1c1e26);
+    @include mixins.define-color('page-background', #0b132b);                   
+    @include mixins.define-color('page-hero-background-gradient-from', #1c2541);
+    @include mixins.define-color('page-hero-background-gradient-to', #0b132b);
+    @include mixins.define-color('card-background', #1c2541);                   
+    @include mixins.define-color('primary', #3e89e2);                           
+    @include mixins.define-color('primary-contrast', #b9d8fd);                  
+    @include mixins.define-color('primary-tint', #1c2541);                      
+    @include mixins.define-color('primary-accent', #3e89e2);                    
+    @include mixins.define-color('primary-accent-tint', #111827);               
+    @include mixins.define-color('text', #c5d0e6);                              
+    @include mixins.define-color('inverse-text', #c5d0e6);       
 }
 
 :root {

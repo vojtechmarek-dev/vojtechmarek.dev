@@ -3,13 +3,15 @@
 	import { onMount } from 'svelte';
     import { page } from '$app/state';
 
-	import Sun from '$lib/components/atoms/Sun.svelte';
 	import Moon from '$lib/components/atoms/Moon.svelte';
+    import { getMoonPhase, MoonPhase } from '$lib/utils/moon-phase';
+    import Sun from '../atoms/Sun.svelte';
 
 	let isSun = $state($theme === 'light');
 	let isVisible = $state(false);
 	let isTransitioning = $state(false);
 	let isMounted = false;
+    let moonPhase = $state(getMoonPhase());
 
 	onMount(() => {
 		// Initial rise animation
@@ -46,7 +48,27 @@
 		{#if isSun}
 			<Sun />
 		{:else}
+			<!-- Display the moon phase icon -->
 			<Moon />
+			<!-- Uncomment the following lines if you want to display the moon phase text
+		
+         {#if moonPhase === MoonPhase.NewMoon}
+                <div>New Moon</div>
+            {:else if moonPhase === MoonPhase.WaxingCrescent}
+                <div>Waxing Crescent</div>
+            {:else if moonPhase === MoonPhase.FirstQuarter}
+                <div>First Quarter</div>
+            {:else if moonPhase === MoonPhase.WaxingGibbous}
+                <div>Waxing Gibbous</div>
+            {:else if moonPhase === MoonPhase.FullMoon}
+                <Moon />
+            {:else if moonPhase === MoonPhase.WaningGibbous}
+                <div>Waning Gibbous</div>
+            {:else if moonPhase === MoonPhase.LastQuarter}
+                <div>Last Quarter</div>
+            {:else if moonPhase === MoonPhase.WaningCrescent}
+                <div>Waning Crescent</div>
+            {/if} -->
 		{/if}
 	</div>
     {/if}
@@ -88,6 +110,10 @@
 		transform: translate(-50%, 150px); /* Start off-screen */
 		opacity: 0;
 		z-index: 2; /* Below the hills */
+
+		@include breakpoints.for-phone-only {
+            display: none;
+        }
 
 		&.visible {
 			transform: translate(-50%, 0); /* Move to original position */

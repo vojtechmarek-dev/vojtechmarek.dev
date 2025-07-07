@@ -12,6 +12,8 @@
     @include mixins.define-color('primary-accent-tint', #e0ddff);
     @include mixins.define-color('text', #1c1e26);
     @include mixins.define-color('inverse-text', #E5EEFF);
+    @include mixins.define-color('sun', #ffc700);
+    @include mixins.define-color('moon', #f0f0f0);
     
 }
 
@@ -26,7 +28,9 @@
     @include mixins.define-color('primary-accent', #3e89e2);                    
     @include mixins.define-color('primary-accent-tint', #111827);               
     @include mixins.define-color('text', #c5d0e6);                              
-    @include mixins.define-color('inverse-text', #c5d0e6);       
+    @include mixins.define-color('inverse-text', #c5d0e6);
+    @include mixins.define-color('sun', #ffc700);
+    @include mixins.define-color('moon', #f0f0f0);
 }
 
 :root {

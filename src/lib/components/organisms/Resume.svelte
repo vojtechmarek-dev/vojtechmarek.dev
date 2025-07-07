@@ -104,13 +104,13 @@
 			&.work {
 				grid-area: work;
 			}
-			&.education {
+/* 			&.education {
 				grid-area: education;
 
 				p {
 					text-align: justify;
 				}
-			}
+			} */
 			&.skills {
 				grid-area: skills;
 			}

@@ -1,5 +1,7 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte';
+    import { fade, fly, scale } from 'svelte/transition';
+    import { cubicOut } from 'svelte/easing';
     import ThemeToggle from '$lib/components/molecules/ThemeToggle.svelte';
     import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
     import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
@@ -60,14 +62,6 @@
         </div>
 
         <div class="right ">
-            <div class="desktop-links">
-                <a class="icon-link" target="_blank" rel="noopener noreferrer" title="My Personal Github" href="https://github.com/vojtechmarek-dev">
-                    <GitHubIcon />
-                </a>
-                <a class="icon-link" target="_blank" rel="noopener noreferrer" title="My LinkedIn" href="https://www.linkedin.com/in/vojtechmarek-dev/">
-                    <LinkedInIcon />
-                </a>
-            </div>
             <div class="toggle-button-wrapper">
                 <span>Menu</span>
                 <button
@@ -83,37 +77,67 @@
                     <span class="bar middle" aria-hidden="true"></span>
                     <span class="bar bottom" aria-hidden="true"></span>
                 </button>
+                {#if menuOpen}
+                    <div
+                        class="desktop-popover"
+                        role="menu"
+                        aria-label="Main menu"
+                        in:scale={{ start: 0.96, duration: 140, easing: cubicOut }}
+                        out:fade={{ duration: 120 }}
+                    >
+                        <a href="/" role="menuitem" on:click={closeMenu}>Home</a>
+                        <a href="/resume" role="menuitem" on:click={closeMenu}>Resume</a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" role="menuitem" on:click={closeMenu}>GitHub</a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vojtechmarek-dev/" role="menuitem" on:click={closeMenu}>LinkedIn</a>
+                    </div>
+                {/if}
             </div>
         </div>
     </nav>
 
-    <div
-        id={overlayId}
-        class:open={menuOpen}
-        class="mobile-nav-overlay menu-wrapper"
-        aria-hidden={!menuOpen}
-        aria-modal="true"
-        role="dialog"
-    >
-        <div class="backdrop" role="button" tabindex="0" aria-label="Close menu" on:click={closeMenu} on:keydown={onBackdropKeydown}></div>
-        <div class="panel">
-            <div class="panel-top">
-                <a class="logo" href="/" aria-label="Site logo" on:click={closeMenu}>
-                    <NewLogo />
-                </a>
-                <button class="close" aria-label="Close navigation" on:click={closeMenu}>
-                    <span class="sr-only">Close</span>
-                    <span class="x"></span>
-                </button>
+    {#if menuOpen}
+        <!-- Mobile overlay -->
+        <div
+            id={overlayId}
+            class="mobile-nav-overlay menu-wrapper"
+            aria-modal="true"
+            role="dialog"
+            in:fade={{ duration: 250 }}
+            out:fade={{ duration: 200 }}
+        >
+            <div
+                class="backdrop"
+                role="button"
+                tabindex="0"
+                aria-label="Close menu"
+                on:click={closeMenu}
+                on:keydown={onBackdropKeydown}
+                in:fade={{ duration: 250 }}
+                out:fade={{ duration: 200 }}
+            ></div>
+            <div
+                class="panel"
+                in:fly={{ x: -40, duration: 600, easing: cubicOut }}
+                out:fly={{ x: -40, duration: 500, easing: cubicOut }}
+            >
+                <div class="panel-top">
+                    <a class="logo" href="/" aria-label="Site logo" on:click={closeMenu}>
+                        <NewLogo />
+                    </a>
+                    <button class="close" aria-label="Close navigation" on:click={closeMenu}>
+                        <span class="sr-only">Close</span>
+                        <span class="x"></span>
+                    </button>
+                </div>
+                <nav class="panel-links" aria-label="Mobile">
+                    <a href="/" on:click={closeMenu}>Home</a>
+                    <a href="/resume" on:click={closeMenu}>Resume</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" on:click={closeMenu}>GitHub</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vojtechmarek-dev/" on:click={closeMenu}>LinkedIn</a>
+                </nav>
             </div>
-            <nav class="panel-links" aria-label="Mobile">
-                <a href="/" on:click={closeMenu}>Home</a>
-                <a href="/resume" on:click={closeMenu}>Resume</a>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" on:click={closeMenu}>GitHub</a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vojtechmarek-dev/" on:click={closeMenu}>LinkedIn</a>
-            </nav>
         </div>
-    </div>
+    {/if}
 
 </header>
 
@@ -192,6 +216,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            position: relative;
 
             /* Hide MENU text; keep pill compact but wide enough for content */
             > span {
@@ -237,43 +262,28 @@
     .mobile-nav-overlay {
         position: fixed;
         inset: 0;
-        pointer-events: none;
         z-index: 10000;
+        display: block;
 
         .backdrop {
             position: absolute;
             inset: 0;
             background: color-mix(in srgb, var(--color--page-background) 35%, transparent);
-            opacity: 0;
-            transition: opacity 0.6s cubic-bezier(0.6, 0.01, -0.05, 0.9);
         }
 
         .panel {
             position: absolute;
             top: 0;
             bottom: 0;
-            left: -100vw;
+            left: 0;
             width: 100vw;
             max-width: 100%;
             background: var(--color--page-background);
             color: var(--color--text);
             transform: translateZ(0);
-            transition: left 1s cubic-bezier(0.6, 0.01, -0.05, 0.9);
             display: flex;
             flex-direction: column;
             padding: 20px;
-        }
-
-        &.open {
-            pointer-events: auto;
-
-            .backdrop {
-                opacity: 1;
-            }
-
-            .panel {
-                left: 0;
-            }
         }
     }
 
@@ -347,6 +357,42 @@
         overflow: hidden;
         color: var(--color--text);
         overflow-y: scroll;
+    }
+
+    /* Desktop popover menu anchored to toggle button */
+    .desktop-popover {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        transform: none;
+        background: var(--color--page-background);
+        color: var(--color--text);
+        border: 1px solid color-mix(in srgb, var(--color--text) 12%, transparent);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        padding: 10px 12px;
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 220px;
+        z-index: 10001;
+    }
+    .desktop-popover a {
+        text-decoration: none;
+        color: var(--color--text);
+        padding: 8px 10px;
+        border-radius: 8px;
+        transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .desktop-popover a:hover {
+        background: color-mix(in srgb, var(--color--text) 6%, transparent);
+        color: var(--color--text);
+    }
+
+    /* Show desktop popover and hide mobile overlay on wide screens */
+    @media (min-width: 900px) {
+        .desktop-popover { display: flex; }
+        .mobile-nav-overlay { display: none; }
     }
 
 </style>

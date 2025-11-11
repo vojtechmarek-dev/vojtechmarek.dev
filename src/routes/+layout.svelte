@@ -49,12 +49,12 @@
 
     .main-area {
         flex: 1; // Makes sure this grows to fill available space
-        padding: 0 100px 100px;
+        padding: 30px 100px 100px;
         position: relative;
         z-index: 3;
 
         @include breakpoints.for-phone-only {
-            padding: 0 20px 20px;
+            padding: 30px 20px 20px;
         }
     }
 </style>

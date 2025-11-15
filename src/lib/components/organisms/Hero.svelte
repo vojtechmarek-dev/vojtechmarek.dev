@@ -63,12 +63,6 @@
 				display: flex;
 				flex-direction: column;
 				width: min(100%, 460px);
-				.left {
-					text-align: start;
-				}
-				.right {
-					text-align: end;
-				}
 			}
 
 			.hero-buttons {

@@ -42,7 +42,7 @@ export const PROJECT_LIST: Project[] = [
         title: 'MediShare',
         description:
             'Online scheduling system designed for healthcare with dynamic module snap-ins configuration, SSO login, and OAuth2 for secure authentication.',
-        skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }],
+        skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }, {label: 'Material Design'}],
         timeframe: "2022-present",
         link: "https://mamoobjpac.fnol.cz/",
         details: [

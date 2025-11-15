@@ -7,8 +7,8 @@
     import NavigationMenuButton from './NavigationMenuButton.svelte';
     import MobileNavigationOverlay from '$lib/components/molecules/MobileNavigationOverlay.svelte';
 
-    let menuOpen: boolean = false;
-    let escapeListenerAttached: boolean = false;
+    let menuOpen = $state(false);
+    let escapeListenerAttached = $state(false);
     const overlayId: string = 'navigation-menu-overlay';
 	let typerRef: any;
 	const terminalLines: string[] = [
@@ -20,6 +20,14 @@
 		'playwright test',
 		'git push origin master',
 	];
+
+    function onLogoClick(event: MouseEvent) {
+        // if we are in home route - we can start the typer
+        if (window.location.pathname === '/') {
+            event.preventDefault();
+            typerRef?.start();
+        }
+    }
 
     function toggleMenu() {
         menuOpen = !menuOpen;
@@ -50,20 +58,12 @@
             escapeListenerAttached = false;
         }
     });
-
-    function onLogoClick(event: MouseEvent) {
-        // if we are in home route - we can start the typer
-        if (window.location.pathname === '/') {
-            event.preventDefault();
-            typerRef?.start();
-        }
-    }
 </script>
 
 <header class="navigation-wrapper">
     <nav class="menu-top">
 		<div class="left">
-			<a class="logo brand-logo" href="/" aria-label="Site logo" on:click={onLogoClick} style="position: relative;">
+			<a class="logo brand-logo" href="/" aria-label="Site logo" onclick={onLogoClick} style="position: relative;">
                 <NewLogo />
                 <Typewriter bind:this={typerRef} messages={terminalLines} />
             </a>

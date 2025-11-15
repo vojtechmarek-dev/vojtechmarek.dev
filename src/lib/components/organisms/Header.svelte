@@ -3,13 +3,25 @@
     import { fade, fly, scale } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
     import ThemeToggle from '$lib/components/molecules/ThemeToggle.svelte';
-    import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
-    import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
     import NewLogo from '../atoms/NewLogo.svelte';
+    import Typewriter from '$lib/components/atoms/Typewriter.svelte';
+    import MenuLinks from '../molecules/MenuLinks.svelte';
+    import MenuIcon from '$lib/icons/MenuIcon.svelte';
+    import XmarkIcon from '$lib/icons/XmarkIcon.svelte';
 
     let menuOpen: boolean = false;
     let escapeListenerAttached: boolean = false;
     const overlayId: string = 'mobile-navigation-overlay';
+	let typerRef: any;
+	const terminalLines: string[] = [
+		'git fetch --all',
+		'npm run build',
+		'pnpm i',
+		'vite dev --host',
+		'deploy --region=eu',
+		'playwright test',
+		'git push origin master',
+	];
 
     function toggleMenu() {
         menuOpen = !menuOpen;
@@ -52,18 +64,15 @@
 <header class="navigation-wrapper">
     <nav class="menu-top">
 		<div class="left">
-			<a class="logo brand-logo" href="/" aria-label="Site logo">
+			<a class="logo brand-logo" href="/" aria-label="Site logo" on:click|preventDefault={() => typerRef?.start()} style="position: relative;">
                 <NewLogo />
+                <Typewriter bind:this={typerRef} messages={terminalLines} />
             </a>
         </div>
 
-        <div class="center">
+        <div class="right">
             <ThemeToggle />
-        </div>
-
-        <div class="right ">
             <div class="toggle-button-wrapper">
-                <span>Menu</span>
                 <button
                     class="menu-toggle"
                     class:open={menuOpen}
@@ -72,10 +81,11 @@
                     aria-expanded={menuOpen}
                     on:click={toggleMenu}
                 >
-                    <span class="sr-only">Menu</span>
-                    <span class="bar top" aria-hidden="true"></span>
-                    <span class="bar middle" aria-hidden="true"></span>
-                    <span class="bar bottom" aria-hidden="true"></span>
+                {#if menuOpen}
+                    <XmarkIcon/>
+                {:else}
+                    <MenuIcon/>
+                {/if}
                 </button>
                 {#if menuOpen}
                     <div
@@ -85,10 +95,7 @@
                         in:scale={{ start: 0.96, duration: 140, easing: cubicOut }}
                         out:fade={{ duration: 120 }}
                     >
-                        <a href="/" role="menuitem" on:click={closeMenu}>Home</a>
-                        <a href="/resume" role="menuitem" on:click={closeMenu}>Resume</a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" role="menuitem" on:click={closeMenu}>GitHub</a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vojtechmarek-dev/" role="menuitem" on:click={closeMenu}>LinkedIn</a>
+                    <MenuLinks onCloseMenu={closeMenu}/>
                     </div>
                 {/if}
             </div>
@@ -130,10 +137,7 @@
                     </button>
                 </div>
                 <nav class="panel-links" aria-label="Mobile">
-                    <a href="/" on:click={closeMenu}>Home</a>
-                    <a href="/resume" on:click={closeMenu}>Resume</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" on:click={closeMenu}>GitHub</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vojtechmarek-dev/" on:click={closeMenu}>LinkedIn</a>
+                    <MenuLinks onCloseMenu={closeMenu}/>
                 </nav>
             </div>
         </div>
@@ -176,7 +180,7 @@
         border: none;
         backdrop-filter: blur(24px) saturate(120%);
         border-radius: 1.25rem;
-        border-color: color-mix(in srgb, var(--color--text) 10%, transparent);
+        border-color: var(--color--primary-tint);
         border-width: 0.10rem;
         border-style: solid;
         position: fixed;
@@ -186,12 +190,12 @@
         .right {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
         }
 
         .brand-logo {
             display: flex;
-            justify-content: space-between;
+            justify-content: left;
             align-items: center;
         }
         .brand-logo,
@@ -201,15 +205,6 @@
         .logo :global(svg) {
             height: 22px;
             width: auto;
-        }
-        .icon-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .icon-link :global(svg) {
-            height: 18px;
-            width: 18px;
         }
 
         .toggle-button-wrapper {
@@ -238,25 +233,7 @@
         cursor: pointer;
         position: relative;
         padding: 0;
-
-        .bar {
-            position: absolute;
-            left: 5px;
-            right: 5px;
-            height: 1.5px;
-            background: var(--color--text);
-            transition: transform 0.5s cubic-bezier(0.6, 0.01, -0.05, 0.9), opacity 0.3s ease, top 0.4s ease, background-color 0.3s ease;
-        }
-
-        .top { top: 7px; }
-        .middle { top: 12px; }
-        .bottom { top: 17px; }
-
-        &.open {
-            .top { top: 12px; transform: rotate(45deg); }
-            .middle { opacity: 0; }
-            .bottom { top: 12px; transform: rotate(-45deg); }
-        }
+        color: var(--color--text);
     }
 
     .mobile-nav-overlay {
@@ -333,11 +310,6 @@
         gap: 18px;
         padding: 20px 0;
         font-size: 1.4rem;
-
-        a {
-            color: var(--color--text);
-            text-decoration: none;
-        }
     }
 
     /* Navigation marquee animation for brand text */
@@ -373,7 +345,7 @@
         padding: 10px 12px;
         display: none;
         flex-direction: column;
-        gap: 6px;
+        gap: 10px;
         min-width: 220px;
         z-index: 10001;
     }

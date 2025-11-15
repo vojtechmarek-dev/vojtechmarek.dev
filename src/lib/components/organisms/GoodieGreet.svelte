@@ -22,7 +22,7 @@
         padding: 40px 0 80px;
 
         @include breakpoints.for-phone-only {
-            padding: 40px 0 120px;
+            padding: 40px 0 100px;
 
         }
 

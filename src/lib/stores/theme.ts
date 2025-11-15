@@ -8,7 +8,6 @@ function createTheme() {
 		if (storedTheme) {
 			currentTheme = storedTheme;
 		} else {
-			console.log( "dark?", window.matchMedia('(prefers-color-scheme: dark)').matches);
 			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 			currentTheme = prefersDark ? 'dark' : 'light';
 		}

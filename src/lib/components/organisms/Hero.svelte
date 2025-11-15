@@ -10,11 +10,8 @@
 		<h1 class="hello">Hey! I'm Vojtěch</h1>
 		<p class="intro">
 			<span class="left"
-				>Welcome to my personal website! I'm a developer actively building this site with Svelte.</span
+				>I'm a frontend developer. Welcome to my personal website! <br> Feel free to browse my <b>Projects</b>, or my <b>Resume</b>.</span
 			>
-			<span class="right">
-				Feel free to explore my <b>Projects</b>, or my <b>Resume</b>.
-			</span>
 		</p>
 		<div class="hero-buttons">
 			<Button style="understated" href="/goodies">
@@ -36,12 +33,16 @@
 	@use '$lib/scss/breakpoints.scss';
 
 	.container {
-		padding: 40px 0 150px;
+		padding: 40px 0 100px;
 		position: relative;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		overflow: hidden;
+
+		@include breakpoints.for-phone-only {
+			padding: 40px 0 50px;
+		}
 
 		#hero {
 			flex: 1 1 60%; // Allow shrinking
@@ -62,21 +63,19 @@
 				display: flex;
 				flex-direction: column;
 				width: min(100%, 460px);
-				.left {
-					text-align: start;
-				}
-				.right {
-					text-align: end;
-				}
 			}
 
 			.hero-buttons {
 				display: flex;
 				flex-wrap: wrap;
 				align-items: left;
-				justify-content: center;
+				justify-content: left;
 				gap: 10px;
 				width: 100%;
+
+				@include breakpoints.for-phone-only {
+					justify-content: center;
+				}
 			}
 		}
 

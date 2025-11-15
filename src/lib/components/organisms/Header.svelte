@@ -1,87 +1,155 @@
-<script>
+<script lang="ts">
+    import { onDestroy, onMount } from 'svelte';
+    import { fade, fly } from 'svelte/transition';
     import ThemeToggle from '$lib/components/molecules/ThemeToggle.svelte';
-    import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
-    import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
     import NewLogo from '../atoms/NewLogo.svelte';
+    import Typewriter from '$lib/components/atoms/Typewriter.svelte';
+    import NavigationMenuButton from './NavigationMenuButton.svelte';
+    import MobileNavigationOverlay from '$lib/components/molecules/MobileNavigationOverlay.svelte';
+
+    let menuOpen = $state(false);
+    let escapeListenerAttached = $state(false);
+    const overlayId: string = 'navigation-menu-overlay';
+	let typerRef: any;
+	const terminalLines: string[] = [
+		'git fetch --all',
+		'npm run build',
+		'pnpm i',
+		'vite dev --host',
+		'deploy --region=eu',
+		'playwright test',
+		'git push origin master',
+	];
+
+    function onLogoClick(event: MouseEvent) {
+        // if we are in home route - we can start the typer
+        if (window.location.pathname === '/') {
+            event.preventDefault();
+            typerRef?.start();
+        }
+    }
+
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+    }
+
+    function closeMenu() {
+        if (menuOpen) {
+            menuOpen = false;
+        }
+    }
+
+    function onKeydown(event: KeyboardEvent) {
+        if (event && event.key === 'Escape') {
+            closeMenu();
+        }
+    }
+
+    onMount(() => {
+        if (!escapeListenerAttached) {
+            window.addEventListener('keydown', onKeydown);
+            escapeListenerAttached = true;
+        }
+    });
+
+    onDestroy(() => {
+        if (escapeListenerAttached) {
+            window.removeEventListener('keydown', onKeydown);
+            escapeListenerAttached = false;
+        }
+    });
 </script>
 
-<header>
-    <nav class="container">
-        <div class="left">
-            <a class="logo" href="/" aria-label="Site logo">
+<header class="navigation-wrapper">
+    <nav class="menu-top">
+		<div class="left">
+			<a class="logo brand-logo" href="/" aria-label="Site logo" onclick={onLogoClick} style="position: relative;">
                 <NewLogo />
+                <Typewriter bind:this={typerRef} messages={terminalLines} />
             </a>
         </div>
-        <div>
-            <ThemeToggle/>
-        </div>
+
         <div class="right">
-            <a href="/resume">Resume</a>
-            <a target="_blank" rel="noopener noreferrer" title="My Personal Github" href="https://github.com/vojtechmarek-dev">
-                <GitHubIcon />
-            </a>
-            <a target="_blank" rel="noopener noreferrer" title="My LinkedIn" href="https://www.linkedin.com/in/vojtechmarek-dev/">
-                <LinkedInIcon />
-            </a>
+            <ThemeToggle />
+            <NavigationMenuButton
+                open={menuOpen}
+                overlayId={overlayId}
+                onToggle={toggleMenu}
+                onCloseMenu={closeMenu}
+            />
         </div>
     </nav>
+
+    <MobileNavigationOverlay
+        open={menuOpen}
+        overlayId={overlayId}
+        onCloseMenu={closeMenu}
+    />
+
 </header>
 
 <style lang="scss">
     @use '$lib/scss/breakpoints.scss';
 
-    header {
-        padding: 20px 150px;
-        z-index: 4;
-        position: sticky;
-        top: 0px;
-        width: 100%;
-        height: 80px;
-        -webkit-backdrop-filter: saturate(100%) blur(5px);
-        backdrop-filter: saturate(100%) blur(5px);
-        backface-visibility: hidden;
-        perspective: 1000;
-        transform: translateZ(0);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    header.navigation-wrapper {
+        position: relative;
+        z-index: 9999;
+    }
 
-        .container {
+    .menu-top {
+        position: fixed;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        width: min(80%, 500px);
+        background: color-mix(in srgb, var(--color--page-background) 45%, transparent);
+        border: none;
+        backdrop-filter: blur(24px) saturate(120%);
+        border-radius: 1.25rem;
+        border-color: var(--color--primary-tint);
+        border-width: 0.10rem;
+        border-style: solid;
+        position: fixed;
+
+        .left,
+        /* .center, */
+        .right {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
+            gap: 1rem;
+        }
 
-            .left,
-            .right {
-                display: flex;
-                align-items: center;
-            }
-
-            .right a {
-                margin-left: 10px;
-            }
+        .brand-logo {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+        .brand-logo,
+        .logo {
+            line-height: 0;
+        }
+        .logo :global(svg) {
+            height: 22px;
+            width: auto;
         }
 
         @include breakpoints.for-phone-only {
-            padding: 10px;
-            height: 50px;
-
-            .container {
-                .right a {
-                    margin-left: 5px;
-                }
-            }
-        }
-
-        @include breakpoints.for-iphone-se {
-            padding: 5px;
-
-            .container {
-                .right a {
-                    margin-left: 2px;
-                }
-            }
+            //padding: 0.5rem 0.9rem;
         }
     }
+
+    /* Navigation marquee animation for brand text */
+    @keyframes logoLeftAnim {
+        0% { transform: translateX(0%); }
+        50% { transform: translateX(-50%); }
+        100% { transform: translateX(0%); }
+    }
+
+
+
 </style>

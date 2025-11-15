@@ -91,11 +91,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/4)), 1fr));
             gap: 1.5rem;
-            padding: 20px 0 0 0;
+            padding: 20px 0 20px 0;
             position: relative;
 
             @include breakpoints.for-desktop-up {
-                padding: 50px 50px 10px 50px;
+                padding: 50px 0 10px 0;
             }
         }
 

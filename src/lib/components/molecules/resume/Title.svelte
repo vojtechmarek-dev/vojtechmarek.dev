@@ -8,14 +8,23 @@
 		font-size: 52px;
 		margin: 0;
 		font-weight: 700;
-		text-align: center;
+		text-align: left;
 	}
 
 	h5 {
 		margin: 0;
 		font-size: 24px;
 		font-weight: 300;
-		text-align: center;
+		text-align: left;
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 32px;
+		}
+		h5 {
+			font-size: 18px;
+		}
 	}
 
 	@media (min-width: 768px), print {

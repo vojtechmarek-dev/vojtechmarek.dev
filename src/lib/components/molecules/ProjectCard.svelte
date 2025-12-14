@@ -79,6 +79,8 @@
 </Card>
 
 <style lang="scss">
+    @use '$lib/scss/breakpoints.scss' as breakpoints;
+
     .headingContainer {
         display: flex;
         justify-content: space-between;
@@ -112,6 +114,10 @@
         flex-direction: column;
         text-align: left;
         padding: 0px 10px;
+        
+        @include breakpoints.for-phone-only {
+            padding: 0;
+        }
 
         .detail {
             background: color-mix(in srgb, var(--color--text) 8%, transparent);
@@ -120,7 +126,13 @@
             border-left-color: var(--color--primary-contrast);
             border-radius: 4px;
             padding: 12px;
+
             margin: 0.25em 1em;
+
+            @include breakpoints.for-phone-only {
+                margin: 0.25em 0.25em;
+            }
+
         }
     }
 </style>

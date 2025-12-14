@@ -13,7 +13,7 @@
     let anchorRef: HTMLElement|null = $state(null);
 
     // Create tweened stores for each card's scale and opacity
-    const opacities = projects.map(() => new Tween(1, { duration: 400, easing: cubicOut }));
+    let opacities = $derived(projects.map(() => new Tween(1, { duration: 400, easing: cubicOut })));
     const selectedOpacity = new Tween(0, { duration: 800, easing: cubicOut });
 
     function handleCardSelected(index: number) {

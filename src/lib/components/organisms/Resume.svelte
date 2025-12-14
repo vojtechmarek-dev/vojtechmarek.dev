@@ -10,8 +10,10 @@
 </script>
 
 <article class="resume">
-    <section class="name-and-contact">
+    <section class="name">
         <Title />
+    </section>
+    <section class="contact">
         <Contact {yearsOfExperience} />
     </section>
 	<section class="photo">
@@ -23,7 +25,11 @@
 	<section class="about">
 		<SectionTitle>About</SectionTitle>
 		<p>
-			I'm most interested in front-end frameworks (mostly <b>Angular</b>), constantly trying to wrap my head around the next "best". To keep my head cool and resist the temptation of starting projects I know I can't finish, I (sometimes) turn to Java, to keep me grounded.
+			I am a <b>Full-Stack Developer</b> with a primary focus on <b>Front-End</b> technologies. While I am proficient in <b>Java</b> and <b>Spring</b>, my true passion lies in building accessible and performant user interfaces using <b>Angular</b>, <b>Svelte</b> or (if needed) <b>React</b>. 
+		</p>
+		<br />
+		<p>
+			I also have practical experience in <b>DevOps</b>, enabling me to confidently manage review and deploy <b>Docker</b> containers, <b>Ansible</b> playbooks, and <b>Linux</b> environments. Additionally, my background as a <b>Scrum Master</b> has helped me build strong collaboration skills and become a reliable <b>team player</b>.
 		</p>
 	</section>
 	<section class="work">
@@ -37,6 +43,8 @@
 </article>
 
 <style lang="scss">
+	@use '$lib/scss/breakpoints.scss' as breakpoints;
+
     .resume {
         border: 0.15em solid;
         border-color: var(--colo--text);
@@ -50,22 +58,26 @@
 
 		display: grid;
 		gap: 20px 30px;
-		grid-template-columns: 1fr;
+		@include breakpoints.for-phone-only {
+			gap: 0;
+		}
+		grid-template-columns: auto 1fr;
 		grid-template-areas:
-			'photo'
-			'name'
-			'about'
-			'skills'
-			'work'
-			'education';
+			'photo name'
+			'contact contact'
+			'about about'
+			'skills skills'
+			'work work'
+			'education education';
 
 			@media (min-width: 768px), print {
 			padding: 30px 20px;
 			grid-template-columns: 2fr 1fr;
-			grid-template-rows: 1fr 1fr 1fr 1fr;
+			grid-template-rows: min-content min-content 1fr 1fr;
 
 			grid-template-areas:
 				'name photo'
+				'contact photo'
 				'work about'
 				'work skills'
 				'work education';
@@ -73,7 +85,7 @@
 
 		@media (min-width: 900px), print {
 			margin: 20px auto;
-			max-width: 210mm;
+			max-width: 240mm;
 			box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.6), 1px 3px 8px rgba(39, 44, 49, 0.3);
 		}
 
@@ -82,24 +94,35 @@
 			border-radius: 10px;
 			z-index: 1;
 
-			&.name-and-contact {
+			&.name {
 				grid-area: name;
 				display: flex;
 				flex-direction: column;
-				justify-content: space-between;
+				justify-content: center;
+			}
+			&.contact {
+				grid-area: contact;
 			}
 			&.photo {
 				grid-area: photo;
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				
+				img {
+					max-width: 100px;
+					height: auto;
+				}
+
+				@media (min-width: 768px), print {
+					img {
+						max-width: 100%;
+					}
+				}
 			}
 			&.about {
 				grid-area: about;
 
-				p {
-					text-align: justify;
-				}
 			}
 			&.work {
 				grid-area: work;

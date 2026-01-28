@@ -11,6 +11,7 @@ export interface WorkExperience {
     location: string;
     description: string;
     skills: Skill[];
+    secondments?: WorkExperience[];
 }
 
 export interface Project {
@@ -119,7 +120,19 @@ export const WORK_EXPERIENCE_LIST: WorkExperience[] = [
         location: 'CZ, Brno',
         description:
             'Design and development of new features, with main emphasis on front-end development. Concurrently, developing backend side using Java, designing and implementing APIs, as well as adapters for external systems using Spring Integration. Fine-tuning application logic and implementing integration adapters for hardware used as calling systems on devices such as Raspberry Pi.',
-        skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'Spring Framework' }, { label: 'Debian' }, { label: 'Ansible' }]
+        skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'Spring Framework' }, { label: 'Debian' }, { label: 'Ansible' }],
+        secondments: [
+            {
+                title: 'Senior Front End Developer',
+                company: 'ELSO SERVICE BRNO, s.r.o.',
+                timeframe: '2025',
+                location: 'CZ, Brno',
+                current: false,
+                skills: [],
+                description:
+                    'Deployed as a Senior Frontend Developer to spearhead the delivery of a critical data platform for the Czech Statistical Office (ČSÚ). Architected the foundation of a shared application platform to unify internal tools while bootstrapping and upskilling the junior development team. Aided with migration of legacy software into a strictly typed React environment, introducing Jotai to orchestrate complex shared state across micro-apps.',
+            }
+        ]
     }
 ];
 

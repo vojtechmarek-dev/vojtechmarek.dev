@@ -8,6 +8,13 @@
 			<span class="tag">Material</span>
 			<span class="tag">Bootstrap</span>
             <span class="tag">Svelte</span>
+			<span class="tag">React</span>
+			<span class="tag">Jotai</span>
+			<span class="tag">Tailwind</span>
+			<span class="tag">NodeJS</span>
+			<span class="tag">Drizzle</span>
+			<span class="tag">Zod</span>
+
 		</div>
 	</li>
 	<li>

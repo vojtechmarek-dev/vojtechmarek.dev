@@ -107,6 +107,9 @@
         justify-content: space-between;
         gap: 0.75rem;
         width: min(80%, 500px);
+        @include breakpoints.for-phone-only {
+            width: 90%;
+        }
         background: color-mix(in srgb, var(--color--page-background) 45%, transparent);
         border: none;
         backdrop-filter: blur(24px) saturate(120%);

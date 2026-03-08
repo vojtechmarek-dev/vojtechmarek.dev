@@ -47,12 +47,19 @@
 
     .resume {
         border: 0.15em solid;
-        border-color: var(--colo--text);
+        border-color: var(--color--text);
         border-radius: 8px;
+		@include breakpoints.for-phone-only {
+			border: none;border-radius: 8px;
+
+		}
         padding: 0.5em;
 
 		font-size: 16px;
 		background-color: var(--color--page-background);
+		@include breakpoints.for-phone-only {
+			background-color: color-mix(in srgb, var(--color--page-background) 65%, transparent);
+		}
 		position: relative;
 		overflow: hidden;
 
@@ -60,6 +67,7 @@
 		gap: 20px 30px;
 		@include breakpoints.for-phone-only {
 			gap: 0;
+			
 		}
 		grid-template-columns: auto 1fr;
 		grid-template-areas:

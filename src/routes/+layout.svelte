@@ -48,7 +48,7 @@
         z-index: 3;
 
         @include breakpoints.for-phone-only {
-            padding: 40px 40px 20px;
+            padding: 50px 16px 20px;
         }
     }
 </style>

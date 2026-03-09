@@ -28,8 +28,11 @@
 					<div class="company-info">
 						<small>{entry.company}</small> 
 						<small class="separator"> | </small>
-						<span class="icon"><PinIcon /></span> 
-						<small>{entry.location}</small>
+						
+						<div class="location">
+							<span class="icon"><PinIcon /></span> 
+							<small>{entry.location}</small>
+						</div>
 					</div>
 				</div>
 
@@ -58,8 +61,7 @@
 											<small class="secondment-label"><u>Secondment</u></small>
 											<small class="company">{secondment.company}</small>
 											<span class="separator">|</span>
-											<span class="icon"><PinIcon /></span>
-											<small class="location">{secondment.location}</small>
+											<span class="location"><span class="icon"><PinIcon /></span> <small>{secondment.location}</small></span>
 										  </div>
 									</div>
 									<p>{secondment.description}</p>
@@ -73,6 +75,8 @@
 	{/each}
 </div>
 <style lang="scss">
+	@use '$lib/scss/breakpoints.scss';
+
 	.resume-experience {
 		.experience {
 			display: flex;
@@ -126,11 +130,26 @@
 					flex-direction: row;
 					align-items: center;
 					gap: 2px;
+
+					@include breakpoints.for-phone-only {
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+					}
 					.secondment-label {
 						margin-right: 5px;
 					}
 					.separator {
 						margin: 0 5px;
+						@include breakpoints.for-phone-only {
+							display: none;	
+						}
+					}
+					.location {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						gap: 2px;
 					}
 				}
 				.company-name {

@@ -125,9 +125,9 @@ export const WORK_EXPERIENCE_LIST: WorkExperience[] = [
             {
                 title: 'Senior Front End Developer',
                 company: 'ELSO SERVICE BRNO, s.r.o.',
-                timeframe: '2025',
+                timeframe: '2025/26',
                 location: 'CZ, Brno',
-                current: false,
+                current: true,
                 skills: [],
                 description:
                     'Deployed as a Senior Frontend Developer to spearhead the delivery of a critical data platform for the Czech Statistical Office (ČSÚ). Architected the foundation of a shared application platform to unify internal tools while bootstrapping and upskilling the junior development team. Aided with migration of legacy software into a strictly typed React environment, introducing Jotai to orchestrate complex shared state across micro-apps.',

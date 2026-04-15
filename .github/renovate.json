@@ -15,10 +15,10 @@
       "automergeType": "pr"
     },
     {
-      "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies",
-      "groupSlug": "all-non-major"
+      "groupSlug": "all-non-major",
+      "matchPackageNames": ["*"]
     }
   ]
 }

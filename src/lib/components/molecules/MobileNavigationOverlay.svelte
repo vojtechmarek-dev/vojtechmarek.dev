@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import NewLogo from '../atoms/NewLogo.svelte';
+	import Logo from '../atoms/Logo.svelte';
 	import MenuLinks from './MenuLinks.svelte';
     import XmarkIcon from '$lib/icons/XmarkIcon.svelte';
 
@@ -50,7 +50,7 @@
 		>
 			<div class="panel-top">
 				<a class="logo" href="/" aria-label="Site logo" onclick={onCloseMenu}>
-					<NewLogo />
+					<Logo />
 				</a>
 				<button class="close" aria-label="Close navigation" onclick={onCloseMenu}>
 					<XmarkIcon/>

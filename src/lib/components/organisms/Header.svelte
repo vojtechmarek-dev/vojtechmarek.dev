@@ -1,8 +1,7 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte';
-    import { fade, fly } from 'svelte/transition';
     import ThemeToggle from '$lib/components/molecules/ThemeToggle.svelte';
-    import NewLogo from '../atoms/NewLogo.svelte';
+    import Logo from '../atoms/Logo.svelte';
     import Typewriter from '$lib/components/atoms/Typewriter.svelte';
     import NavigationMenuButton from './NavigationMenuButton.svelte';
     import MobileNavigationOverlay from '$lib/components/molecules/MobileNavigationOverlay.svelte';
@@ -63,8 +62,8 @@
 <header class="navigation-wrapper">
     <nav class="menu-top">
 		<div class="left">
-			<a class="logo brand-logo" href="/" aria-label="Site logo" onclick={onLogoClick} style="position: relative;">
-                <NewLogo />
+			<a class="logo brand-logo" href="/" aria-label="Site logo" onclick={onLogoClick}>
+                <Logo/>
                 <Typewriter bind:this={typerRef} messages={terminalLines} />
             </a>
         </div>
@@ -110,7 +109,7 @@
         @include breakpoints.for-phone-only {
             width: 90%;
         }
-        background: color-mix(in srgb, var(--color--page-background) 45%, transparent);
+        background: color-mix(in srgb, var(--color--card-background) 70%, transparent);
         border: none;
         backdrop-filter: blur(24px) saturate(120%);
         border-radius: 1.25rem;
@@ -131,14 +130,8 @@
             display: flex;
             justify-content: left;
             align-items: center;
-        }
-        .brand-logo,
-        .logo {
-            line-height: 0;
-        }
-        .logo :global(svg) {
-            height: 22px;
-            width: auto;
+            text-decoration: none;
+            position: relative;
         }
 
         @include breakpoints.for-phone-only {

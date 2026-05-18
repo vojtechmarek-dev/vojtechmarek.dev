@@ -98,14 +98,14 @@
 	.tw {
 		position: absolute;
 		top: 50%;
-		left: 100%;
+		left: calc(100% + 0.6rem);
 		transform: translateY(-50%);
 		padding: 0;
 		background: transparent;
 		border: none;
 		border-radius: 0;
 		box-shadow: none;
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+		font-family: var(--font--mono);
 		font-size: 0.85rem;
 		color: var(--color--text);
 		white-space: nowrap;

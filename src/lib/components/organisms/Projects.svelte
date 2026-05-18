@@ -4,6 +4,7 @@
     import type { Project } from '$lib/data/work-experiences';
     import Button from '../atoms/Button.svelte';
     import ProjectCard from '../molecules/ProjectCard.svelte';
+    import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
 
     let { projects }: { projects: Project[] } = $props();
 
@@ -45,8 +46,9 @@
 
 <section class="projects-section">
     <header class="heading" bind:this={anchorRef}>
-        <h2>Projects</h2>
-        <p>Here are some of the projects I've worked on. Each one highlights the tools and frameworks I've used.</p>
+        <DecorativeHeader type="h5" color="primary"># PROJECTS</DecorativeHeader>
+        <h2>Things I've shipped</h2>
+        <p class="description">A selection of clinical and integration systems I’ve led or contributed to.</p>
     </header>
     <div class="grid">
         {#each projects as project, index}
@@ -82,9 +84,14 @@
         .heading {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 10px;
+            align-items: start;
+            text-align: start;
+            gap: 5px;
+        }
+
+        .description {
+            color: var(--color--text-dim);
+            max-width: 600px;
         }
 
         .grid {

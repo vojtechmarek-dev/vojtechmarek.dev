@@ -1,16 +1,19 @@
 @use '$lib/scss/_mixins.scss';
 
 @mixin base-theme {
-    @include mixins.define-color('page-background', #ffffff);
-    @include mixins.define-color('page-hero-background-gradient-from', #e8f0ff); // todo maybe a better solution?
-    @include mixins.define-color('page-hero-background-gradient-to', #f8fbff);
-    //@include mixins.define-color('card-background', #171f2e);
-    @include mixins.define-color('primary', #4433ff);
-    @include mixins.define-color('primary-contrast', #4433ff);
+    @include mixins.define-color('page-background', #f3f3ee);
+    @include mixins.define-color('page-background-alt', #e8e8e0);
+    @include mixins.define-color('card-background', #ffffff);
+    @include mixins.define-color('border', rgba(20,20,30,0.10)); // use
+    @include mixins.define-color('border-strong', rgba(255,255,255,0.16)); // use
+    @include mixins.define-color('primary', #2a4adb);
+    @include mixins.define-color('primary-contrast', #2a4adb);
     @include mixins.define-color('primary-tint', #e5eeff);
-    @include mixins.define-color('primary-accent', #9747ff);
+    @include mixins.define-color('primary-accent', #2a4adb);
     @include mixins.define-color('primary-accent-tint', #e0ddff);
-    @include mixins.define-color('text', #1c1e26);
+    @include mixins.define-color('text', #14141e);
+    @include mixins.define-color('text-dim', #525266); // use it
+    @include mixins.define-color('text-faint', #8e8e9c); // use it
     @include mixins.define-color('inverse-text', #E5EEFF);
     @include mixins.define-color('sun', #ffc700);
     @include mixins.define-color('moon', #f0f0f0);
@@ -18,16 +21,19 @@
 }
 
 @mixin dark-theme {
-    @include mixins.define-color('page-background', #0b132b);                   
-    @include mixins.define-color('page-hero-background-gradient-from', #1c2541);
-    @include mixins.define-color('page-hero-background-gradient-to', #0b132b);
-    @include mixins.define-color('card-background', #1c2541);                   
-    @include mixins.define-color('primary', #3e89e2);                           
+    @include mixins.define-color('page-background', #0b1024);
+    @include mixins.define-color('page-background-alt', #0e152e);
+    @include mixins.define-color('card-background', rgba(255,255,255,0.025));
+    @include mixins.define-color('border', rgba(255,255,255,0.08)); // use
+    @include mixins.define-color('border-strong', rgba(255,255,255,0.16)); // use
+    @include mixins.define-color('primary', #7ab7ff);
     @include mixins.define-color('primary-contrast', #b9d8fd);                  
-    @include mixins.define-color('primary-tint', #1c2541);                      
-    @include mixins.define-color('primary-accent', #3e89e2);                    
+    @include mixins.define-color('primary-tint', #1c2541);
+    @include mixins.define-color('primary-accent', #7ab7ff);
     @include mixins.define-color('primary-accent-tint', #111827);               
-    @include mixins.define-color('text', #c5d0e6);                              
+    @include mixins.define-color('text', #e8ecf5);
+    @include mixins.define-color('text-dim', #9aa3b8); // use it
+    @include mixins.define-color('text-faint', #5a6378); // use it
     @include mixins.define-color('inverse-text', #1c1e26);
     @include mixins.define-color('sun', #ffc700);
     @include mixins.define-color('moon', #f0f0f0);

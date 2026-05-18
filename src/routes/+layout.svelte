@@ -37,7 +37,7 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh; // Ensure wrapper takes full viewport height
-        background-color: var(--color--page-background);
+        background-color: var(--color--page-background-alt);
         color: var(--color--text);
     }
 

@@ -14,6 +14,19 @@ export interface WorkExperience {
     secondments?: WorkExperience[];
 }
 
+export interface TerminalField {
+    key: string;
+    value: string;
+    type: 'string' | 'number' | 'identifier';
+}
+
+export interface FeaturedMeta {
+    command?: string;
+    varName?: string;
+    role?: string;
+    fields: TerminalField[];
+}
+
 export interface Project {
     title: string;
     description: string;
@@ -21,6 +34,8 @@ export interface Project {
     timeframe: string;
     link?: string;
     details?: string[];
+    featured?: boolean;
+    featuredMeta?: FeaturedMeta;
 }
 
 export const PROJECT_LIST: Project[] = [
@@ -29,15 +44,23 @@ export const PROJECT_LIST: Project[] = [
         description:
             'Healthcare appointment scheduling and calling system, streamlining patient scheduling and queue management with HL7 model support for integration.',
         skills: [{ label: 'Angular' }, { label: 'Java' }, { label: 'LDAP' }, { label: 'HL7' }, { label: 'PostgreSQL' }],
-        timeframe: "2017-present",
-        link: "https://www.artiisgroup.cz/",
-        details: [
-            "Progressed from Front-End Developer to Full-Stack Developer, and ultimately took on leadership as Scrum Master, contributing across the full development lifecycle.",
-            "Built responsive and maintainable user interfaces using Angular, focusing on performance, accessibility, and code quality.",
-            "Led the development and desing of new application modules and ensured up-to-date and secure front-end libraries through proactive dependency management.",
-            "Designed and developed RESTful APIs and scheduling algorithms to support complex business rules and real-time data processing.",
-            "Oversaw sprint planning, execution, and delivery, ensuring alignment with Scrum principles and timely delivery of sprint goals."
-          ]
+        timeframe: '2017-present',
+        link: 'https://www.artiisgroup.cz/',
+        featured: true,
+        featuredMeta: {
+            command: 'cat README.md',
+            varName: 'project',
+            role: 'Lead Frontend',
+            fields: [
+                { key: 'name',     value: 'MediOrganizer', type: 'string' },
+                { key: 'domain',   value: 'healthcare',    type: 'string' },
+                { key: 'scale',    value: '40+ clinics',   type: 'string' },
+                { key: 'patients', value: '2_400_000',     type: 'number' },
+                { key: 'uptime',   value: '99.97%',        type: 'string' },
+                { key: 'team',     value: '6',             type: 'number' },
+                { key: 'role',     value: 'Lead Frontend', type: 'string' },
+            ]
+        }
     },
     {
         title: 'MediShare',

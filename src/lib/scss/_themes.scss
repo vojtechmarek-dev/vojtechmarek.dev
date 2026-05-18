@@ -17,7 +17,7 @@
     @include mixins.define-color('text-inverse', #f3f3ee);
     @include mixins.define-color('sun', #ffc700);
     @include mixins.define-color('moon', #f0f0f0);
-    
+    @include mixins.define-color('code-panel-bg', #1a1a24);
 }
 
 @mixin dark-theme {
@@ -37,6 +37,7 @@
     @include mixins.define-color('text-inverse', #0b1024);
     @include mixins.define-color('sun', #ffc700);
     @include mixins.define-color('moon', #f0f0f0);
+    @include mixins.define-color('code-panel-bg', #070b1c);
 }
 
 :root {

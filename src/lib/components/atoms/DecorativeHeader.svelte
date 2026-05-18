@@ -1,10 +1,11 @@
 <script lang="ts">
     export let type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h1';
     export let color: 'primary' | 'accent' | 'faded' = 'primary';
+    export let size: 'meta' | undefined = undefined;
     //export let transform: 'uppercase' | 'lowercase' | 'capitalize' | 'none' = 'uppercase';
 </script>
 
-<svelte:element this={type} class="decorative-header" class:primary={color === 'primary'} class:accent={color === 'accent'} class:faded={color === 'faded'}>
+<svelte:element this={type} class="decorative-header" class:primary={color === 'primary'} class:accent={color === 'accent'} class:faded={color === 'faded'} class:size-meta={size === 'meta'}>
     <slot />
 </svelte:element>
 
@@ -13,7 +14,6 @@
         font-weight: 500;
         line-height: 1.2;
         letter-spacing: 0.1em;
-        //text-transform: uppercase;
         margin: 0;
         font-family: var(--font--mono);
 
@@ -27,6 +27,10 @@
 
         &.faded {
             color: var(--color--text-dim);
+        }
+
+        &.size-meta {
+            font-size: var(--text--mono-meta);
         }
     }
 </style>

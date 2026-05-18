@@ -32,7 +32,7 @@
         padding: 50px 200px;
 
         @include breakpoints.for-phone-only {
-            padding: 50px 16px;
+            padding: 50px 24px;
         }
 
         .content {

@@ -52,6 +52,10 @@
 			position: relative;
 			padding: 20px 20px 70px 20px;
 
+			@include breakpoints.for-phone-only {
+				padding: 20px 0 50px 0;
+			}
+
 			.hello {
 				text-align: left;
 				margin: unset;

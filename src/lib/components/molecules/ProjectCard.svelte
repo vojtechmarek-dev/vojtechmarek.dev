@@ -5,6 +5,7 @@
     import NavArrowLeftIcon from '$lib/icons/NavArrowIcon.svelte';
     import Button from '../atoms/Button.svelte';
     import Card from '../atoms/Card.svelte';
+    import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
     import Tag from '../atoms/Tag.svelte';
 
     let {
@@ -33,8 +34,13 @@
 
 <Card>
     <div class="headingContainer" slot="heading">
-        <div>{title}</div>
-        {#if link}<a href={link} target="_blank" rel="noopener noreferrer"><InternetIcon /></a>{/if}
+        <div class="decorativeRow">
+            <DecorativeHeader color="faded" type="h6">~/projects/{title.toLocaleLowerCase()}</DecorativeHeader>
+            {#if link}<Button size="icon-only" style="clear" href={link}><InternetIcon slot="icon" /></Button>{/if}
+        </div>
+        <div class="headingRow">
+            <div>{title}</div>
+        </div>
     </div>
     <div class="timeframe">
         {timeframe}
@@ -83,7 +89,20 @@
 
     .headingContainer {
         display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .decorativeRow {
+        display: flex;
         justify-content: space-between;
+        align-items: center;
+        color: var(--color--text-dim);
+    }
+
+    .headingRow {
+        display: flex;
+        align-items: center;
     }
 
     .footer {
@@ -120,11 +139,9 @@
         }
 
         .detail {
-            background: color-mix(in srgb, var(--color--text) 8%, transparent);
-            border-left-width: 4px; 
-            border-left-style: solid; 
-            border-left-color: var(--color--primary-contrast);
-            border-radius: 4px;
+            background: var(--color--card-background);
+            border: 1px solid var(--color--border);
+            border-radius: 10px;
             padding: 12px;
 
             margin: 0.25em 1em;

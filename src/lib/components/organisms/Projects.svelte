@@ -71,9 +71,6 @@
                 />
             </div>
         {/each}
-        <div class="buttons">
-            <Button style="primary" href="/resume">View Resume</Button>
-        </div>
     </div>
 </section>
 
@@ -120,12 +117,6 @@
                     max-width: 70%;
                 }
             }
-        }
-
-        .buttons {
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
         }
     }
 </style>

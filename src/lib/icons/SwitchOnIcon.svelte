@@ -15,7 +15,7 @@
     ><path d="M17 17H7A5 5 0 017 7h10a5 5 0 010 10z" fill="currentColor" stroke="currentColor" stroke-width="1.5" /><path
         d="M17 13a1 1 0 100-2 1 1 0 000 2z"
         fill="#000000"
-        stroke="var(--color--inverse-text)"
+        stroke="var(--color--text-inverse)"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"

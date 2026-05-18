@@ -90,7 +90,7 @@
 		position: absolute;
 		top: 0px;
 		width: 100vw;
-		height: min(75vh, 500px);
+		height: min(75vh, 600px);
 		@include breakpoints.for-phone-only {
 			height: min(75vh, 420px);
 		}

@@ -70,6 +70,7 @@
 
     .description {
         opacity: 75%;
+        margin: 20px 0;
     }
 
     .timeframe {

@@ -12,7 +12,7 @@
 <section class="projects-section">
     <header class="heading">
         <DecorativeHeader type="h4" color="primary"># PROJECTS</DecorativeHeader>
-        <h2>Things I've shipped</h2>
+        <h2>Things I've helped ship</h2>
         <p class="description">A selection of clinical and integration systems I've led or contributed to.</p>
     </header>
 

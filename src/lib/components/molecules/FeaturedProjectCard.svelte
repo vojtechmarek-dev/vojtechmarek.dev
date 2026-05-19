@@ -50,6 +50,7 @@
             command={featuredMeta.command ?? 'cat README.md'}
             varName={featuredMeta.varName ?? 'project'}
             fields={featuredMeta.fields}
+            animate
         />
     </div>
 </div>
@@ -119,8 +120,8 @@
 
     .description {
         color: var(--color--text-dim);
-        margin: 0;
         max-width: 480px;
+        margin-bottom: 20px;
     }
 
     .tags {

@@ -1,42 +1,5 @@
-export interface Skill {
-    label: string;
-    color?: string;
-}
-
-export interface WorkExperience {
-    title: string;
-    company: string;
-    timeframe: string;
-    current: boolean;
-    location: string;
-    description: string;
-    skills: Skill[];
-    secondments?: WorkExperience[];
-}
-
-export interface TerminalField {
-    key: string;
-    value: string;
-    type: 'string' | 'number' | 'identifier';
-}
-
-export interface FeaturedMeta {
-    command?: string;
-    varName?: string;
-    role?: string;
-    fields: TerminalField[];
-}
-
-export interface Project {
-    title: string;
-    description: string;
-    skills: Skill[];
-    timeframe: string;
-    link?: string;
-    details?: string[];
-    featured?: boolean;
-    featuredMeta?: FeaturedMeta;
-}
+export type { Skill, WorkExperience, TerminalField, FeaturedMeta, Project } from './types';
+import type { WorkExperience, Project } from './types';
 
 export const PROJECT_LIST: Project[] = [
     {
@@ -48,24 +11,24 @@ export const PROJECT_LIST: Project[] = [
         link: 'https://www.artiisgroup.cz/',
         featured: true,
         featuredMeta: {
-            command: 'cat README.md',
+            command: 'cat mediorganizer.info',
             varName: 'project',
             role: 'Lead Frontend',
             fields: [
                 { key: 'name',     value: 'MediOrganizer', type: 'string' },
                 { key: 'domain',   value: 'healthcare',    type: 'string' },
-                { key: 'scale',    value: '40+ clinics',   type: 'string' },
-                { key: 'patients', value: '2_400_000',     type: 'number' },
+                { key: 'scale',    value: '8+ clinics',    type: 'string' },
                 { key: 'uptime',   value: '99.97%',        type: 'string' },
                 { key: 'team',     value: '6',             type: 'number' },
-                { key: 'role',     value: 'Lead Frontend', type: 'string' },
+                { key: 'dev_role', value: 'Lead Frontend', type: 'string' },
+                { key: 'team_role', value: 'Scrum Master',   type: 'string' }
             ]
         }
     },
     {
         title: 'MediShare',
         description:
-            'Online scheduling system designed for healthcare with dynamic module snap-ins configuration, SSO login, and OAuth2 for secure authentication.',
+            'Patient appointment portal integrated with MediOrganizer, featuring configurable module snap-ins, SSO, payment processing, and OAuth2 authentication.',
         skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }, {label: 'Material Design'}],
         timeframe: "2022-present",
         link: "https://mamoobjpac.fnol.cz/",

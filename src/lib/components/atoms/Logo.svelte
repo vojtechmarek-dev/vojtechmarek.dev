@@ -1,5 +1,5 @@
 <script lang="ts">
-    let { gap = '0.2em' }: { gap?: string } = $props();
+    let { gap = '0.5em' }: { gap?: string } = $props();
 </script>
 
 <span class="logo-text">

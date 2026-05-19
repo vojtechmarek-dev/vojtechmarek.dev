@@ -41,7 +41,7 @@
     <a class="nav-link" class:active={$page.url.pathname === '/resume'} href="/resume">resume</a>
     <a class="nav-link" class:active={$page.url.pathname === '/goodies'} href="/goodies">goodies</a>
 </nav>
-
+<span class="nav-separator">|</span>
 <ThemeToggle />
 
 <NavigationMenuButton
@@ -63,6 +63,16 @@
         display: flex;
         align-items: center;
         gap: 0.125rem;
+
+        @include breakpoints.for-phone-only {
+            display: none;
+        }
+    }
+    
+    .nav-separator {
+        display: inline-block;
+        margin: 0 0.25rem;
+        color: var(--color--text-faint);
 
         @include breakpoints.for-phone-only {
             display: none;

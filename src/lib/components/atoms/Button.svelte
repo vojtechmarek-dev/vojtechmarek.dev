@@ -65,8 +65,17 @@
         font-weight: 600;
 
         .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 20px;
             height: 20px;
+
+            :global(svg) {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
         }
 
         &.style {

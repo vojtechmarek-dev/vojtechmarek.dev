@@ -130,14 +130,6 @@
         gap: 6px;
     }
 
-    .footer-links {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: auto;
-        color: var(--color--text-dim);
-    }
-
     .right {
         min-height: 200px;
     }

@@ -17,7 +17,7 @@
             <span class="sep">·</span>
             <a href="https://github.com/vojtechmarek-dev" target="_blank" rel="noopener noreferrer">github/vojtechmarek-dev</a>
             <span class="sep">·</span>
-            <a href="https://linkedin.com/in/vojtechmarek" target="_blank" rel="noopener noreferrer">linkedin</a>
+            <a href="https://linkedin.com/in/vojtechmarek-dev" target="_blank" rel="noopener noreferrer">linkedin</a>
         </div>
     </div>
 </footer>
@@ -67,10 +67,18 @@
             font-size: 12px;
             color: var(--color--text-dim);
             flex-wrap: wrap;
+            @include breakpoints.for-phone-only {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
         }
 
         .sep {
             color: var(--color--text-faint);
+            @include breakpoints.for-phone-only {
+                display: none;
+            }
         }
     }
 </style>

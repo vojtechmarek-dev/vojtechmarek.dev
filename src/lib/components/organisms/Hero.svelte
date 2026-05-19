@@ -3,10 +3,12 @@
 	import SuitcaseIcon from '$lib/icons/SuitcaseIcon.svelte';
 	import WrenchIcon from '$lib/icons/WrenchIcon.svelte';
 	import Button from '../atoms/Button.svelte';
+    import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
 </script>
 
 <div class="container">
 	<section id="hero">
+		<DecorativeHeader type="h5" color="primary">$ ls ~/</DecorativeHeader>
 		<h1 class="hello">Hey! I'm <span class="name">Vojtěch</span>.</h1>
 		<p class="intro">
 			<span class="description">
@@ -50,7 +52,7 @@
 			align-items: start;
 			gap: 15px !important;
 			position: relative;
-			padding: 20px 20px 70px 20px;
+			padding: 20px 0 70px 0;
 
 			@include breakpoints.for-phone-only {
 				padding: 20px 0 50px 0;

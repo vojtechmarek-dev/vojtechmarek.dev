@@ -22,7 +22,7 @@
         display: flex; /* or inline-flex */
         align-items: start;
         justify-content: start;
-        padding: 80px 0 200px;
+        padding: 80px 0 210px;
 
         @include breakpoints.for-phone-only {
             padding: 40px 0 100px;

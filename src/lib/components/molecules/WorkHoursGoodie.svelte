@@ -1,10 +1,9 @@
 <script lang="ts">
     import Goodie from '../atoms/Goodie.svelte';
     import NavArrowIcon from '$lib/icons/NavArrowIcon.svelte';
+    import WatchIcon from '$lib/icons/WatchIcon.svelte';
     import { getFirstDayOfMonth, getLastDateOfMonth, getBusinessAndHolidays, getPreviousMonthDate, getNextMonthDate } from '$lib/utils/dates';
     import Button from '../atoms/Button.svelte';
-    import SwitchOffIcon from '$lib/icons/SwitchOffIcon.svelte';
-    import SwitchOnIcon from '$lib/icons/SwitchOnIcon.svelte';
 
     export let workDayHours = 8;
 
@@ -12,11 +11,9 @@
     let month = date.toLocaleString('en', { month: 'long' });
     let currentYear = date.getFullYear();
     let year = currentYear;
-    
+
     let { workDays, businessdayHolidays, weekendHolidays } = { workDays: 0, businessdayHolidays: 0, weekendHolidays: 0 };
     let holidaysOn = true;
-    let previewCurrentMonth = false;
-
 
     $: {
         month = date.toLocaleString('en', { month: 'long' });
@@ -31,45 +28,35 @@
 </script>
 
 <Goodie>
-    <div class="headingContainer" slot="heading">
-        <div>Work Hours</div>
-        <div class="tooltip">
-            <Button style="clear" size={'icon-only'} on:click={() => (holidaysOn = !holidaysOn)}>
-                {#if holidaysOn}
-                    <div>
-                        <SwitchOnIcon activated={true}/>
-                    </div>
-                {:else}
-                    <SwitchOffIcon />
-                {/if}
-            </Button>
-            <span class="tooltiptext">{holidaysOn ? 'Holidays ON' : 'Holidays OFF'}</span>
-        </div>
+    <span slot="heading">Work Hours</span>
+    <div slot="icon"><WatchIcon /></div>
+    <span slot="description">Working days, holidays and tracked hours for the month.</span>
+
+    <span slot="value">{workDays * workDayHours}</span>
+    <span slot="caption">hours this month</span>
+
+    <div slot="left" class="stats">
+        <span><b>{workDays}</b> work days</span>
+        <button
+            type="button"
+            class="holiday-toggle"
+            class:off={!holidaysOn}
+            title={holidaysOn
+                ? (weekendHolidays ? `weekend holidays (${weekendHolidays}) not incl.` : 'Holidays ON — click to disable')
+                : 'Holidays OFF — click to enable'}
+            on:click={() => (holidaysOn = !holidaysOn)}
+        >
+            <b>{businessdayHolidays}{weekendHolidays ? '*' : ''}</b> holidays
+        </button>
     </div>
-    <div slot="description" class="description">
-        <li><b>{workDays}</b> work days</li>
-        <div class="holidayContainer">
-            {#if !weekendHolidays}
-                <li><b>{businessdayHolidays}</b> holidays</li>
-            {:else}
-                <div class="tooltip">
-                    <li><b>{businessdayHolidays}*</b> holidays</li>
-                    <span class="tooltiptext">{'weekend holidays ( ' + weekendHolidays + ' ) not incl.'}</span>
-                </div>
-            {/if}
-        </div>
-    </div>
-    <div slot="value">{workDays * workDayHours}</div>
-    <div slot="control" class="monthControl">
+
+    <div slot="right" class="monthControl">
         <Button on:click={() => (date = getPreviousMonthDate(date))} style="clear" size="icon-only">
             <NavArrowIcon direction="left" />
         </Button>
-        <Button style="{previewCurrentMonth ? 'tint' : 'solid'}"
-            on:mouseenter={() => {previewCurrentMonth = month != new Date().toLocaleString('en', { month: 'long' })}} 
-            on:mouseleave={() => {previewCurrentMonth = false}} 
-            on:click={() => {date = new Date();previewCurrentMonth = false;}}>
-            <div>{previewCurrentMonth ? "Go Back" : month}</div>
-            {#if year != currentYear && !previewCurrentMonth}
+        <Button style="tint" size="small" on:click={() => (date = new Date())}>
+            <span>{month}</span>
+            {#if year != currentYear}
                 <sup class="currentYear">{year}</sup>
             {/if}
         </Button>
@@ -80,62 +67,42 @@
 </Goodie>
 
 <style lang="scss">
-    .headingContainer {
+    @use '$lib/scss/breakpoints.scss';
+
+    .stats {
         display: flex;
-        justify-content: space-between;
+        gap: 18px;
+        @include breakpoints.for-phone-only {
+            flex-direction: column;
+            gap: 8px;
+        }
+        align-items: start;
+
+        b {
+            color: var(--color--text);
+        }
+    }
+
+    .holiday-toggle {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        color: inherit;
+        font: inherit;
+
+        &.off {
+            opacity: 0.5;
+        }
     }
 
     .monthControl {
         display: flex;
-        justify-content: space-around;
         align-items: center;
-        padding: 10px;
+        gap: 4px;
     }
 
     .currentYear {
         font-size: xx-small;
     }
-
-    .tooltip {
-        position: relative;
-        display: inline-block;
-    }
-
-    .holidayContainer {
-        display: flex;
-        align-items: center;
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 3;
-        bottom: 110%;
-        left: 50%;
-        margin-left: -60px;
-        font-size: small;
-    }
-
-    .tooltip .tooltiptext::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
-
-
 </style>

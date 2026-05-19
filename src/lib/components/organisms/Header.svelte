@@ -15,9 +15,7 @@
     ];
 
     function onLogoClick() {
-        if (window.location.pathname === '/') {
-            typerRef?.start();
-        }
+        typerRef?.start();
     }
 </script>
 

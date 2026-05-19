@@ -43,7 +43,7 @@
 
     .main-area {
         flex: 1; // Makes sure this grows to fill available space
-        padding: 30px 200px 100px;
+        padding: 10px 100px 100px;
         position: relative;
         z-index: 3;
 

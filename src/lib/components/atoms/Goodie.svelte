@@ -18,8 +18,8 @@
         width: 280px;
         min-height: 225px;
         max-height: 500px;
-        border: 0.15em solid;
-        border-radius: 8px;
+        border: 0.1px solid var(--color--border);
+        border-radius: 10px;
         padding: 0.5em;
     }
 

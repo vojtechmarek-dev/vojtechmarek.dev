@@ -1,3 +1,5 @@
+@use '$lib/scss/breakpoints.scss';
+
 a {
     color: var(--color--text);
     text-decoration-color: var(--color--primary);
@@ -8,4 +10,58 @@ a {
     &:hover {
         text-underline-offset: 0.3em;
     }
+}
+
+h1 {
+    font-size: var(--text--h1);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+
+    @include breakpoints.for-phone-only {
+        font-size: var(--text--h1-mobile);
+        line-height: 1.05;
+    }
+}
+
+h2 {
+    font-size: var(--text--h2);
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: var(--text--card-title);
+    line-height: 1.2;
+    font-weight: 600;
+
+    @include breakpoints.for-phone-only {
+        font-size: var(--text--card-title-mobile);
+    }
+}
+
+p,
+li {
+    font-size: var(--text--body);
+    line-height: 1.55;
+}
+
+/* Mono metadata: paths, chip labels, metadata, code accents */
+.mono-meta {
+    font-family: var(--font--mono);
+    font-size: var(--text--mono-meta);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+
+    &.caps {
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+}
+
+code,
+pre,
+kbd {
+    font-family: var(--font--mono);
+    font-size: var(--text--mono-meta);
 }

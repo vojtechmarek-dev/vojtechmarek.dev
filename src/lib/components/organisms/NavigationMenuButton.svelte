@@ -1,18 +1,15 @@
 <script lang="ts">
 	import MenuIcon from '$lib/icons/MenuIcon.svelte';
 	import XmarkIcon from '$lib/icons/XmarkIcon.svelte';
-	import DesktopNavigationPopover from '$lib/components/molecules/DesktopNavigationPopover.svelte';
 
 	let {
 		open,
 		overlayId,
-		onToggle,
-		onCloseMenu
+		onToggle
 	} = $props<{
 		open: boolean;
 		overlayId: string;
 		onToggle: () => void;
-		onCloseMenu: () => void;
 	}>();
 </script>
 
@@ -30,9 +27,6 @@
 			<MenuIcon />
 		{/if}
 	</button>
-	{#if open}
-		<DesktopNavigationPopover onClose={onCloseMenu} />
-	{/if}
 </div>
 
 
@@ -42,6 +36,10 @@
 		align-items: center;
 		gap: 10px;
 		position: relative;
+
+		@media (min-width: 900px) {
+			display: none;
+		}
 	}
 
 	.menu-toggle {

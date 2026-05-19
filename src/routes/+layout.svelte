@@ -37,18 +37,18 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh; // Ensure wrapper takes full viewport height
-        background-color: var(--color--page-background);
+        background-color: var(--color--page-background-alt);
         color: var(--color--text);
     }
 
     .main-area {
         flex: 1; // Makes sure this grows to fill available space
-        padding: 30px 200px 100px;
+        padding: 10px 100px 100px;
         position: relative;
         z-index: 3;
 
         @include breakpoints.for-phone-only {
-            padding: 50px 16px 20px;
+            padding: 50px 24px 20px;
         }
     }
 </style>

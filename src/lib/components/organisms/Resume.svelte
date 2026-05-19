@@ -5,10 +5,12 @@
     import Experience from "../molecules/resume/Experience.svelte";
     import SectionTitle from "../molecules/resume/SectionTitle.svelte";
     import Skills from "../molecules/resume/Skills.svelte";
+    import DecorativeHeader from "../atoms/DecorativeHeader.svelte";
 
 	let experienceEntires = [...WORK_EXPERIENCE_LIST].reverse();
 </script>
 
+<DecorativeHeader type="h5">$ ls ~/resume</DecorativeHeader>
 <article class="resume">
     <section class="name">
         <Title />
@@ -46,20 +48,13 @@
 	@use '$lib/scss/breakpoints.scss' as breakpoints;
 
     .resume {
-        border: 0.15em solid;
-        border-color: var(--color--text);
-        border-radius: 8px;
-		@include breakpoints.for-phone-only {
-			border: none;border-radius: 8px;
-
-		}
+        border: 1px solid var(--color--border-strong);
+        border-radius: 10px;
         padding: 0.5em;
 
 		font-size: 16px;
-		background-color: var(--color--page-background);
-		@include breakpoints.for-phone-only {
-			background-color: color-mix(in srgb, var(--color--page-background) 65%, transparent);
-		}
+		background-color: var(--color--card-background);
+
 		position: relative;
 		overflow: hidden;
 
@@ -94,7 +89,6 @@
 		@media (min-width: 900px), print {
 			margin: 20px auto;
 			max-width: 240mm;
-			box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.6), 1px 3px 8px rgba(39, 44, 49, 0.3);
 		}
 
 		section {

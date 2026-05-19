@@ -36,6 +36,11 @@
         </div>
     {/if}
     <slot />
+    {#if $$slots['icon-after']}
+        <div class="icon">
+            <slot name="icon-after" />
+        </div>
+    {/if}
 </svelte:element>
 
 <style lang="scss">
@@ -56,12 +61,21 @@
         gap: 5px;
 
         border: none;
-        border-radius: 20px;
-        font-weight: 700; // todo - hero has its own style 
+        border-radius: 999px;
+        font-weight: 600;
 
         .icon {
-            width: 24px;
-            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+
+            :global(svg) {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
         }
 
         &.style {
@@ -69,51 +83,33 @@
                 background-color: var(--main-color);
                 color: var(--contrast-color);
 
-                &:hover {
-                    box-shadow: 0px 0px 1px 3px color-mix(in srgb, var(--color--primary-tint) 50%, transparent);
-                }
             }
 
             &--clear {
                 background-color: transparent;
-                color: var(--contrast-color);
+                color: inherit;
             }
 
             &--tint {
                 background-color: var(--color--primary-tint);
                 color: var(--contrast-color);
-
-                &:hover {
-                    box-shadow: 0px 0px 1px 3px color-mix(in srgb, var(--color--primary-tint) 50%, transparent);
-                }
             }
 
             &--accent {
                 background-color: var(--color--primary-accent-tint);
                 color: var(--color--primary-accent);
-
-                &:hover {
-                    box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-accent) 50%, transparent);
-                }
             }
 
             &--primary {
                 background-color: var(--color--primary);
-                color: white;
-
-                &:hover {
-                    box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary) 50%, transparent);
-                }
+                color: var(--color--text-inverse);
             }
 
 
             &--understated {
-                background-color: var(--color--page-background);
-                color: var(--color--primary-contrast);
-
-                &:hover {
-                    box-shadow: 0px 0px 1px 7px color-mix(in srgb, var(--color--primary-contrast) 50%, transparent);
-                }
+                background: transparent;
+                color: var(--color--text);
+                border: 1px solid var(--color--border);
             }
         }
 

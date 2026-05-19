@@ -1,6 +1,9 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
     import Goodie from '../atoms/Goodie.svelte';
+    import Button from '../atoms/Button.svelte';
+    import PlayIcon from '$lib/icons/PlayIcon.svelte';
+    import ArrowIcon from '$lib/icons/ArrowIcon.svelte';
 
     type GameState = 'waiting' | 'ready' | 'clicking';
 
@@ -17,7 +20,7 @@
                 startTime = Date.now();
             },
             Math.random() * 2000 + 1000
-        ); // Random delay between 1-3 seconds
+        );
     }
 
     onDestroy(() => {
@@ -27,95 +30,62 @@
     function handleClick() {
         if (state === 'waiting') {
             state = 'ready';
+            reactionTime = null;
         } else if (state === 'clicking') {
-            const endTime = Date.now();
-            const time = endTime - startTime;
+            const time = Date.now() - startTime;
             reactionTime = time;
-            if (!bestTime || time < bestTime) {
-                bestTime = time;
-            }
+            if (!bestTime || time < bestTime) bestTime = time;
             state = 'waiting';
         } else if (state === 'ready') {
             clearTimeout(timeout);
-            // Clicked too early
             state = 'waiting';
             reactionTime = 'Too early!';
         }
     }
+
+    $: label =
+        state === 'waiting' ? 'Click to start' : state === 'ready' ? 'Wait for it...' : 'CLICK NOW!';
 </script>
 
 <Goodie>
-    <div slot="heading">Reaction Time</div>
-    <div slot="description" class="description">Test your reaction time! Can you beat your friends?</div>
-    <div class="game-container">
-        <div role="button" tabindex="0" on:click={handleClick} on:keydown={(e) => e.key === 'Enter' && handleClick()} class="game-button {state}">
-            <div>
-                {#if state === 'waiting'}
-                    Click to start
-                {:else if state === 'ready'}
-                    Wait for it...
-                {:else}
-                    CLICK NOW!
-                {/if}
-            </div>
-        </div>
+    <span slot="heading">Reaction Time</span>
+    <div slot="icon"><PlayIcon /></div>
+    <span slot="description">Test your reaction time. Can you beat your friends?</span>
+
+    <span slot="command">$ ./reaction-time --start</span>
+
+    <div slot="left">
+        <Button style="primary" size="medium" on:click={handleClick}>
+            <span>{label}</span>
+            <span slot="icon-after"><ArrowIcon direction="right" small /></span>
+        </Button>
     </div>
-    <div slot="value">
-        {#if reactionTime}
-            <p class="reaction-time">
-                {typeof reactionTime === 'number' ? `Reaction time: ${reactionTime}ms` : reactionTime}
-            </p>
+
+    <div slot="right" class="results">
+        {#if reactionTime !== null}
+            <span class="last">{typeof reactionTime === 'number' ? `${reactionTime}ms` : reactionTime}</span>
         {/if}
-    </div>
-    <div slot="control" class="game-results">
         {#if bestTime}
-            <p class="best-time">
-                Best time: {bestTime}ms
-            </p>
+            <span class="best">best {bestTime}ms</span>
         {/if}
     </div>
 </Goodie>
 
 <style lang="scss">
-    .game-container {
-        padding: 1rem 1rem 0 1rem;
-        max-width: 24rem;
-        margin: 0 auto;
+    .results {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+        font-size: 0.8rem;
 
-        .game-button {
-            align-content: center;
-            text-align: center;
-            width: 100%;
-            height: 3rem;
-            border-radius: 0.75rem;
-            color: white;
-            transition: background-color 0.3s;
-            cursor: pointer;
-            -webkit-user-select: none;    /* Safari */
-            -ms-user-select: none;        /* IE 10 and IE 11 */
-            user-select: none;            /* Standard syntax */
-
-            &.waiting {
-                background-color: var(--color--primary); // blue
-            }
-
-            &.ready {
-                background-color: var(--color--primary-tint); // red
-                color: var(--color--text);
-            }
-
-            &.clicking {
-                background-color: var(--color--primary-accent); // green
-            }
+        .last {
+            color: var(--color--primary-accent);
+            font-weight: 700;
         }
-    }
-    .game-results {
-        text-align: center;
-        padding-top: 0.5rem;
 
-        .best-time {
-            font-size: 0.875rem;
-            color: var(--color--text);
+        .best {
+            color: var(--color--text-faint);
         }
     }
 </style>

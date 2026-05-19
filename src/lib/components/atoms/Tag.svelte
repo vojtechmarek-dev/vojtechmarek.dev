@@ -1,31 +1,31 @@
 <script lang="ts">
-	export let color: 'primary' | 'secondary' | undefined = 'primary';
+    export let color: 'primary' | 'secondary' | undefined = 'primary';
 </script>
 
-<div class="tag {color}">
-	<slot />
-</div>
+<span class="tag {color}">
+    <slot />
+</span>
 
 <style lang="scss">
-	.tag {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 5px;
-		padding: 5px 15px;
-		border-radius: 10px;
-		font-weight: 500;
-		font-size: 0.85rem;
-		width: fit-content;
-		white-space: nowrap;
+    .tag {
+        font-family: var(--font--mono);
+        font-size: 11px;
+        padding: 4px 9px;
+        border-radius: 4px;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        display: inline-block;
 
-		&.primary {
-			background-color: var(--color--primary-accent-tint);
-			color: var(--color--primary-contrast);
-		}
-		&.secondary {
-			background-color: var(--color--primary-accent-tint);
-			color: var(--color--secondary);
-		}
-	}
+        &.primary {
+            background: color-mix(in srgb, var(--color--primary) 8%, transparent);
+            border: 1px solid color-mix(in srgb, var(--color--primary) 18%, transparent);
+            color: var(--color--primary);
+        }
+
+        &.secondary {
+            background: color-mix(in srgb, var(--color--primary-accent) 8%, transparent);
+            border: 1px solid color-mix(in srgb, var(--color--primary-accent) 18%, transparent);
+            color: var(--color--primary-accent);
+        }
+    }
 </style>

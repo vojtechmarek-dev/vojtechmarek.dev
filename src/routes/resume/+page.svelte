@@ -21,6 +21,6 @@
 		display: flex;
 		gap: 10px;
 		flex-direction: column;
-		align-items: center;
+		align-items: start;
     }
 </style>

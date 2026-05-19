@@ -1,15 +1,36 @@
 @use '$lib/scss/_resets.scss';
 @use '$lib/scss/_themes.scss';
 @use '$lib/scss/_typography.scss';
-@use '@fontsource/poppins';
+@use '@fontsource/ibm-plex-sans/300.css' as *;
+@use '@fontsource/ibm-plex-sans/400.css' as *;
+@use '@fontsource/ibm-plex-sans/500.css' as *;
+@use '@fontsource/ibm-plex-sans/600.css' as *;
+@use '@fontsource/ibm-plex-sans/700.css' as *;
+@use '@fontsource/ibm-plex-mono/400.css' as *;
+@use '@fontsource/ibm-plex-mono/600.css' as *;
+
+:root {
+    --font--sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font--mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --font--title: var(--font--sans);
+
+    --text--h1:              4.25rem;   /* 68px */
+    --text--h1-mobile:       2.25rem;   /* 36px */
+    --text--h2:              2.25rem;   /* 36px */
+    --text--body:            clamp(0.9375rem, 0.875rem + 0.25vw, 1.0625rem); /* 15–17px */
+    --text--mono-meta:       clamp(0.6875rem, 0.625rem + 0.2vw, 0.8125rem); /* 11–13px */
+    --text--card-title:      1.375rem;  /* 22px */
+    --text--card-title-mobile: 1.125rem; /* 18px */
+}
 
 body {
     --body-background-color: var(--color--page-background)
 	background-color: var(--body-background-color);
     transition: all 0.4s ease;
-    line-height: 1.3;
+    line-height: 1.55;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font--sans);
+    font-size: var(--text--body);
     height: 100%;
     min-height: 100vh;
     /* safari viewport bug fix */
@@ -20,7 +41,7 @@ body {
 }
 
 html {
-	font-size: 18px;
+	font-size: 16px;
 	width: 100%;
 
 	&.smooth-scroll {

@@ -1,39 +1,39 @@
 <script lang="ts">
+    import ArrowIcon from '$lib/icons/ArrowIcon.svelte';
 	import SuitcaseIcon from '$lib/icons/SuitcaseIcon.svelte';
 	import WrenchIcon from '$lib/icons/WrenchIcon.svelte';
 	import Button from '../atoms/Button.svelte';
-	import NewLogo from '../atoms/NewLogo.svelte';
+    import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
 </script>
 
 <div class="container">
 	<section id="hero">
-		<h1 class="hello">Hey! I'm Vojtěch</h1>
+		<DecorativeHeader type="h5" color="primary">$ ls ~/</DecorativeHeader>
+		<h1 class="hello">Hey! I'm <span class="name">Vojtěch</span>.</h1>
 		<p class="intro">
-			<span class="left"
-				>I'm a frontend developer. Welcome to my personal website! <br> Feel free to browse my <b>Projects</b>, or my <b>Resume</b>.</span
-			>
+			<span class="description">
+				Frontend developer, 8 years deep in clinical systems - schedulers, integrations, rule engines. Angular by trade, Java when needed. Welcome to my little corner of the web.
+			</span>
 		</p>
 		<div class="hero-buttons">
+		    <Button style="primary" href="/resume">View Resume <ArrowIcon direction="right" slot="icon-after" /></Button>
 			<Button style="understated" href="/goodies">
 				<WrenchIcon slot="icon" />
 				Goodies
 			</Button>
-			<Button style="accent" href="/resume">
+			<Button style="understated" href="/resume">
 				<SuitcaseIcon slot="icon" />
 				Experience
 			</Button>
 		</div>
 	</section>
-	<div class="kernel">
-	<!-- 	<NewLogo /> -->
-	</div>
 </div>
 
 <style lang="scss">
 	@use '$lib/scss/breakpoints.scss';
 
 	.container {
-		padding: 40px 0 100px;
+		padding: 80px 0 200px;
 		position: relative;
 		display: flex;
 		flex-direction: row;
@@ -52,17 +52,29 @@
 			align-items: start;
 			gap: 15px !important;
 			position: relative;
-			padding: 20px 20px 70px 20px;
+			padding: 20px 0 70px 0;
+
+			@include breakpoints.for-phone-only {
+				padding: 20px 0 50px 0;
+			}
 
 			.hello {
 				text-align: left;
 				margin: unset;
+				.name {
+					color: var(--color--primary);
+				}
 			}
 
 			.intro {
+				color: var(--color--text-dim);
 				display: flex;
 				flex-direction: column;
-				width: min(100%, 460px);
+				width: min(100%, 600px);
+
+				.description {
+					margin: 0 0 20px 0;
+				}
 			}
 
 			.hero-buttons {
@@ -76,17 +88,6 @@
 				@include breakpoints.for-phone-only {
 					justify-content: center;
 				}
-			}
-		}
-
-		.kernel {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-grow: 2;
-
-			@include breakpoints.for-phone-only {
-				display: none;
 			}
 		}
 	}

@@ -25,7 +25,6 @@
         padding: 0.75em;
         box-sizing: border-box;
 
-
         &.flush {
             padding: 0;
             overflow: hidden;

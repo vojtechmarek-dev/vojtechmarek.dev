@@ -44,17 +44,9 @@
 <span class="nav-separator">|</span>
 <ThemeToggle />
 
-<NavigationMenuButton
-    open={menuOpen}
-    overlayId={overlayId}
-    onToggle={toggleMenu}
-/>
+<NavigationMenuButton open={menuOpen} {overlayId} onToggle={toggleMenu} />
 
-<MobileNavigationOverlay
-    open={menuOpen}
-    overlayId={overlayId}
-    onCloseMenu={closeMenu}
-/>
+<MobileNavigationOverlay open={menuOpen} {overlayId} onCloseMenu={closeMenu} />
 
 <style lang="scss">
     @use '$lib/scss/breakpoints.scss';
@@ -68,7 +60,7 @@
             display: none;
         }
     }
-    
+
     .nav-separator {
         display: inline-block;
         margin: 0 0.25rem;
@@ -86,7 +78,8 @@
         font-size: 0.875rem;
         font-family: var(--font--mono);
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
             font-weight: 700;
         }
     }

@@ -18,14 +18,13 @@
         <meta name="viewport" content="width=device-width" />
 
         <script>
-			// Calling this here so that it loads as quickly as possible
-			// Avoiding a flash of light mode in case dark mode is used
-			const storedTheme = localStorage.getItem('theme-preference');
-			const theme =
-				storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.firstElementChild?.setAttribute('data-theme', theme);
-		</script>
-        
+            // Calling this here so that it loads as quickly as possible
+            // Avoiding a flash of light mode in case dark mode is used
+            const storedTheme = localStorage.getItem('theme-preference');
+            const theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.firstElementChild?.setAttribute('data-theme', theme);
+        </script>
+
         %sveltekit.head%
     </head>
     <body data-sveltekit-preload-data="hover">

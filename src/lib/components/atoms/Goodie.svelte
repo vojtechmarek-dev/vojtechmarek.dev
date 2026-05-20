@@ -37,7 +37,6 @@
 <style lang="scss">
     @use '$lib/scss/breakpoints.scss';
 
-
     .goodie {
         display: flex;
         flex-direction: column;

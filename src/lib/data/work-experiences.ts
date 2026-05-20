@@ -15,13 +15,13 @@ export const PROJECT_LIST: Project[] = [
             varName: 'project',
             role: 'Lead Frontend',
             fields: [
-                { key: 'name',     value: 'MediOrganizer', type: 'string' },
-                { key: 'domain',   value: 'healthcare',    type: 'string' },
-                { key: 'scale',    value: '8+ clinics',    type: 'string' },
-                { key: 'uptime',   value: '99.97%',        type: 'string' },
-                { key: 'team',     value: '6',             type: 'number' },
+                { key: 'name', value: 'MediOrganizer', type: 'string' },
+                { key: 'domain', value: 'healthcare', type: 'string' },
+                { key: 'scale', value: '8+ clinics', type: 'string' },
+                { key: 'uptime', value: '99.97%', type: 'string' },
+                { key: 'team', value: '6', type: 'number' },
                 { key: 'dev_role', value: 'Lead Frontend', type: 'string' },
-                { key: 'team_role', value: 'Scrum Master',   type: 'string' }
+                { key: 'team_role', value: 'Scrum Master', type: 'string' }
             ]
         }
     },
@@ -29,41 +29,40 @@ export const PROJECT_LIST: Project[] = [
         title: 'MediShare',
         description:
             'Patient appointment portal integrated with MediOrganizer, featuring configurable module snap-ins, SSO, payment processing, and OAuth2 authentication.',
-        skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }, {label: 'Material Design'}],
-        timeframe: "2022-present",
-        link: "https://mamoobjpac.fnol.cz/",
+        skills: [{ label: 'Angular' }, { label: 'Docker' }, { label: 'OAuth2' }, { label: 'NodeJS' }, { label: 'Material Design' }],
+        timeframe: '2022-present',
+        link: 'https://mamoobjpac.fnol.cz/',
         details: [
-            "Led front-end architecture design and implementation of modular, snap-in reactive components, ensuring scalability and reusability for app implementators.",
-            "Engineered hot-swap configuration deployment to enable seamless runtime updates without requiring full application redeploys.",
-            "Crafted consistent and intuitive UI components using Angular Material, with a strong emphasis on user experience and accessibility.",
-            "Integrated secure API communication and OAuth-based authentication flows to support dynamic, authenticated user sessions.",
-            "Developed a flexible theming and templating system, allowing for runtime customization of the application UI."
-          ]
-
+            'Led front-end architecture design and implementation of modular, snap-in reactive components, ensuring scalability and reusability for app implementators.',
+            'Engineered hot-swap configuration deployment to enable seamless runtime updates without requiring full application redeploys.',
+            'Crafted consistent and intuitive UI components using Angular Material, with a strong emphasis on user experience and accessibility.',
+            'Integrated secure API communication and OAuth-based authentication flows to support dynamic, authenticated user sessions.',
+            'Developed a flexible theming and templating system, allowing for runtime customization of the application UI.'
+        ]
     },
     {
         title: 'MediReha',
         description: 'System for managing patient rehabilitation plans with rule-based processes for clinical and business validations.',
-        skills: [{label: 'Angular'}, {label: 'Business Rules'}, {label: 'REST API'}, {label: 'Java'}],
-        timeframe: "2022",
-        link: "https://www.rehasys.cz/",
+        skills: [{ label: 'Angular' }, { label: 'Business Rules' }, { label: 'REST API' }, { label: 'Java' }],
+        timeframe: '2022',
+        link: 'https://www.rehasys.cz/',
         details: [
-            "Designed and implemented the UI/UX for a rehabilitation management system using Angular, focusing on usability for clinical staff and administrators.",
-            "Collaborated on rule-based scheduling logic for rehabilitation plans, incorporating clinical constraints and business validations.",
-            "Contributed to the design and implementation of rule engines that automated validation of rehabilitation workflows and ensured the most optimal plan for rehabilitaion plans."
+            'Designed and implemented the UI/UX for a rehabilitation management system using Angular, focusing on usability for clinical staff and administrators.',
+            'Collaborated on rule-based scheduling logic for rehabilitation plans, incorporating clinical constraints and business validations.',
+            'Contributed to the design and implementation of rule engines that automated validation of rehabilitation workflows and ensured the most optimal plan for rehabilitaion plans.'
         ]
     },
     {
         title: 'MaRIS',
         description: 'System for managing patient data in mammography centers, with advanced workflow and external system integrations.',
-        skills: [{label: 'Spring'}, {label: 'Java'}, {label: 'REST API'}],
-        timeframe: "2019, 2025"
+        skills: [{ label: 'Spring' }, { label: 'Java' }, { label: 'REST API' }],
+        timeframe: '2019, 2025'
     },
     {
         title: 'MediBus',
         description: 'Healthcare integration platform for data exchange using HL7 FHIR standards and Spring Integration.',
-        skills: [{label: 'HL7 FHIR'}, {label: 'Spring'}, {label: 'Java'}],
-        timeframe: "2020"
+        skills: [{ label: 'HL7 FHIR' }, { label: 'Spring' }, { label: 'Java' }],
+        timeframe: '2020'
     }
 ];
 
@@ -116,7 +115,7 @@ export const WORK_EXPERIENCE_LIST: WorkExperience[] = [
                 current: true,
                 skills: [],
                 description:
-                    'Deployed as a Senior Frontend Developer to spearhead the delivery of a critical data platform for the Czech Statistical Office (ČSÚ). Architected the foundation of a shared application platform to unify internal tools while bootstrapping and upskilling the junior development team. Aided with migration of legacy software into a strictly typed React environment, introducing Jotai to orchestrate complex shared state across micro-apps.',
+                    'Deployed as a Senior Frontend Developer to spearhead the delivery of a critical data platform for the Czech Statistical Office (ČSÚ). Architected the foundation of a shared application platform to unify internal tools while bootstrapping and upskilling the junior development team. Aided with migration of legacy software into a strictly typed React environment, introducing Jotai to orchestrate complex shared state across micro-apps.'
             }
         ]
     }

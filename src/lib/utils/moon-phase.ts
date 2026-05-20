@@ -1,4 +1,3 @@
-
 import SunCalc from 'suncalc';
 
 export enum MoonPhase {
@@ -9,7 +8,7 @@ export enum MoonPhase {
     FullMoon = 'Full Moon',
     WaningGibbous = 'Waning Gibbous',
     LastQuarter = 'Last Quarter',
-    WaningCrescent = 'Waning Crescent',
+    WaningCrescent = 'Waning Crescent'
 }
 
 export const getMoonPhase = (date: Date = new Date()): MoonPhase => {
@@ -33,4 +32,4 @@ export const getMoonPhase = (date: Date = new Date()): MoonPhase => {
     } else {
         return MoonPhase.WaningCrescent;
     }
-}
+};

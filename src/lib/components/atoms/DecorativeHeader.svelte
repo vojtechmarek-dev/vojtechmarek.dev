@@ -1,11 +1,18 @@
 <script lang="ts">
-    export let type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h1';
+    export let type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'div' = 'h1';
     export let color: 'primary' | 'accent' | 'faded' = 'primary';
     export let size: 'meta' | undefined = undefined;
     //export let transform: 'uppercase' | 'lowercase' | 'capitalize' | 'none' = 'uppercase';
 </script>
 
-<svelte:element this={type} class="decorative-header" class:primary={color === 'primary'} class:accent={color === 'accent'} class:faded={color === 'faded'} class:size-meta={size === 'meta'}>
+<svelte:element
+    this={type}
+    class="decorative-header"
+    class:primary={color === 'primary'}
+    class:accent={color === 'accent'}
+    class:faded={color === 'faded'}
+    class:size-meta={size === 'meta'}
+>
     <slot />
 </svelte:element>
 

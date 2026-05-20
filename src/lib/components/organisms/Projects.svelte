@@ -1,12 +1,13 @@
-<script lang="ts">     import type { Project } from '$lib/data/work-experiences';
+<script lang="ts">
+    import type { Project } from '$lib/data/work-experiences';
     import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
     import FeaturedProjectCard from '../molecules/FeaturedProjectCard.svelte';
     import ProjectCard from '../molecules/ProjectCard.svelte';
 
     let { projects }: { projects: Project[] } = $props();
 
-    const featured = $derived(projects.filter(p => p.featured));
-    const regular  = $derived(projects.filter(p => !p.featured));
+    const featured = $derived(projects.filter((p) => p.featured));
+    const regular = $derived(projects.filter((p) => !p.featured));
 </script>
 
 <section class="projects-section">
@@ -75,11 +76,9 @@
 
             @include breakpoints.for-phone-only {
                 grid-template-columns: 1fr;
-;   
                 @include breakpoints.for-desktop-up {
                     max-width: 70%;
                 }
-;   
                 @include breakpoints.for-desktop-up {
                     max-width: 70%;
                 }

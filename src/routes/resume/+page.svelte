@@ -4,8 +4,8 @@
 </script>
 
 <svelte:head>
-	<title>Resume - {title}</title>
-	<meta property="og:title" content="Resume - {title}" />
+    <title>Resume - {title}</title>
+    <meta property="og:title" content="Resume - {title}" />
 </svelte:head>
 
 <!-- <ResumeGreet /> -->
@@ -15,12 +15,12 @@
 
 <style lang="scss">
     .resume-container {
-		position: relative;
-		padding: 100px 0 40px;
-		min-height: 80vh;
-		display: flex;
-		gap: 10px;
-		flex-direction: column;
-		align-items: start;
+        position: relative;
+        padding: 100px 0 40px;
+        min-height: 80vh;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        align-items: start;
     }
 </style>

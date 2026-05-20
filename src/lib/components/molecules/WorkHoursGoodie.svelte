@@ -42,7 +42,9 @@
             class="holiday-toggle"
             class:off={!holidaysOn}
             title={holidaysOn
-                ? (weekendHolidays ? `weekend holidays (${weekendHolidays}) not incl.` : 'Holidays ON — click to disable')
+                ? weekendHolidays
+                    ? `weekend holidays (${weekendHolidays}) not incl.`
+                    : 'Holidays ON — click to disable'
                 : 'Holidays OFF — click to enable'}
             on:click={() => (holidaysOn = !holidaysOn)}
         >

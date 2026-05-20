@@ -1,6 +1,5 @@
 <script>
-    import DecorativeHeader from "../atoms/DecorativeHeader.svelte";
-
+    import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
 </script>
 
 <div class="container">
@@ -26,7 +25,6 @@
 
         @include breakpoints.for-phone-only {
             padding: 40px 0 100px;
-
         }
 
         #goodie {

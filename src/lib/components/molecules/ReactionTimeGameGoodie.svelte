@@ -43,8 +43,7 @@
         }
     }
 
-    $: label =
-        state === 'waiting' ? 'Click to start' : state === 'ready' ? 'Wait for it...' : 'CLICK NOW!';
+    $: label = state === 'waiting' ? 'Click to start' : state === 'ready' ? 'Wait for it...' : 'CLICK NOW!';
 </script>
 
 <Goodie>

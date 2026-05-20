@@ -12,7 +12,6 @@
 </div>
 
 <style lang="scss">
-
     .container {
         position: relative;
         display: flex; /* or inline-flex */

@@ -16,7 +16,7 @@
 <Card>
     <div class="headingContainer" slot="heading">
         <div class="decorativeRow">
-            <DecorativeHeader color="faded" type="h6" size="meta">~/projects/{title.toLocaleLowerCase()}</DecorativeHeader>
+            <DecorativeHeader color="faded" type="span" size="meta">~/projects/{title.toLocaleLowerCase()}</DecorativeHeader>
             {#if link}<Button size="icon-only" style="clear" href={link}><InternetIcon slot="icon" /></Button>{/if}
         </div>
         <div class="headingRow">

@@ -65,7 +65,6 @@
         margin-bottom: 20px;
         padding-bottom: 10px;
         border-bottom: 1px solid var(--color--border);
-
     }
 
     .section-title {

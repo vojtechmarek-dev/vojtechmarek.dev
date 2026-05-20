@@ -82,7 +82,6 @@
             &--solid {
                 background-color: var(--main-color);
                 color: var(--contrast-color);
-
             }
 
             &--clear {
@@ -104,7 +103,6 @@
                 background-color: var(--color--primary);
                 color: var(--color--text-inverse);
             }
-
 
             &--understated {
                 background: transparent;

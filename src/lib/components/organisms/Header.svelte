@@ -2,17 +2,9 @@
     import Logo from '../atoms/Logo.svelte';
     import Typewriter from '$lib/components/atoms/Typewriter.svelte';
     import Navigation from '$lib/components/molecules/Navigation.svelte';
+    import { terminalLines } from '$lib/data/terminal-lines';
 
     let typerRef: any;
-    const terminalLines: string[] = [
-        'git fetch --all',
-        'npm run build',
-        'pnpm i',
-        'vite dev --host',
-        'deploy --region=eu',
-        'playwright test',
-        'git push origin master',
-    ];
 
     function onLogoClick() {
         typerRef?.start();
@@ -23,7 +15,7 @@
     <nav class="menu-top">
         <div class="left">
             <button class="logo brand-logo" aria-label="Site logo" onclick={onLogoClick}>
-                <Logo/>
+                <Logo />
                 <Typewriter bind:this={typerRef} messages={terminalLines} />
             </button>
         </div>
@@ -59,8 +51,8 @@
         background: color-mix(in srgb, var(--color--card-background) 70%, transparent);
         backdrop-filter: blur(24px) saturate(120%);
         border-radius: 1.25rem;
-        border-color: var(--color--primary-tint);
-        border-width: 0.10rem;
+        border-color: var(--color--border);
+        border-width: 0.1rem;
         border-style: solid;
 
         .left,

@@ -16,44 +16,47 @@
 </script>
 
 <Card flush>
-<div class="featured-card">
-    <div class="left">
-        <div class="decorative-row">
-            <div class="decorative-left">
-                <span class="featured-badge">FEATURED</span>
-                <DecorativeHeader color="faded" type="h6" size="meta">~/projects/{title.toLocaleLowerCase()}</DecorativeHeader>
+    <div class="featured-card">
+        <div class="left">
+            <div class="decorative-row">
+                <div class="decorative-left">
+                    <span class="featured-badge">FEATURED</span>
+                    <DecorativeHeader color="faded" type="h6" size="meta">~/projects/{title.toLocaleLowerCase()}</DecorativeHeader>
+                </div>
+                {#if link}
+                    <Button size="icon-only" style="clear" href={link}>
+                        <InternetIcon slot="icon" />
+                    </Button>
+                {/if}
             </div>
-            {#if link}
-                <Button size="icon-only" style="clear" href={link}>
-                    <InternetIcon slot="icon" />
-                </Button>
-            {/if}
+
+            <h2 class="title">{title}</h2>
+
+            <p class="timeframe">
+                {timeframe}
+                {#if featuredMeta.role}
+                · {featuredMeta.role}
+                {/if}
+            </p>
+
+            <p class="description">{description}</p>
+
+            <div class="tags">
+                {#each skills as skill}
+                    <Tag>{skill.label}</Tag>
+                {/each}
+            </div>
         </div>
 
-        <h2 class="title">{title}</h2>
-
-        <p class="timeframe">
-            {timeframe}{#if featuredMeta.role} · {featuredMeta.role}{/if}
-        </p>
-
-        <p class="description">{description}</p>
-
-        <div class="tags">
-            {#each skills as skill}
-                <Tag>{skill.label}</Tag>
-            {/each}
+        <div class="right">
+            <TerminalBlock
+                command={featuredMeta.command ?? 'cat README.md'}
+                varName={featuredMeta.varName ?? 'project'}
+                fields={featuredMeta.fields}
+                animate
+            />
         </div>
     </div>
-
-    <div class="right">
-        <TerminalBlock
-            command={featuredMeta.command ?? 'cat README.md'}
-            varName={featuredMeta.varName ?? 'project'}
-            fields={featuredMeta.fields}
-            animate
-        />
-    </div>
-</div>
 </Card>
 
 <style lang="scss">
@@ -80,8 +83,6 @@
         justify-content: space-between;
         align-items: center;
         color: var(--color--text-dim);
-
-
     }
 
     .decorative-left {

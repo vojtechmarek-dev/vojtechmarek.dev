@@ -6,25 +6,27 @@
     export let varName: string = 'data';
     export let fields: TerminalField[] = [];
     export let animate: boolean = false;
-    export let speed: number = 40;    // ms per char while typing command
+    export let speed: number = 40; // ms per char while typing command
     export let lineDelay: number = 70; // ms between each code line appearing
 
     // Display state — start fully revealed when not animating
-    let commandText:   string  = animate ? '' : command;
-    let showConst:     boolean = !animate;
-    let visibleFields: number  = animate ? 0 : fields.length;
-    let showClosing:   boolean = !animate;
-    let showFooter:    boolean = !animate;
+    let commandText: string = animate ? '' : command;
+    let showConst: boolean = !animate;
+    let visibleFields: number = animate ? 0 : fields.length;
+    let showClosing: boolean = !animate;
+    let showFooter: boolean = !animate;
     let cursorVisible: boolean = true;
 
-    let blinkTimer:   number | null = null;
-    let typingTimer:  number | null = null;
-    let lineTimer:    number | null = null;
+    let blinkTimer: number | null = null;
+    let typingTimer: number | null = null;
+    let lineTimer: number | null = null;
     let destroyed = false;
 
     function startBlink() {
         if (blinkTimer !== null) clearInterval(blinkTimer);
-        blinkTimer = window.setInterval(() => { cursorVisible = !cursorVisible; }, 500);
+        blinkTimer = window.setInterval(() => {
+            cursorVisible = !cursorVisible;
+        }, 500);
     }
 
     function typeCommand() {
@@ -38,7 +40,9 @@
                 clearInterval(typingTimer!);
                 typingTimer = null;
                 // Pause after command, then start revealing code
-                window.setTimeout(() => { if (!destroyed) revealCode(); }, 350);
+                window.setTimeout(() => {
+                    if (!destroyed) revealCode();
+                }, 350);
             }
         }, speed);
     }
@@ -55,7 +59,9 @@
                 clearInterval(lineTimer!);
                 lineTimer = null;
                 showClosing = true;
-                window.setTimeout(() => { if (!destroyed) showFooter = true; }, lineDelay * 3);
+                window.setTimeout(() => {
+                    if (!destroyed) showFooter = true;
+                }, lineDelay * 3);
             }
         }, lineDelay);
     }
@@ -67,9 +73,9 @@
 
     onDestroy(() => {
         destroyed = true;
-        if (blinkTimer  !== null) clearInterval(blinkTimer);
+        if (blinkTimer !== null) clearInterval(blinkTimer);
         if (typingTimer !== null) clearInterval(typingTimer);
-        if (lineTimer   !== null) clearInterval(lineTimer);
+        if (lineTimer !== null) clearInterval(lineTimer);
     });
 </script>
 
@@ -78,19 +84,24 @@
     <div class="line">
         <span class="prompt">$</span>
         <span class="cmd"> {commandText}</span><!--
-        -->{#if animate && commandText.length < command.length}<span class="inline-cursor">{cursorVisible ? '_' : ' '}</span>{/if}
+        -->{#if animate && commandText.length < command.length}<span class="inline-cursor"
+                >{cursorVisible ? '_' : ' '}</span
+            >{/if}
     </div>
 
     {#if showConst}
         <div class="spacer"></div>
 
         <div class="line">
-            <span class="keyword">const</span><span class="punct"> </span><span class="identifier">{varName}</span><span class="punct"> = {'{'}</span>
+            <span class="keyword">const</span><span class="punct"> </span><span class="identifier">{varName}</span><span class="eq">=</span><span class="punct">{'{'}</span>
         </div>
 
         {#each fields.slice(0, visibleFields) as field}
             <div class="line indent">
-                <span class="key">{field.key}</span><span class="punct">: </span>{#if field.type === 'string'}<span class="string">"{field.value}"</span>{:else if field.type === 'number'}<span class="number">{field.value}</span>{:else}<span class="identifier">{field.value}</span>{/if}<span class="punct">,</span>
+                <span class="key">{field.key}</span><span class="punct">: </span>{#if field.type === 'string'}<span class="string"
+                        >"{field.value}"</span
+                    >{:else if field.type === 'number'}<span class="number">{field.value}</span>{:else}<span class="identifier">{field.value}</span
+                    >{/if}<span class="punct">,</span>
             </div>
         {/each}
 
@@ -109,14 +120,14 @@
 
 <style lang="scss">
     .terminal {
-        --t-prompt:     #7ab7ff;
-        --t-keyword:    #c084fc;
+        --t-prompt: #7ab7ff;
+        --t-keyword: #c084fc;
         --t-identifier: #7dd3fc;
-        --t-string:     #86efac;
-        --t-number:     #fbbf24;
-        --t-key:        #a8b0c2;
-        --t-punct:      #cdd6f4;
-        --t-cmd:        #cdd6f4;
+        --t-string: #86efac;
+        --t-number: #fbbf24;
+        --t-key: #a8b0c2;
+        --t-punct: #cdd6f4;
+        --t-cmd: #cdd6f4;
 
         background: var(--color--code-panel-bg);
         font-family: var(--font--mono);
@@ -133,18 +144,45 @@
         white-space: pre;
     }
 
-    .indent { padding-left: 2ch; }
+    .indent {
+        padding-left: 2ch;
+    }
 
-    .spacer { height: 0.85em; }
+    .spacer {
+        height: 0.85em;
+    }
 
-    .prompt      { color: var(--t-prompt); margin-right: 5px; }
-    .cmd         { color: var(--t-cmd); }
-    .keyword     { color: var(--t-keyword); margin-right: 5px; }
-    .identifier  { color: var(--t-identifier); }
-    .string      { color: var(--t-string); }
-    .number      { color: var(--t-number); }
-    .key         { color: var(--t-key); }
-    .punct       { color: var(--t-punct); margin-right: 5px; }
+    .prompt {
+        color: var(--t-prompt);
+        margin-right: 5px;
+    }
+    .cmd {
+        color: var(--t-cmd);
+    }
+    .keyword {
+        color: var(--t-keyword);
+        margin-right: 5px;
+    }
+    .identifier {
+        color: var(--t-identifier);
+    }
+    .string {
+        color: var(--t-string);
+    }
+    .number {
+        color: var(--t-number);
+    }
+    .key {
+        color: var(--t-key);
+    }
+    .punct {
+        color: var(--t-punct);
+        margin-right: 5px;
+    }
+    .eq {
+        color: var(--t-punct);
+        margin: 0 5px;
+    }
 
     /* Inline cursor shown while typing the command */
     .inline-cursor {
@@ -158,6 +196,8 @@
 
     @media (prefers-reduced-motion: reduce) {
         .inline-cursor,
-        .cursor { display: none; }
+        .cursor {
+            display: none;
+        }
     }
 </style>

@@ -5,7 +5,12 @@
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
-    ></path><path d="M13 2.04932C13 2.04932 16 5.99994 16 11.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+    ></path><path
+        d="M13 2.04932C13 2.04932 16 5.99994 16 11.9999"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
     ></path><path
         d="M11 21.9506C11 21.9506 8 17.9999 8 11.9999C8 5.99994 11 2.04932 11 2.04932"
         stroke="currentColor"

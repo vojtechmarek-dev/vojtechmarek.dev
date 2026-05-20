@@ -14,18 +14,17 @@
     --font--mono: 'IBM Plex Mono', ui-monospace, monospace;
     --font--title: var(--font--sans);
 
-    --text--h1:              4.25rem;   /* 68px */
-    --text--h1-mobile:       2.25rem;   /* 36px */
-    --text--h2:              2.25rem;   /* 36px */
-    --text--body:            clamp(0.9375rem, 0.875rem + 0.25vw, 1.0625rem); /* 15–17px */
-    --text--mono-meta:       clamp(0.6875rem, 0.625rem + 0.2vw, 0.8125rem); /* 11–13px */
-    --text--card-title:      1.375rem;  /* 22px */
+    --text--h1: 4.25rem; /* 68px */
+    --text--h1-mobile: 2.25rem; /* 36px */
+    --text--h2: 2.25rem; /* 36px */
+    --text--body: clamp(0.9375rem, 0.875rem + 0.25vw, 1.0625rem); /* 15–17px */
+    --text--mono-meta: clamp(0.6875rem, 0.625rem + 0.2vw, 0.8125rem); /* 11–13px */
+    --text--card-title: 1.375rem; /* 22px */
     --text--card-title-mobile: 1.125rem; /* 18px */
 }
 
 body {
-    --body-background-color: var(--color--page-background)
-	background-color: var(--body-background-color);
+    --body-background-color: var(--color--page-background) background-color: var(--body-background-color);
     transition: all 0.4s ease;
     line-height: 1.55;
     scroll-behavior: smooth;
@@ -41,15 +40,15 @@ body {
 }
 
 html {
-	font-size: 16px;
-	width: 100%;
+    font-size: 16px;
+    width: 100%;
 
-	&.smooth-scroll {
-		scroll-behavior: smooth;
-		body {
-			scroll-behavior: smooth;
-		}
-	}
+    &.smooth-scroll {
+        scroll-behavior: smooth;
+        body {
+            scroll-behavior: smooth;
+        }
+    }
 }
 
 .disabled {

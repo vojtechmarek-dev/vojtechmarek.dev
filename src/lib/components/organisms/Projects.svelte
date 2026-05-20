@@ -1,19 +1,20 @@
-<script lang="ts">     import type { Project } from '$lib/data/work-experiences';
+<script lang="ts">
+    import type { Project } from '$lib/data/work-experiences';
     import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
     import FeaturedProjectCard from '../molecules/FeaturedProjectCard.svelte';
     import ProjectCard from '../molecules/ProjectCard.svelte';
 
     let { projects }: { projects: Project[] } = $props();
 
-    const featured = $derived(projects.filter(p => p.featured));
-    const regular  = $derived(projects.filter(p => !p.featured));
+    const featured = $derived(projects.filter((p) => p.featured));
+    const regular = $derived(projects.filter((p) => !p.featured));
 </script>
 
 <section class="projects-section">
     <header class="heading">
         <DecorativeHeader type="h4" color="primary"># PROJECTS</DecorativeHeader>
-        <h2>Things I've helped ship</h2>
-        <p class="description">A selection of clinical and integration systems I've led or contributed to.</p>
+        <h2>Shipped projects</h2>
+        <p class="description">Projects I've developed or contributed to across healthcare, integrations, and other fields.</p>
     </header>
 
     {#each featured as project}
@@ -61,7 +62,6 @@
 
         .description {
             color: var(--color--text-dim);
-            max-width: 600px;
         }
 
         .featured-row {
@@ -75,11 +75,9 @@
 
             @include breakpoints.for-phone-only {
                 grid-template-columns: 1fr;
-;   
                 @include breakpoints.for-desktop-up {
                     max-width: 70%;
                 }
-;   
                 @include breakpoints.for-desktop-up {
                     max-width: 70%;
                 }

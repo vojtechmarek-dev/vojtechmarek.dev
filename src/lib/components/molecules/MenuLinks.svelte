@@ -1,6 +1,6 @@
 <script lang="ts">
-    import GitHubIcon from "$lib/icons/GitHubIcon.svelte";
-    import LinkedInIcon from "$lib/icons/LinkedInIcon.svelte";
+    import GitHubIcon from '$lib/icons/GitHubIcon.svelte';
+    import LinkedInIcon from '$lib/icons/LinkedInIcon.svelte';
     let { onCloseMenu } = $props();
 </script>
 
@@ -10,8 +10,17 @@
 
 <hr class="divider" />
 
-<a class="menu-link" target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" role="menuitem" onclick={onCloseMenu}><GitHubIcon />GitHub</a>
-<a class="menu-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vojtechmarek-dev/" role="menuitem" onclick={onCloseMenu}><LinkedInIcon />LinkedIn</a>
+<a class="menu-link" target="_blank" rel="noopener noreferrer" href="https://github.com/vojtechmarek-dev" role="menuitem" onclick={onCloseMenu}
+    ><GitHubIcon />GitHub</a
+>
+<a
+    class="menu-link"
+    target="_blank"
+    rel="noopener noreferrer"
+    href="https://www.linkedin.com/in/vojtechmarek-dev/"
+    role="menuitem"
+    onclick={onCloseMenu}><LinkedInIcon />LinkedIn</a
+>
 
 <style lang="scss">
     .menu-link {
@@ -23,7 +32,9 @@
         align-items: center;
         padding: 8px 10px;
         border-radius: 8px;
-        transition: background-color 0.15s ease, color 0.15s ease;
+        transition:
+            background-color 0.15s ease,
+            color 0.15s ease;
         width: 100%;
     }
 

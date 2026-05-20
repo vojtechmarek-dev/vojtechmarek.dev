@@ -93,7 +93,7 @@
         <div class="spacer"></div>
 
         <div class="line">
-            <span class="keyword">const</span><span class="punct"> </span><span class="identifier">{varName}</span><span class="punct"> = {'{'}</span>
+            <span class="keyword">const</span><span class="punct"> </span><span class="identifier">{varName}</span><span class="eq">=</span><span class="punct">{'{'}</span>
         </div>
 
         {#each fields.slice(0, visibleFields) as field}
@@ -178,6 +178,10 @@
     .punct {
         color: var(--t-punct);
         margin-right: 5px;
+    }
+    .eq {
+        color: var(--t-punct);
+        margin: 0 5px;
     }
 
     /* Inline cursor shown while typing the command */

@@ -13,8 +13,8 @@
 <section class="projects-section">
     <header class="heading">
         <DecorativeHeader type="h4" color="primary"># PROJECTS</DecorativeHeader>
-        <h2>Things I've helped ship</h2>
-        <p class="description">A selection of clinical and integration systems I've led or contributed to.</p>
+        <h2>Shipped projects</h2>
+        <p class="description">Projects I've developed or contributed to across healthcare, integrations, and other fields.</p>
     </header>
 
     {#each featured as project}
@@ -62,7 +62,6 @@
 
         .description {
             color: var(--color--text-dim);
-            max-width: 600px;
         }
 
         .featured-row {

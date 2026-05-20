@@ -33,8 +33,10 @@
             <h2 class="title">{title}</h2>
 
             <p class="timeframe">
-                {timeframe}{#if featuredMeta.role}
-                    · {featuredMeta.role}{/if}
+                {timeframe}
+                {#if featuredMeta.role}
+                · {featuredMeta.role}
+                {/if}
             </p>
 
             <p class="description">{description}</p>

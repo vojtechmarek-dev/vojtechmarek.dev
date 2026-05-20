@@ -2,17 +2,9 @@
     import Logo from '../atoms/Logo.svelte';
     import Typewriter from '$lib/components/atoms/Typewriter.svelte';
     import Navigation from '$lib/components/molecules/Navigation.svelte';
+    import { terminalLines } from '$lib/data/terminal-lines';
 
     let typerRef: any;
-    const terminalLines: string[] = [
-        'git fetch --all',
-        'npm run build',
-        'pnpm i',
-        'vite dev --host',
-        'deploy --region=eu',
-        'playwright test',
-        'git push origin master'
-    ];
 
     function onLogoClick() {
         typerRef?.start();

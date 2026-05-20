@@ -11,9 +11,9 @@ export const PROJECT_LIST: Project[] = [
         link: 'https://www.artiisgroup.cz/',
         featured: true,
         featuredMeta: {
-            command: 'cat mediorganizer.info',
+            command: 'cat mediorganizer.meta',
             varName: 'project',
-            role: 'Lead Frontend',
+            role: 'Senior Frontend Developer',
             fields: [
                 { key: 'name', value: 'MediOrganizer', type: 'string' },
                 { key: 'domain', value: 'healthcare', type: 'string' },

@@ -1,15 +1,25 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
-    import { fade, scale } from 'svelte/transition';
+    import { scale } from 'svelte/transition';
 
-    export let messages: string[] = [];
-    export let speed: number = 35; // ms per char
-    export let hold: number = 1200; // ms to hold full text before delete
-    export let deleteSpeed: number = 28; // ms per char when deleting
-    export let show: boolean = false; // bubble visibility; once shown we keep it
+    interface TypewriterConfig {
+        messages?: string[];
+        speed?: number;
+        hold?: number;
+        deleteSpeed?: number;
+        show?: boolean;
+    }
 
-    let text: string = '';
-    let cursorVisible: boolean = true;
+    let {
+        messages = [],
+        speed = 35,
+        hold = 1200,
+        deleteSpeed = 28,
+        show = $bindable(false)
+    }: TypewriterConfig = $props();
+
+    let text = $state('');
+    let cursorVisible = $state(true);
     let typingTimer: number | null = null;
     let deletingTimer: number | null = null;
     let blinkTimer: number | null = null;
@@ -44,9 +54,12 @@
     }
 
     export function start() {
+        if (typingTimer !== null || deletingTimer !== null || text.length > 0) {
+            return;
+        }
         const message = pickRandomMessage();
         text = '';
-        show = true; // keep visible; we won't auto-hide
+        show = true;
         startBlink();
         stopTimers();
 
@@ -60,7 +73,6 @@
                     clearInterval(typingTimer);
                     typingTimer = null;
                 }
-                // After hold, simulate deletion char-by-char
                 window.setTimeout(() => {
                     let remaining = text.length;
                     deletingTimer = window.setInterval(() => {
@@ -72,7 +84,6 @@
                                 clearInterval(deletingTimer);
                                 deletingTimer = null;
                             }
-                            // keep bubble visible with empty line and blinking cursor
                         }
                     }, deleteSpeed);
                 }, hold);

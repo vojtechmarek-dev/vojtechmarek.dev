@@ -17,11 +17,15 @@
             </span>
         </p>
         <div class="hero-buttons">
-            <Button style="primary" href="/resume">View Resume <ArrowIcon direction="right" slot="icon-after" /></Button>
-            <Button style="understated" href="/goodies">
-                <WrenchIcon slot="icon" />
-                Goodies
-            </Button>
+            <div class="hero-button hero-button--primary">
+                <Button style="primary" href="/resume">View Resume <ArrowIcon direction="right" slot="icon-after" /></Button>
+            </div>
+            <div class="hero-button hero-button--understated">
+                <Button style="understated" href="/goodies">
+                    <WrenchIcon slot="icon" />
+                    Goodies
+                </Button>
+            </div>
             <!-- 			<Button style="understated" href="/resume">
 				<SuitcaseIcon slot="icon" />
 				Experience
@@ -88,6 +92,97 @@
 
                 @include breakpoints.for-phone-only {
                     justify-content: center;
+                }
+
+                .hero-button {
+                    :global(.button) {
+                        position: relative;
+                        overflow: hidden;
+                        transition:
+                            transform 0.2s ease-out,
+                            box-shadow 0.2s ease-out,
+                            background-color 0.2s ease-out,
+                            border-color 0.2s ease-out,
+                            color 0.2s ease-out;
+                    }
+
+                    :global(.button::before) {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -120%;
+                        width: 60%;
+                        height: 100%;
+                        background: linear-gradient(
+                            120deg,
+                            transparent 0%,
+                            rgba(255, 255, 255, 0.18) 50%,
+                            transparent 100%
+                        );
+                        transform: skewX(-20deg);
+                        pointer-events: none;
+                    }
+
+                    &:hover :global(.button) {
+                        transform: translateY(-2px);
+                    }
+
+                    &:hover :global(.button::before) {
+                        animation: hero-button-shine 0.7s ease-out;
+                    }
+
+                    &:active :global(.button) {
+                        transform: translateY(0);
+                        transition-duration: 0.05s;
+                    }
+
+                    &--primary:hover :global(.icon) {
+                        transform: translateX(4px);
+                    }
+
+                    &--primary :global(.icon) {
+                        transition: transform 0.2s ease-out;
+                    }
+
+                    &--understated:hover :global(.button) {
+                        border-color: var(--color--primary);
+                        color: var(--color--primary);
+                    }
+
+                    &--understated :global(.icon) {
+                        transition: transform 0.4s ease-out;
+                    }
+
+                    &--understated:hover :global(.icon) {
+                        transform: rotate(-20deg);
+                    }
+                }
+            }
+
+
+            @keyframes hero-button-shine {
+                from {
+                    left: -120%;
+                }
+                to {
+                    left: 160%;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .hero-buttons .hero-button {
+                    animation: none;
+                    opacity: 1;
+                    transform: none;
+
+                    &:hover :global(.button),
+                    &:hover :global(.icon) {
+                        transform: none;
+                    }
+
+                    &:hover :global(.button::before) {
+                        animation: none;
+                    }
                 }
             }
         }

@@ -4,6 +4,7 @@
     import DecorativeHeader from '../atoms/DecorativeHeader.svelte';
     import DiscordBotGoodie from '../molecules/DiscordBotGoodie.svelte';
     import ReactionTimeGameGoodie from '../molecules/ReactionTimeGameGoodie.svelte';
+    import RootineGoodie from '../molecules/RootineGoodie.svelte';
 </script>
 
 <div class="goodies inside">
@@ -28,11 +29,12 @@
                 <h2>For fun</h2>
                 <span class="path">~/goodies/fun</span>
             </div>
-            <span class="count">2 items</span>
+            <span class="count">3 items</span>
         </header>
         <div class="goodie-block">
             <ReactionTimeGameGoodie />
             <DiscordBotGoodie />
+            <RootineGoodie />
         </div>
     </section>
 </div>
@@ -92,13 +94,12 @@
     }
 
     .goodie-block {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 equal columns */
         gap: 20px;
-        align-items: stretch;
 
         @include breakpoints.for-phone-only {
-            flex-direction: column;
+            grid-template-columns: 1fr; /* Drops down to a single column on mobile */
         }
     }
 </style>
